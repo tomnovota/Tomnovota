@@ -1,0 +1,13 @@
+<map id="CParser::ShuntingYard" name="CParser::ShuntingYard">
+<area shape="rect" id="node1" title="Algorithm processing given text source of expression and creating expression tree belonging to partic..." alt="" coords="5,51,168,78"/>
+<area shape="rect" id="node2" href="$classCParser.html#a680004373215e85524cf7c2e43568c10" title="Assigns operands to operator on top of stack and saves result to operand container." alt="" coords="453,26,627,52"/>
+<area shape="rect" id="node3" href="$classCParser.html#ab6356a73ce59e7a80c57f134dafd1ed3" title="ShuntingYard algorithm part proccessing common operator token." alt="" coords="216,76,403,103"/>
+<area shape="rect" id="node5" href="$classCParser.html#a3c03bfbb3300c202a97b9ee9bc8384e7" title="Methods called after finding right parenthesis and proccessing nested expression." alt="" coords="235,26,384,52"/>
+<area shape="rect" id="node6" href="$classCParser.html#a86c82366461140f1e0e7141363c0296d" title="Tries to read operand from source and saves it into operand container and records cell dependancies." alt="" coords="226,152,393,179"/>
+<area shape="rect" id="node4" href="$classCParser.html#a66574087ea6ace35f2b79bf603e35fe9" title="Recognises token and creates appropriate operator node." alt="" coords="451,76,629,103"/>
+<area shape="rect" id="node7" href="$classCParser.html#a37e0e50169a0607036464e362301a1f4" title="Returns if given char is letter." alt="" coords="907,178,1035,204"/>
+<area shape="rect" id="node8" href="$classCParser.html#a952671a4d1f54b720bcc2ff1748f33dc" title="Returns if given char is number." alt="" coords="469,178,611,204"/>
+<area shape="rect" id="node9" href="$classCParser.html#a4f9c77769688ef0b795237ea2ab5635e" title="Returns position of given cell name." alt="" coords="451,228,629,255"/>
+<area shape="rect" id="node10" href="$classCParser.html#ab241cf9f78b45009749f74bab33d57a2" title="Parsing col name from given string." alt="" coords="681,228,855,255"/>
+<area shape="rect" id="node11" href="$classCParser.html#a78d6d5a3c94fdb8577a4573eb90cb7da" title="Parsing row name from given string." alt="" coords="677,279,859,306"/>
+</map>

@@ -1,0 +1,19 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classCExpression.html" title="Abstract class representing node in a tree representing expression in a cell." alt="" coords="5,132,108,159"/>
+<area shape="rect" id="node2" href="$classCOperand.html" title="Abstract class representing operand in expression." alt="" coords="157,107,243,133"/>
+<area shape="rect" id="node5" href="$classCOperator.html" title="Abstract class representing operator in expression tree." alt="" coords="156,157,244,184"/>
+<area shape="rect" id="node3" href="$classCOperandCell.html" title="Class representing cell reference in expression." alt="" coords="302,56,413,83"/>
+<area shape="rect" id="node4" href="$classCOperandValue.html" title="Class representing constant value in Expression." alt="" coords="296,107,419,133"/>
+<area shape="rect" id="node6" href="$classCBinaryOperator.html" title="Abstract class representing special type of operator with 2 operand." alt="" coords="292,157,423,184"/>
+<area shape="rect" id="node13" href="$classCUnaryOperator.html" title="Abstract class representing type of operator with 1 operand." alt="" coords="294,360,421,387"/>
+<area shape="rect" id="node7" href="$classCOperatorConcat.html" title="Class representing text concatenation in expression." alt="" coords="471,5,605,32"/>
+<area shape="rect" id="node8" href="$classCOperatorDiv.html" title="Class division multiplication in expression." alt="" coords="483,56,593,83"/>
+<area shape="rect" id="node9" href="$classCOperatorMinus.html" title="Class representing subtraction in expression." alt="" coords="475,107,601,133"/>
+<area shape="rect" id="node10" href="$classCOperatorMulti.html" title="Class representing multiplication in expression." alt="" coords="477,157,599,184"/>
+<area shape="rect" id="node11" href="$classCOperatorPlus.html" title="Class representing addition in expression." alt="" coords="481,208,595,235"/>
+<area shape="rect" id="node12" href="$classCOperatorRepeat.html" title="Class representing text repetition in expression." alt="" coords="471,259,605,285"/>
+<area shape="rect" id="node14" href="$classCFunctionAbs.html" title="Class representing absolute value function in expression." alt="" coords="483,309,593,336"/>
+<area shape="rect" id="node15" href="$classCFunctionLower.html" title="Class representing lowercase function in expression." alt="" coords="475,360,601,387"/>
+<area shape="rect" id="node16" href="$classCFunctionUpper.html" title="Class representing uppercase function in expression." alt="" coords="475,411,601,437"/>
+<area shape="rect" id="node17" href="$classCPar.html" title="Class representing left parenthesis in expression." alt="" coords="513,461,563,488"/>
+</map>

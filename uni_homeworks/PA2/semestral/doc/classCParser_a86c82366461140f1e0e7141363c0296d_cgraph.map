@@ -1,0 +1,8 @@
+<map id="CParser::ReadOperand" name="CParser::ReadOperand">
+<area shape="rect" id="node1" title="Tries to read operand from source and saves it into operand container and records cell dependancies." alt="" coords="5,23,172,50"/>
+<area shape="rect" id="node2" href="$classCParser.html#a37e0e50169a0607036464e362301a1f4" title="Returns if given char is letter." alt="" coords="676,23,804,50"/>
+<area shape="rect" id="node3" href="$classCParser.html#a952671a4d1f54b720bcc2ff1748f33dc" title="Returns if given char is number." alt="" coords="238,23,381,50"/>
+<area shape="rect" id="node4" href="$classCParser.html#a4f9c77769688ef0b795237ea2ab5635e" title="Returns position of given cell name." alt="" coords="220,74,399,101"/>
+<area shape="rect" id="node5" href="$classCParser.html#ab241cf9f78b45009749f74bab33d57a2" title="Parsing col name from given string." alt="" coords="450,74,625,101"/>
+<area shape="rect" id="node6" href="$classCParser.html#a78d6d5a3c94fdb8577a4573eb90cb7da" title="Parsing row name from given string." alt="" coords="447,125,628,151"/>
+</map>

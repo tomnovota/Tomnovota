@@ -1,0 +1,131 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Apr  4 20:58:07 2022
+# Process ID: 1324
+# Current directory: X:/SAP/final
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8544 X:\SAP\final\final.xpr
+# Log file: X:/SAP/final/vivado.log
+# Journal file: X:/SAP/final\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project X:/SAP/final/final.xpr
+update_compile_order -fileset sources_1
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/code_lock/code_lock.bd}
+connect_bd_net [get_bd_ports clk] [get_bd_pins tlacitko_vhdl_2/clk]
+connect_bd_net [get_bd_ports a] [get_bd_pins dekoder_0/a]
+connect_bd_net [get_bd_ports b] [get_bd_pins dekoder_0/b]
+connect_bd_net [get_bd_ports c] [get_bd_pins dekoder_0/c]
+undo
+undo
+undo
+connect_bd_net [get_bd_ports a] [get_bd_pins tlacitko_vhdl_2/a]
+connect_bd_net [get_bd_pins tlacitko_vhdl_2/b] [get_bd_pins dekoder_0/a]
+connect_bd_net [get_bd_ports b] [get_bd_pins tlacitko_vhdl_1/a]
+connect_bd_net [get_bd_pins tlacitko_vhdl_1/b] [get_bd_pins dekoder_0/b]
+connect_bd_net [get_bd_ports c] [get_bd_pins tlacitko_vhdl_0/a]
+connect_bd_net [get_bd_pins tlacitko_vhdl_0/b] [get_bd_pins dekoder_0/c]
+save_bd_design
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/button/button.bd}
+export_ip_user_files -of_objects  [get_files X:/SAP/final/final.srcs/sources_1/imports/tmp/tlacitko.vhd] -no_script -reset -force -quiet
+remove_files  X:/SAP/final/final.srcs/sources_1/imports/tmp/tlacitko.vhd
+file delete -force X:/SAP/final/final.srcs/sources_1/imports/tmp/tlacitko.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+source X:/SAP/lib_SAP_2022_02_02/gen_bd_vhdl.tcl
+current_bd_design [get_bd_designs code_lock]
+current_bd_design [get_bd_designs button]
+close_bd_design [get_bd_designs button]
+delete_bd_objs [get_bd_nets c_1] [get_bd_nets tlacitko_vhdl_0_b] [get_bd_cells tlacitko_vhdl_0]
+delete_bd_objs [get_bd_nets b_1] [get_bd_nets clk_1] [get_bd_nets tlacitko_vhdl_1_b] [get_bd_nets a_1] [get_bd_nets tlacitko_vhdl_2_b] [get_bd_cells tlacitko_vhdl_1] [get_bd_cells tlacitko_vhdl_2]
+connect_bd_net [get_bd_ports clk] [get_bd_pins dff_0/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins dff_1/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins dff_2/clk]
+create_bd_cell -type module -reference button_vhdl button_vhdl_0
+copy_bd_objs /  [get_bd_cells {button_vhdl_0}]
+set_property location {1 -139 -238} [get_bd_cells button_vhdl_1]
+copy_bd_objs /  [get_bd_cells {button_vhdl_0}]
+set_property location {1 -141 -103} [get_bd_cells button_vhdl_2]
+connect_bd_net [get_bd_ports a] [get_bd_pins button_vhdl_2/clk]
+undo
+connect_bd_net [get_bd_ports a] [get_bd_pins button_vhdl_2/tl_in]
+connect_bd_net [get_bd_ports b] [get_bd_pins button_vhdl_1/tl_in]
+connect_bd_net [get_bd_ports c] [get_bd_pins button_vhdl_0/tl_in]
+connect_bd_net [get_bd_ports clk] [get_bd_pins button_vhdl_0/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins button_vhdl_1/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins button_vhdl_2/clk]
+connect_bd_net [get_bd_pins button_vhdl_0/tl_out] [get_bd_pins dekoder_0/c]
+connect_bd_net [get_bd_pins button_vhdl_1/tl_out] [get_bd_pins dekoder_0/b]
+connect_bd_net [get_bd_pins button_vhdl_2/tl_out] [get_bd_pins dekoder_0/a]
+save_bd_design
+update_module_reference code_lock_dekoder_0_0
+update_module_reference code_lock_button_vhdl_0_0
+startgroup
+create_bd_cell -type ip -vlnv FIT:user:gnd:1.0 gnd_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv FIT:user:vcc:1.0 vcc_1
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv FIT:user:vcc:1.0 vcc_2
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv FIT:user:vcc:1.0 vcc_3
+endgroup
+set_property location {3 298 -609} [get_bd_cells vcc_1]
+set_property location {3 321 -516} [get_bd_cells vcc_2]
+set_property location {3.5 601 -436} [get_bd_cells gnd_0]
+set_property location {4 595 -421} [get_bd_cells gnd_0]
+set_property location {4 625 -419} [get_bd_cells gnd_0]
+startgroup
+make_bd_pins_external  [get_bd_cells vcc_1] [get_bd_cells vcc_2] [get_bd_cells vcc_3] [get_bd_cells gnd_0]
+make_bd_intf_pins_external  [get_bd_cells vcc_1] [get_bd_cells vcc_2] [get_bd_cells vcc_3] [get_bd_cells gnd_0]
+endgroup
+set_property name AN0 [get_bd_ports O_3]
+set_property location {1288 -456} [get_bd_ports O_2]
+set_property name AN1 [get_bd_ports O_2]
+set_property name AN2 [get_bd_ports O_1]
+set_property name AN3 [get_bd_ports O_0]
+save_bd_design
+source X:/SAP/lib_SAP_2022_02_02/gen_bd_vhdl.tcl
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_module_reference code_lock_decoder_7seg_0_0
+source X:/SAP/lib_SAP_2022_02_02/gen_bd_vhdl.tcl
+save_bd_design
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+set_property iostandard LVCMOS33 [get_ports [list a AN0 AN1 AN2 AN3 b c clk f_a f_b f_c f_d f_e f_f f_g reset y]]
+set_property drive 12 [get_ports [list AN0 AN1 AN2 AN3 f_a f_b f_c f_d f_e f_f f_g y]]
+set_property slew SLOW [get_ports [list AN0 AN1 AN2 AN3 f_a f_b f_c f_d f_e f_f f_g y]]
+place_ports a W19
+place_ports b U18
+place_ports c T17
+place_ports clk T18
+place_ports reset U17
+place_ports AN1 U4
+place_ports AN2 V4
+place_ports AN3 W4
+place_ports AN0 U2
+place_ports f_a W7
+place_ports f_b W6
+place_ports f_a W17
+place_ports f_b W16
+place_ports f_a W7
+place_ports f_b W6
+place_ports f_c U8
+place_ports f_d V8
+place_ports f_e U5
+place_ports f_f V5
+place_ports f_g U7
+place_ports y V17
+file mkdir X:/SAP/final/final.srcs/constrs_1/new
+close [ open X:/SAP/final/final.srcs/constrs_1/new/code_lock.xdc w ]
+add_files -fileset constrs_1 X:/SAP/final/final.srcs/constrs_1/new/code_lock.xdc
+set_property target_constrs_file X:/SAP/final/final.srcs/constrs_1/new/code_lock.xdc [current_fileset -constrset]
+save_constraints -force
+reset_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1

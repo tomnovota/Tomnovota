@@ -1,0 +1,65 @@
+= 6. cvičení
+
+== Zadání
+
+Stiahnite si zložku link:cv06/assignment[assignment/] (tlačidlo ⇩ vpravo hore -> Download this directory) a vypracujte všetky úlohy (komentáre `TODO`)
+
+Kompilácia:: `make`
+Kompilácia + spustenie:: `make run`
+
+== Zadání extra: Eratosthenovo síto s std::list
+Implementujte algoritmus Eratosthenova síta.
+Prvky reprezentujte v kontejneru `std::list`.
+Dejte pozor na správnou práci s iterátory a věnujte zvýšenou pozornost složitosti operací nad nimi.
+
+* Úloha je na práci s `std::list` a iterátory. *Efektivní implementace Eratosthenova síta by používala jiné struktury.* Jaké a proč?
+* Dobrá implementace s `std::list` by měla pro síto 100 000 prvků doběhnout do cca půl sekundy, pro 500 000 prvků do cca 45 s (měřeno na 3GHz procesoru).
+
+
+== Než začnete řešit úlohy
+Na každou operaci se může hodit jiný kontejner.
+Uvědomte si, jaké složitosti jsou jednotlivé operace (cppreference). Podle toho volte kontejner(y).
+
+* `std::vector`, natahovací pole, se opravdu nehodí na vše
+** není seřazený, čili má pomalé vyhledávání (lineárně s početem prvků), vkládání a odebírání z konce je konstantní, ale vkládání a mazání na/z libovolnou pozici je lineární (vše se musí posunout)
+** vkládáme-li do něj tak, aby se udržoval seřazený, máme sice logaritmické vyhledávání, ale vkládání a mazání je stále lineární (viz druhý Progtest úkol)
+
+* `std::set` je seřazená množina, prvky se řadí podle podle `std::less<T>` (funktor implementující porovnání přes `operator<` pro typ `T`), nebo podle vlastního komparátoru (funktor)
+** má logaritmické vkládání, mazání i hledání
+** nemá random access
+** průchod je v pořadí podle seřazení
+** kvůli seřazení není možné modifikovat elementy, musíte je smazat a přidat znovu (dvakrát logaritmus počtu prvků).
+** v `libstdc++` (implementace standardní knihovny používaná u `gcc`) interně implementovaná pomocí červenočerného stromu
+
+* `std::map` je asociativní pole (slovník)
+** je to vlastně množina dvojic (key, val), řazeno podle klíčů
+** platí pro něj tedy to co pro `set`, hodnoty ale modifikovat můžete (klíče ne)
+
+* `std::list` je seznam implementovaný jako obousměrný spojový seznam
+** má pomalé hledání (je to spojový seznam),
+** ale umí konstantně rychle vkládat/mazat, pokud máte iterátor na pozici, kterou chcete modifikovat
+** získání iterátoru na pozici je ale lineární s počtem prvků, `list` nemá random access.
+
+* `std::deque` je oboustranná fronta
+** má rychlé vkládání a mazání ze začátku i z konce
+** interně implementovaná jako obousměrný spojový seznam polí velikosti 8
+
+* `std::queue`
+* `std::priority_queue`
+** Implementace fronty a prioritní fronty
+** Konstantní složitost přidání prvku a odebrání prvního prvku u standardní fronty, logaritmické u prioritní fronty
+** Prioritní fronta řadí podle `std::greater<T>`, případně podle vlastního předaného funktoru
+** Standardní fronta implementována jako wrapper nad `std::deque` (nezvolíte-li si jinak), prioritní pak jako wrapper nad `std::vector` (viz BI-AG1, haldy)
+
+* `std::stack`
+** Stack
+** Konstantní složitost přidání a odebrání z konce
+** Implementována jako wrapper nad `std::vector` (nezvolíte-li si jinak)
+
+* `std::unordered_map`, `std::unordered_set`
+** Implementace `map` a `set` pomocí hashování prvků
+** *Ale* je potřeba vymyslet *dobře* hashovací funkci aby měla co nejméně kolizí a byla rychlá (viz BI-AG1)
+
+== Řešení
+
+* V priečinku link:cv06/solution[solution/].

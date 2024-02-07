@@ -1,0 +1,7 @@
+<map id="CParser::ApplyOperator" name="CParser::ApplyOperator">
+<area shape="rect" id="node1" title="Assigns operands to operator on top of stack and saves result to operand container." alt="" coords="684,56,857,83"/>
+<area shape="rect" id="node2" href="$classCParser.html#ab6356a73ce59e7a80c57f134dafd1ed3" title="ShuntingYard algorithm part proccessing common operator token." alt="" coords="449,5,636,32"/>
+<area shape="rect" id="node3" href="$classCParser.html#ab6f76f772288e0b457ca04a86710ca95" title="Algorithm processing given text source of expression and creating expression tree belonging to partic..." alt="" coords="239,56,401,83"/>
+<area shape="rect" id="node5" href="$classCParser.html#a3c03bfbb3300c202a97b9ee9bc8384e7" title="Methods called after finding right parenthesis and proccessing nested expression." alt="" coords="468,107,617,133"/>
+<area shape="rect" id="node4" href="$classCParser.html#aac2c5bc5bf9b7b30ffe608f264c9c897" title="Returns cell properties contained in text expression in given stream." alt="" coords="5,56,191,83"/>
+</map>

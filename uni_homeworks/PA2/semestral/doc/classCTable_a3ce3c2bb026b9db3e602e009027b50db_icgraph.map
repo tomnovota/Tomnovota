@@ -1,0 +1,10 @@
+<map id="CTable::Size" name="CTable::Size">
+<area shape="rect" id="node1" title="Getter of size of table." alt="" coords="740,85,840,112"/>
+<area shape="rect" id="node2" href="$classCTable.html#a1c89a127b84fcb5c54214fa3348a12ae" title="Gets cell on given position." alt="" coords="591,85,677,112"/>
+<area shape="rect" id="node5" href="$classCTable.html#a2b489a4b372d4e69a4fb5e84d48da57d" title="Edit cell on given position and insert given properties and checks cycle references." alt="" coords="5,136,104,163"/>
+<area shape="rect" id="node6" href="$classCTable.html#abfa079c5021e3271beb88ba3b47b0b78" title="Obtain order in which cells should be evaluated through TopSort algorithm and evaluates them." alt="" coords="163,85,293,112"/>
+<area shape="rect" id="node7" href="$classCTable.html#aea8422d94909f81d3725f8cc559b28dc" title="Helper method constructing temporary nodes for DFS algorithm." alt="" coords="352,136,528,163"/>
+<area shape="rect" id="node8" href="$classCTable.html#ad845b5920ef78932712ce6b5341a9970" title="Deletes content of cells in given range." alt="" coords="576,187,692,213"/>
+<area shape="rect" id="node3" href="$classCTable.html#aa45c7ebbdcf42b5fe41cf658dd23a66d" title="DFS algorithm implemented on 2D array of nodes representing cells and their dependencies." alt="" coords="373,85,507,112"/>
+<area shape="rect" id="node4" href="$classCTable.html#aa19ebe0058d4c1007bd24e81a6b24486" title="Detect cycle reference." alt="" coords="152,136,304,163"/>
+</map>

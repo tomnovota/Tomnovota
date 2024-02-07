@@ -1,0 +1,38 @@
+=========================================================================
+BI-ZNS: Template for homework #1 - Inference system with forward-chaining
+=========================================================================
+
+
+AUTHOR
+======
+
+Ladislava Smítková Janků
+e-mail: ladislava.smitkova@fit.cvut.cz
+
+Czech Technical University in Prague
+Faculty of Information Technology
+
+February 2021
+
+
+LICENSE
+=======
+
+This code is a free and open-source software for education purposes.
+For commercial use you need a commercial license.
+
+
+BUILD
+=====
+
+make clean
+make
+
+
+RUN
+===
+
+./Predikaty rules.txt
+
+Documentation and information about this homework are available here:
+https://courses.fit.cvut.cz/BI-ZNS/tutorials/uloha1.html

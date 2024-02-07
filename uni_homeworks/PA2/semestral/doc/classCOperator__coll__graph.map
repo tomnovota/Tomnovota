@@ -1,0 +1,4 @@
+<map id="COperator" name="COperator">
+<area shape="rect" id="node1" title="Abstract class representing operator in expression tree." alt="" coords="5,160,145,296"/>
+<area shape="rect" id="node2" href="$classCExpression.html" title="Abstract class representing node in a tree representing expression in a cell." alt="" coords="6,5,145,112"/>
+</map>

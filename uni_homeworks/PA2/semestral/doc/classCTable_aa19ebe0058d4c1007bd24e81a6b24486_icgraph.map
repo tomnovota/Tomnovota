@@ -1,0 +1,4 @@
+<map id="CTable::DetectCycle" name="CTable::DetectCycle">
+<area shape="rect" id="node1" title="Detect cycle reference." alt="" coords="152,5,304,32"/>
+<area shape="rect" id="node2" href="$classCTable.html#a2b489a4b372d4e69a4fb5e84d48da57d" title="Edit cell on given position and insert given properties and checks cycle references." alt="" coords="5,5,104,32"/>
+</map>

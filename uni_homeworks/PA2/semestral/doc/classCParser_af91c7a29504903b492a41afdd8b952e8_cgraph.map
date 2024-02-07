@@ -1,0 +1,7 @@
+<map id="CParser::ParseRange" name="CParser::ParseRange">
+<area shape="rect" id="node1" title="Proccess range contained in given source and creates appropriate representation of table range." alt="" coords="5,31,160,57"/>
+<area shape="rect" id="node2" href="$classCParser.html#a4f9c77769688ef0b795237ea2ab5635e" title="Returns position of given cell name." alt="" coords="208,31,387,57"/>
+<area shape="rect" id="node3" href="$classCParser.html#a37e0e50169a0607036464e362301a1f4" title="Returns if given char is letter." alt="" coords="664,5,792,32"/>
+<area shape="rect" id="node4" href="$classCParser.html#ab241cf9f78b45009749f74bab33d57a2" title="Parsing col name from given string." alt="" coords="438,31,613,57"/>
+<area shape="rect" id="node5" href="$classCParser.html#a78d6d5a3c94fdb8577a4573eb90cb7da" title="Parsing row name from given string." alt="" coords="435,81,616,108"/>
+</map>

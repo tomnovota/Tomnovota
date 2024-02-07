@@ -1,0 +1,13 @@
+= 10. cvičení
+
+== Zadání
+
+Stiahnite si zložku link:cv10/assignment[assignment/] (tlačidlo ⇩ vpravo hore -> Download this directory) a vypracujte všetky úlohy (komentáre `TODO`)
+
+Kompilácia:: `make`
+Kompilácia + spustenie:: `make run`
+
+== Řešení
+
+* Ve složce link:cv10/solution[solution/].
+* RAII ukázka v téže složce, soubor link:cv10/solution/raii_example.cpp[solution/raii_example.cpp]

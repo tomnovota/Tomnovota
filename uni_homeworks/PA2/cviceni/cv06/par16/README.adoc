@@ -1,0 +1,56 @@
+= 6. cvičení
+
+== Zadání
+
+Stiahnite si zložku link:cv06/assignment[assignment/] (tlačidlo ⇩ vpravo hore -> Download this directory) a vypracujte úlohy (komentáre `TODO`) 1, 2 a 3. Zvyšné úlohy môžete vypracovať za bonusový bod do 30.3. 23:59.
+
+Kompilácia:: `make`
+Kompilácia + spustenie:: `make run`
+
+== Než začnete řešit úlohy
+Na každou operaci se může hodit jiný kontejner.
+Uvědomte si, jaké složitosti jsou jednotlivé operace (cppreference). Podle toho volte kontejner(y).
+
+* `std::vector`, natahovací pole, se opravdu nehodí na vše
+** není seřazený, čili má pomalé vyhledávání (lineárně s početem prvků), vkládání a odebírání z konce je konstantní, ale vkládání a mazání na/z libovolnou pozici je lineární (vše se musí posunout)
+** vkládáme-li do něj tak, aby se udržoval seřazený, máme sice logaritmické vyhledávání, ale vkládání a mazání je stále lineární (viz druhý Progtest úkol)
+
+* `std::set` je seřazená množina, prvky se řadí podle podle `std::less<T>` (funktor implementující porovnání přes `operator<` pro typ `T`), nebo podle vlastního komparátoru (funktor)
+** má logaritmické vkládání, mazání i hledání
+** nemá random access
+** průchod je v pořadí podle seřazení
+** kvůli seřazení není možné modifikovat elementy, musíte je smazat a přidat znovu (dvakrát logaritmus počtu prvků).
+** v `libstdc++` (implementace standardní knihovny používaná u `gcc`) interně implementovaná pomocí červenočerného stromu
+
+* `std::map` je asociativní pole (slovník)
+** je to vlastně množina dvojic (key, val), řazeno podle klíčů
+** platí pro něj tedy to co pro `set`, hodnoty ale modifikovat můžete (klíče ne)
+
+* `std::list` je seznam implementovaný jako obousměrný spojový seznam
+** má pomalé hledání (je to spojový seznam),
+** ale umí konstantně rychle vkládat/mazat, pokud máte iterátor na pozici, kterou chcete modifikovat
+** získání iterátoru na pozici je ale lineární s počtem prvků, `list` nemá random access.
+
+* `std::deque` je oboustranná fronta
+** má rychlé vkládání a mazání ze začátku i z konce
+** interně implementovaná jako obousměrný spojový seznam polí velikosti 8
+
+* `std::queue`
+* `std::priority_queue`
+** Implementace fronty a prioritní fronty
+** Konstantní složitost přidání prvku a odebrání prvního prvku u standardní fronty, logaritmické u prioritní fronty
+** Prioritní fronta řadí podle `std::greater<T>`, případně podle vlastního předaného funktoru
+** Standardní fronta implementována jako wrapper nad `std::deque` (nezvolíte-li si jinak), prioritní pak jako wrapper nad `std::vector` (viz BI-AG1, haldy)
+
+* `std::stack`
+** Stack
+** Konstantní složitost přidání a odebrání z konce
+** Implementována jako wrapper nad `std::vector` (nezvolíte-li si jinak)
+
+* `std::unordered_map`, `std::unordered_set`
+** Implementace `map` a `set` pomocí hashování prvků
+** *Ale* je potřeba vymyslet *dobře* hashovací funkci aby měla co nejméně kolizí a byla rychlá (viz BI-AG1)
+
+== Řešení
+
+_Bude k dispozícií po cvičení_

@@ -1,0 +1,4 @@
+<map id="CParser::IsNumber" name="CParser::IsNumber">
+<area shape="rect" id="node1" title="Returns if given string is number." alt="" coords="5,5,148,32"/>
+<area shape="rect" id="node2" href="$classCParser.html#a952671a4d1f54b720bcc2ff1748f33dc" title="Returns if given char is number." alt="" coords="196,5,339,32"/>
+</map>

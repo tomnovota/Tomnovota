@@ -1,0 +1,5 @@
+<map id="CPrint::CountMaxes" name="CPrint::CountMaxes">
+<area shape="rect" id="node1" title="Gets cell and table propositions for current printing." alt="" coords="5,31,155,57"/>
+<area shape="rect" id="node2" href="$classCPrint.html#aeef9629cf19d7205c5105418ee421ff0" title="Abstract method getting content to be printed from cell on given position." alt="" coords="222,5,365,32"/>
+<area shape="rect" id="node3" href="$classCNameCounter.html#a6255196489b05fd8c7bc14dd4c057346" title=" " alt="" coords="203,56,384,83"/>
+</map>

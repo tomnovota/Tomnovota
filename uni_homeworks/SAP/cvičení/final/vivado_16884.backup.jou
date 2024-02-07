@@ -1,0 +1,87 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Apr  4 17:17:18 2022
+# Process ID: 16884
+# Current directory: X:/SAP/final
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15112 X:\SAP\final\final.xpr
+# Log file: X:/SAP/final/vivado.log
+# Journal file: X:/SAP/final\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project X:/SAP/final/final.xpr
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/code_lock/code_lock.bd}
+update_compile_order -fileset sources_1
+set_property location {1 -103 49} [get_bd_cells tlacitko_vhdl_0]
+delete_bd_objs [get_bd_nets clk_1]
+connect_bd_net [get_bd_ports clk] [get_bd_pins tlacitko_vhdl_0/a]
+delete_bd_objs [get_bd_nets clk_1]
+connect_bd_net [get_bd_ports c] [get_bd_pins tlacitko_vhdl_0/clk]
+delete_bd_objs [get_bd_nets c_1]
+delete_bd_objs [get_bd_ports clk]
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/tlacitko/tlacitko.bd}
+create_bd_design "button"
+update_compile_order -fileset sources_1
+startgroup
+create_bd_cell -type ip -vlnv FIT:user:debounce:1.0 debounce_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv FIT:user:dff:1.0 dff_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv FIT:user:gnd:1.0 gnd_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv FIT:user:and:1.0 and_0
+endgroup
+set_property -dict [list CONFIG.I0_Inverted {true}] [get_bd_cells and_0]
+connect_bd_net [get_bd_pins gnd_0/O] [get_bd_pins dff_0/reset]
+create_bd_port -dir I -type ce clk
+connect_bd_net [get_bd_ports clk] [get_bd_pins dff_0/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins debounce_0/clk]
+connect_bd_net [get_bd_pins dff_0/q] [get_bd_pins and_0/I0]
+create_bd_port -dir I tl_in
+connect_bd_net [get_bd_ports tl_in] [get_bd_pins debounce_0/tl_in]
+connect_bd_net [get_bd_pins debounce_0/tl_out] [get_bd_pins dff_0/d]
+connect_bd_net [get_bd_pins debounce_0/tl_out] [get_bd_pins and_0/I1]
+create_bd_port -dir O tl_out
+startgroup
+connect_bd_net [get_bd_ports tl_out] [get_bd_pins and_0/O]
+endgroup
+save_bd_design
+source X:/SAP/lib_SAP_2022_02_02/gen_bd_vhdl.tcl
+update_compile_order -fileset sources_1
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/code_lock/code_lock.bd}
+delete_bd_objs [get_bd_cells tlacitko_vhdl_0]
+create_bd_cell -type module -reference tlacitko_vhdl tlacitko_vhdl_0
+copy_bd_objs /  [get_bd_cells {tlacitko_vhdl_0}]
+set_property location {1 -120 -204} [get_bd_cells tlacitko_vhdl_1]
+copy_bd_objs /  [get_bd_cells {tlacitko_vhdl_0}]
+set_property location {1 -126 -45} [get_bd_cells tlacitko_vhdl_2]
+create_bd_port -dir I -type ce clk
+delete_bd_objs [get_bd_ports clk]
+create_bd_port -dir I clk
+connect_bd_net [get_bd_ports clk] [get_bd_pins tlacitko_vhdl_0/clk]
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/tlacitko/tlacitko.bd}
+delete_bd_objs [get_bd_ports clk]
+create_bd_port -dir I clk
+connect_bd_net [get_bd_ports clk] [get_bd_pins debounce_0/clk]
+save_bd_design
+source X:/SAP/lib_SAP_2022_02_02/gen_bd_vhdl.tcl
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/code_lock/code_lock.bd}
+delete_bd_objs [get_bd_nets clk_1] [get_bd_cells tlacitko_vhdl_0] [get_bd_cells tlacitko_vhdl_1] [get_bd_cells tlacitko_vhdl_2]
+create_bd_cell -type module -reference tlacitko_vhdl tlacitko_vhdl_0
+copy_bd_objs /  [get_bd_cells {tlacitko_vhdl_0}]
+set_property location {1 -152 -240} [get_bd_cells tlacitko_vhdl_1]
+copy_bd_objs /  [get_bd_cells {tlacitko_vhdl_0}]
+set_property location {1 -121 -72} [get_bd_cells tlacitko_vhdl_2]
+connect_bd_net [get_bd_ports clk] [get_bd_pins tlacitko_vhdl_0/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins tlacitko_vhdl_1/clk]
+save_bd_design
+current_bd_design [get_bd_designs tlacitko]
+save_bd_design
+current_bd_design [get_bd_designs code_lock]
+current_bd_design [get_bd_designs button]
+save_bd_design
+current_bd_design [get_bd_designs code_lock]

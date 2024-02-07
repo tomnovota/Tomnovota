@@ -1,0 +1,5 @@
+<map id="CCell::GetValue" name="CCell::GetValue">
+<area shape="rect" id="node1" title="Get string representation of calculated value." alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node2" href="$classCCell.html#ac699e247f78bf2ae2d17e1ee3b4b06a1" title="Indicates wheter cell is empty." alt="" coords="176,5,283,32"/>
+<area shape="rect" id="node3" href="$classCCell.html#a66eea9f9af54d8200ee5cdc2a71565d8" title="Indicates wheter cell contains error value." alt="" coords="182,56,277,83"/>
+</map>

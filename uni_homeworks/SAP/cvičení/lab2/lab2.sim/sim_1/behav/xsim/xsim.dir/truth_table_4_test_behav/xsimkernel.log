@@ -1,0 +1,4 @@
+Running: xsim.dir/truth_table_4_test_behav/xsimk.exe -simmode gui -wdb truth_table_4_test_behav.wdb -simrunnum 0 -socket 58811
+Design successfully loaded
+Design Loading Memory Usage: 6700 KB (Peak: 6700 KB)
+Design Loading CPU Usage: 62 ms

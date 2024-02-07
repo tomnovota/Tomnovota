@@ -1,0 +1,8 @@
+<map id="CControl::Start" name="CControl::Start">
+<area shape="rect" id="node1" title="Begin table processing." alt="" coords="5,56,123,83"/>
+<area shape="rect" id="node2" href="$classCControl.html#a4e76a20dfaa19227644808c5a1e371e3" title="Dialog about table initialization." alt="" coords="171,5,333,32"/>
+<area shape="rect" id="node4" href="$classCControl.html#acda174f0d47a9a4dfb3d283454e37720" title="Dialog about table saving." alt="" coords="175,56,329,83"/>
+<area shape="rect" id="node5" href="$classCControl.html#a23c085816866b92a8fa2b42b60eb73c9" title="Processing forming table user commands from terminal." alt="" coords="175,107,329,133"/>
+<area shape="rect" id="node3" href="$classCControl.html#a28a1860be9f1854f3981e0f356331201" title="Dialog about file name." alt="" coords="381,31,509,57"/>
+<area shape="rect" id="node6" href="$CControl_8cpp.html#aef7b96438cbad0b551d76e1b5fb6b781" title=" " alt="" coords="393,107,498,133"/>
+</map>

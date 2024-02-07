@@ -1,0 +1,376 @@
+/* Header course selector */
+ul.course-dropdown.dropdown-menu {
+    width: 230px;
+    border-radius: 0px;
+    margin: 50px 0px 0px 0px;
+    z-index: 1001;
+}
+
+@media (max-width: 767px) {
+    ul.course-dropdown.dropdown-menu {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+        left: 0;
+        right: 0;
+    }
+
+    .header-auto-hide {
+        top: -50px !important;
+    }
+}
+
+header {
+    transition: 0.3s;
+}
+
+body {
+    text-decoration-skip-ink: none;
+    text-decoration-skip: none;
+}
+
+/* Layout with hidden sidebar*/
+body.without-sidebar .wrapper .main-sidebar {
+    display: none;
+}
+
+body.without-sidebar .wrapper .content-wrapper {
+    margin-left: 0px;
+}
+
+body.without-sidebar .wrapper .main-footer {
+    margin-left: 0px;
+}
+
+.main-footer .pull-right {
+    position: relative;
+    top: -11px;
+}
+
+@media (min-width: 991px) {
+    .footerFeedback {
+        display: block;
+        width: 150px;
+        margin: auto;
+        height: 0px;
+        position: relative;
+        top: -37px;
+    }
+}
+
+@media (max-width: 991px) {
+    .footerFeedback {
+        display: block;
+        width: 150px;
+        margin: auto;
+    }
+}
+
+.footerFeedback a {
+    width: 150px;
+}
+
+body.without-sidebar .wrapper a.sidebar-toggle {
+    display: none;
+}
+
+.lockscreen-wrapper {
+    margin-top: 0;
+    padding-top: 10%;
+}
+
+.main-header .logo {
+    /* I am not sure :( */
+    /* margin-right: 10px; */
+}
+
+.box-header>.box-tools .dropdown-menu>li>a {
+    color: #444!important;
+}
+
+/* fix https://gitlab.fit.cvut.cz/dbs/newDBS-bug/issues/444 */
+.panel-warning > .panel-heading {
+    word-wrap: break-word;
+}
+
+#tracy-debug {
+    z-index: 9999999;
+}
+
+.content-header h1 {
+    line-height: 1.1;
+    min-height: 1.1em;
+}
+
+.WarningWindow .ui-dialog {
+    z-index: 99999 !important;
+}
+
+.WarningWindow .ui-dialog-titlebar {
+    background: yellow;
+}
+
+.WarningWindow .ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
+.ui-widget-overlay {
+    z-index: 99998;
+}
+
+div.modal {
+    overflow: auto;
+}
+
+.rat-button {
+    position: relative;
+    float: left;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-left: 0;
+    border-radius: 0px;
+    margin-bottom: 3px;
+}
+
+.rat-button.first-in-category {
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+}
+
+.rat-button.last-in-category {
+    margin-right: 5px !important;
+    border-top-right-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
+}
+
+.requirement-box {
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Queries navigation */
+#queriesNavigation #queriesNavigation-label {
+    color: green;
+}
+
+#queriesNavigation ul li h4 {
+    color: #b8c7ce;
+    padding: 12px 5px 12px 15px;
+    display: block;
+}
+
+#queriesNavigation ul ul {
+    text-overflow: ellipsis;
+    width: 90%;
+    overflow: hidden;
+    list-style: none;
+    padding-left: 20px;
+}
+
+#queriesNavigation ul ul li {
+    padding-bottom: 6px;
+}
+
+#queriesNavigation ul ul span {
+    padding-left: 5px;
+}
+
+.table-overflow {
+    overflow-x: auto;
+}
+
+.sidebar-hide, .sidebar-show {
+    font-family: inherit !important;
+}
+
+.sidebar-hide:before, .sidebar-show:before {
+    content: none !important;
+}
+
+.skin-blue .sidebar-menu > li[data-toggle="offcanvas"]:hover, .skin-blue .sidebar-menu > li[data-toggle="offcanvas"].active {
+    color: #ffffff;
+    background: #1e282c;
+    border-left-color: #3c8dbc;
+}
+
+@media (min-width: 768px) {
+    .main-header > nav {
+        max-height: 50px;
+    }
+
+    .navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
+        right: 0;
+    }
+
+    #navbar-top-main {
+        display: none !important;
+    }
+
+    #navbar-top-main.navbar-top-main-visible {
+        display: block !important;
+    }
+
+    .navbar-static-top > [data-toggle="offcanvas"] {
+        display: none;
+    }
+
+    .sidebar-show {
+        display: none !important;
+    }
+
+    .sidebar-collapse .sidebar-show {
+        display: inline-block !important;
+    }
+
+    .sidebar-collapse .sidebar-hide {
+        display: none !important;
+    }
+
+    .sidebar-collapse #queriesNavigation {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    #navbar-top-main {
+        clear: both;
+    }
+
+    .sidebar-hide {
+        display: none !important;
+    }
+
+    .sidebar-open .sidebar-hide {
+        display: inline-block !important;
+    }
+
+    .sidebar-open .sidebar-show {
+        display: none !important;
+    }
+
+    .skin-blue .main-header .navbar .dropdown-menu li a {
+        color: #777;
+    }
+
+    .skin-blue .main-header .navbar .dropdown-menu li a:hover {
+        color: #333;
+        background: #e1e3e9;
+    }
+
+    .sidebar-menu [data-toggle="offcanvas"] {
+        display: none !important;
+    }
+}
+
+/* Style CodeMirror editor like AdminLTE textarea */
+.CodeMirror, .CodeMirror-scroll {
+    color: #555;
+    min-height: 56px;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.CodeMirror-lines, .CodeMirror pre {
+    padding: 0;
+}
+.CodeMirror {
+    padding: 6px 12px;
+    border-radius: 0;
+}
+.CodeMirror-focused {
+    border-color: #3c8dbc;
+}
+
+/* Sticky flash messages */
+.header-alert-container {
+    margin: 15px;
+}
+.header-alert-container > .alert {
+    position: relative;
+    box-shadow: 0 1px 5px #0006;
+    margin-bottom: 15px;
+    width: 700px;
+    float: right;
+    clear: right;
+    text-align: left;
+}
+.alert.slide-in {
+    animation: alert-show 300ms linear forwards;
+}
+.alert.disappear {
+    animation: alert-fade 1500ms linear forwards;
+}
+@keyframes alert-fade {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+@keyframes alert-show {
+    from {
+        transform: translate(40px, 0);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+.ace_editor {
+    font-size: 14px !important;
+}
+
+.ace_editor .ace_marker-layer .ace_bracket {
+    background: yellow;
+    border: none;
+}
+
+/* On a small screen, let the flash message be full-width (with a slight margin) */
+@media (max-width: 991px) {
+    .header-alert-container > .alert {
+        float: none;
+        clear: none;
+        width: auto;
+    }
+    /* Slide-in from the top instead of the side */
+    @keyframes alert-show {
+        from {
+            transform: translate(0, -15px);
+            opacity: 0;
+        }
+        to {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+}
+
+.help-teacher {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.CodeMirror-scroll {
+    min-height: 35px !important;
+}
+
+.expandable {
+    margin-bottom: 0 !important;
+}
+
+.expand{
+    background-color: rgb(210, 214, 222);
+    width: 100%;
+    height: 20px;
+    cursor: pointer;
+    color: #4d4d4c;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.expand.closed::after {
+    content: "▼";
+}
+.expand.opened::after {
+    content: "▲";
+}

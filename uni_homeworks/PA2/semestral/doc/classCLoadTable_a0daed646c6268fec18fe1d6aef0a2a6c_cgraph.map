@@ -1,0 +1,10 @@
+<map id="CLoadTable::Load" name="CLoadTable::Load">
+<area shape="rect" id="node1" title="Interface method beginning table loading." alt="" coords="5,119,140,145"/>
+<area shape="rect" id="node2" href="$classCLoadTable.html#a757c15ff8310455ff42b5315a54b42b9" title="Checks first read line containing column names and calculates table parameters." alt="" coords="190,43,381,69"/>
+<area shape="rect" id="node5" href="$classCLoadTable.html#ab32a586cec37b522df25d47923849e94" title="Checks line separating rows." alt="" coords="188,93,383,120"/>
+<area shape="rect" id="node6" href="$classCLoadTable.html#a169300aebe10a0bc38981a15b7d9f944" title="Reads line from file and saves it in m_Line." alt="" coords="463,119,627,145"/>
+<area shape="rect" id="node7" href="$classCLoadTable.html#ae0b0fc4366da8582f6ca36261ae5d51d" title="Reads cell content in cycle and saves it to appropriate position in table." alt="" coords="204,195,367,221"/>
+<area shape="rect" id="node3" href="$classCNameCounter.html#a6255196489b05fd8c7bc14dd4c057346" title=" " alt="" coords="454,5,635,32"/>
+<area shape="rect" id="node4" href="$classCLoadTable.html#a26d6fe7000099cc4896535453a67f186" title="Helper function proccessing parameters from header." alt="" coords="431,56,659,83"/>
+<area shape="rect" id="node8" href="$classCLoadTable.html#a1d1850de90f60ba1c92ad3efad7db26e" title="Checks first cell on row containing row number." alt="" coords="433,195,657,221"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="CParser::IsNumber" name="CParser::IsNumber">
+<area shape="rect" id="node1" title="Returns if given char is number." alt="" coords="664,31,807,57"/>
+<area shape="rect" id="node2" href="$classCParser.html#a5a1bf13d7605e8b8bf392f66ef620681" title="Returns if given string is number." alt="" coords="461,5,604,32"/>
+<area shape="rect" id="node3" href="$classCParser.html#a86c82366461140f1e0e7141363c0296d" title="Tries to read operand from source and saves it into operand container and records cell dependancies." alt="" coords="449,56,616,83"/>
+<area shape="rect" id="node4" href="$classCParser.html#ab6f76f772288e0b457ca04a86710ca95" title="Algorithm processing given text source of expression and creating expression tree belonging to partic..." alt="" coords="239,56,401,83"/>
+<area shape="rect" id="node5" href="$classCParser.html#aac2c5bc5bf9b7b30ffe608f264c9c897" title="Returns cell properties contained in text expression in given stream." alt="" coords="5,56,191,83"/>
+</map>

@@ -1,0 +1,190 @@
+fundamental diagrams 6.4
+nagel-s model 7
+car-following 8.4.6, 9.4
+non-ca 9
+floor-field model 11.4
+social-force 11.5.2
+
+PŘEČTENO:
+5.1.1.
+
+space-time-state variables
+
+strategic level: - sociology
+what activities to perform and in which order
+
+tactical level: - sociology
+short-term decisions based on environment etc.
+
+operational level: - phycics
+actual motion of agents
+
+classification of models:
+micro/makro/meso-skopic
+
+model characteristics:
+micro - each agent separately, individual properties (route choice)
+macro - state of the system described by mass density
+discrete - integer variable
+continuous - real number variable
+stochastic - our case, behavior is not determined by state but by propability
+rule-based - agents make decision based on the environment and their goals
+force-based - they feel force from others in system
+fidelity - how much complex agents and intelligent
+
+cellular automata
+- all variables discrete, microscopic, ruled-based, stochastic, 
+- paralel or synchronous update or random-sequential update
+
+multi-agent systems
+- intelligent particles with own configuration
+
+couple-map models
+- time discrete and space and state continuous
+
+microscopic forced-based models
+- all variables continuous
+
+hydrodynamic models
+- all variables continuous, macroscopic
+- state - density
+
+gas-kinetic models
+- mesoscopic, propability distributions
+
+6.2. OBSERVABLES AND DATA ANALYSIS - distributions
+flow J - number of particles crossing site point per unit time
+distance-headway - distance between two particles
+time-headway - time interval between two particles crossing one point
+velocity - speed
+density - flow * velocity
+
+6.3.
+traffic jams
+- bottlenecks - most frequent reason
+- spontaneous - crowded places
+
+DIAGRAMS:
+- flow / jam
+- time / velocity
+
+6.4. FUNDAMENTAL DIAGRAM
+- density / flow - J(ro) v(ro) v(J)
+- zeptat se na třetí graf s více čárami nad sebou
+
+6.5. METASTABILITY / HYSTERESIS
+- at peak there is neighborhood which is vulnerable to jams
+  and flow is not uniquely determined by density
+
+6.6. LOS - classification by density
+- free flow - high speed, flow increased monotonically with density
+- congested
+
+6.9 OPTIMAL VELOCITY FUNCTION
+- microscopic models - dependancy not only on headway but on local density
+
+6.11 PSYCHOLOGICAL EFFECT - neglected
+
+7.1
+cellular automata (CA):
+- time and space discrete, finite number of discrete states
+- computational efficiency
+- interdisciplinary problems
+
+NaSch:
+- parallel updating
+
+- acceleration - v_n = min (v_n + 1, v_max) - tendency to drive as fast as possible
+- deceleration - v_n = min (v_n, d_n) - avoid collision
+- randomization - v_n = min (v_n - 1, 0) - spontaneous randomization of traffic jams
+- vehicle movement - v_n = x_n + v_n
+
+summarization of the rules: x_n(t + 1) = x_n(t) + max[0, min{v_max, v_n(t) + 1, dn(t)} − η_n(t)]
+
+- additional rules needed for complex situations
+
+- configuration depends on both x_t-1 and x_t
+- even changing order of the steps above - changing properties of the model
+- no possibility for incidents
+- maximum shifted to lower densities (more realistic)
+
+- p - deterministic limit - randomization unit
+
+- headway distribution
+- distribution of lifetime of jam properties
+- choice at definition of jam - v < v_max / v = 0 ...
+
+8.4 CAR FOLLOWING - continuous space - problematické a hodně nestabilní accelerace
+
+- characterized by specifying equations of motion
+- force is stimulus (desired velocity / headway..)
+- accidents - needed mechanism to avoid it
+- optimal velocity for current headway
+- ER model with matrix determining new velocity (update of NaSch)
+- problem in paralell updating - orderdered sequential updating introduced
+
+- HS model - new acceleration step
+- problems: nonmonotonic, collisions,..
+
+9.4. NON-CA CAR FOLLOWING
+- each individual vehicle has its own equation of motion
+- response from other particles and from environment by stimulus
+- physical description of motion for each agent
+- environment has big impact
+
+FOLLOW THE LEADER
+- particle choose velocity of the leading car
+- tends to follow one leader
+- bigger speed biger distance
+- problem in multilane
+
+OV
+- tends to optimal velocity
+- fluctuation around optimal velocity
+- depends too on position
+
+Social-force
+- acceleration depends on individual generalized forces
+- velocity-dependant safe distance
+- positive and negative velocity difference
+
+11 PEDESTRIAN DYNAMICS
+- no limit rules
+- interaction with the nearest neighbors mostly (or distant agent moving with collision course)
+- preffered speed but may speed up or slow down
+- accelerate and slow down instantly
+- liesure situations - 1,10m/s
+- in crowd - gaussian distribution (sd = 0,26m/s)
+- unidirectional flows faster, uphill slower,...
+- temperature has effect
+- step length approximately 0,65m and depends on speed
+- densities in one directional flows not larger than 1,8m-2
+- Bidirectional pedestrian flow includes unordered streams, as well as lane-separated and thus quasi-unidirectional streams in opposite directions
+- jamming in big density and limited door
+- pedestrian occupies 40*40cm
+
+
+LANE FORMATION
+- number of lines change in time
+- once a pedestrian is able to pass a bottle neck others can follow him more easily
+
+CA models
+- von Neumann neighborhood (common edge) / Moore neighborhood (common corner)
+
+FUKUI-ISHIBASHI model
+- bidirectional long way
+
+lane changing:
+- side-stepping model - move to empty cell next to him, forward moving pedestrians have priority
+- diagonal-stepping model - tries to move diagonaly or as in side-stepping
+
+FLOOR FIELD
+motion of pedestrian influenced by:
+- disered direction of motion
+- interaction with others
+- interaction with infrastructure
+- 3 components: static field, dynamic field, matrix of preferences
+
+SOCIAL-FORCE MODEL
+- most important contribution of force is territorial effect
+- description of lane formation and oscilation at bottlenecks

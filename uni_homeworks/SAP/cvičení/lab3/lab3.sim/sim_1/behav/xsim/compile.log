@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "X:/SAP/lab3/lab3.srcs/sources_1/imports/SAP/decoder_mix.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity decoder_7seg
+INFO: [VRFC 10-163] Analyzing VHDL file "X:/SAP/lab3/lab3.srcs/sim_1/imports/SAP/l3_decoder_7seg_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity decoder_7seg_test

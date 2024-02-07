@@ -1,0 +1,121 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3675,        113]
+NotebookOptionsPosition[      3195,         96]
+NotebookOutlinePosition[      3595,        112]
+CellTagsIndexPosition[      3552,        109]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"uzel1", "=", 
+     RowBox[{"iZ", "==", "iR1"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"uzel2", "=", 
+     RowBox[{"iR1", "==", "iR2"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ZdrojU", "=", 
+     RowBox[{"uZ", "==", "u1"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Rez1", "=", 
+     RowBox[{
+      RowBox[{"u1", "-", "u2"}], "==", 
+      RowBox[{"iR1", "*", "R1"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Rez2", "=", 
+     RowBox[{"u2", "==", 
+      RowBox[{"iR2", "*", "R2"}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rovnice", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "uzel1", ",", "uzel2", ",", "ZdrojU", ",", "Rez1", ",", "Rez2"}], 
+      "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"soucastky", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"R1", "->", 
+        RowBox[{"10", "*", 
+         SuperscriptBox["10", "3"]}]}], ",", 
+       RowBox[{"R2", "->", 
+        RowBox[{"15", "*", 
+         SuperscriptBox["10", "3"]}]}], ",", 
+       RowBox[{"uZ", "->", "20"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"nezname", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "iZ", ",", "iR1", ",", "iR2", ",", "u1", ",", "u2", ",", " ", "uZ"}], 
+      "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dosazene", "=", 
+     RowBox[{"rovnice", "/.", "soucastky"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Solve", "[", 
+    RowBox[{"dosazene", ",", "nezname"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.845999027190104*^9, 3.8459990622561636`*^9}, {
+  3.8459991957870274`*^9, 3.84599923254358*^9}, {3.8459992733507156`*^9, 
+  3.8459996608917637`*^9}, {3.846027439054755*^9, 3.846027442305111*^9}, {
+  3.84602749934111*^9, 3.8460275636908693`*^9}, {3.846027648261079*^9, 
+  3.8460276589076815`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"52ce0e48-f5e9-4b73-99c6-508fb15e9376"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"iZ", "\[Rule]", 
+     FractionBox["1", "1250"]}], ",", 
+    RowBox[{"iR1", "\[Rule]", 
+     FractionBox["1", "1250"]}], ",", 
+    RowBox[{"iR2", "\[Rule]", 
+     FractionBox["1", "1250"]}], ",", 
+    RowBox[{"u1", "\[Rule]", "20"}], ",", 
+    RowBox[{"u2", "\[Rule]", "12"}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.8459996514718013`*^9, 3.8460275710928154`*^9, 
+  3.84602766763549*^9},
+ CellLabel->"Out[20]=",ExpressionUUID->"15b93efd-71d8-4845-abc9-52ff2de7b5c2"]
+}, Open  ]]
+},
+WindowSize->{1141.2, 574.8},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.3 for Microsoft Windows (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3b83faa6-3349-49d3-a247-d357c53dbe3f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 2053, 55, 241, "Input",ExpressionUUID->"52ce0e48-f5e9-4b73-99c6-508fb15e9376"],
+Cell[2636, 79, 543, 14, 97, "Output",ExpressionUUID->"15b93efd-71d8-4845-abc9-52ff2de7b5c2"]
+}, Open  ]]
+}
+]
+*)
+

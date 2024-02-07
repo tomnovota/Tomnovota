@@ -1,0 +1,7 @@
+<map id="CTable::ConstructNodes" name="CTable::ConstructNodes">
+<area shape="rect" id="node1" title="Helper method constructing temporary nodes for DFS algorithm." alt="" coords="713,5,889,32"/>
+<area shape="rect" id="node2" href="$classCTable.html#aa19ebe0058d4c1007bd24e81a6b24486" title="Detect cycle reference." alt="" coords="152,5,304,32"/>
+<area shape="rect" id="node4" href="$classCTable.html#abfa079c5021e3271beb88ba3b47b0b78" title="Obtain order in which cells should be evaluated through TopSort algorithm and evaluates them." alt="" coords="535,31,665,57"/>
+<area shape="rect" id="node3" href="$classCTable.html#a2b489a4b372d4e69a4fb5e84d48da57d" title="Edit cell on given position and insert given properties and checks cycle references." alt="" coords="5,5,104,32"/>
+<area shape="rect" id="node5" href="$classCTable.html#aa45c7ebbdcf42b5fe41cf658dd23a66d" title="DFS algorithm implemented on 2D array of nodes representing cells and their dependencies." alt="" coords="352,31,487,57"/>
+</map>

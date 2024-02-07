@@ -1,0 +1,268 @@
+
+
+===========================================================================================
+= V NÁSLEDUJÍCÍM TEXTU JSOU ATRIBUTY POPSÁNY PRAVIDLY A PODMÍNKAMI, PŘI KTERÝCH NASTANOU. =
+=    NAVÍC JSOU K JEDNOTLIVÝM PRAVIDLŮM PŘIPSÁNY TEXTY, KTERÝMI SE NA NĚ MŮŽEME ZEPTAT.   =
+===========================================================================================
+
+================================================================================================================================
+
+    Daňový doklad
+
+Je na dokladu uvedeno DIČ?
+    - ano -> Ano.
+    - ne -> Ne.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+danovy_doklad():-
+    dotaz ('Je na dokladu uvedeno DIČ?', danovy_doklad).
+
+================================================================================================================================
+
+    Zjednodušený daňový doklad
+
+Je na dokladu uveden název odběratele?
+    - ano -> Ano.
+    - ne -> Ne.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+zjednoduseny_danovy_doklad():-
+    not(dotaz ('Je na dokladu uveden název odběratele?', zjednoduseny_danovy_doklad)).
+
+================================================================================================================================
+
+    V pořádku
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+v_poradku() :-
+    spravna_celkova_castka(),
+    not(chyba_rekapitulace()),
+    spravne_datum(),
+    not(chybi_ico_dodavatele()),
+    not(chybi_dic_dodavatele()),
+    not(chyba_dph()),
+    cislo_dokladu(),
+    chyba_ico_odberatele(),
+    chyba_dic_odberatele(),
+    udaje_o_zapisu(),
+    datum_uskutecneni(),
+    chyba_castka().
+
+
+================================================================================================================================
+
+    Lze přijmout
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+lze_prijmout() :-
+
+================================================================================================================================
+
+    Chybná celková částka.
+
+Spočítejte celkový součet položek na dokladu a porovnejte ho s celkovým součtem uvedeným na dokladu.
+    - ano -> OK.
+    - ne -> Chybná celková částka.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+spravna_celkova_castka() :- % Chybná celková částka.
+    dotaz("Spočítejte celkový součet položek na dokladu, je roven celkové částce na dokladu?", spravna_celkova_castka).
+
+================================================================================================================================
+
+    Chybí rekapitulace DPH.
+
+Jedná se o daňový doklad?
+    - ano -> Je na dokladu rekapitulace DPH?
+        - ano -> OK.
+        - ne -> Je na účtence uvedena sazba DPH pro celkovou částku?
+            - ano -> OK.
+            - ne -> Chybí rekapitulace DPH.
+    - ne -> OK.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+sazba_dph_na_uctence() :-
+    dotaz('Je na účtence uvedena sazba DPH pro celkovou částku?', sazba_dph_na_uctence).
+
+rekapitulace_dph() :-
+    dotaz('Je na dokladu rekapitulace DPH?', rekapitulace_dph).
+
+chyba_rekapitulace() :- % Chybí rekapitulace DPH.
+    danovy_doklad(), not(rekapitulace_dph()), not(sazba_dph_na_uctence())
+
+================================================================================================================================
+
+    Chyba v datu.
+
+Nachází se na účtence datum?
+    - ano - Není v budoucnosti ani v hluboké minulosti?
+        - ano -> OK.
+        - ne -> Chyba v datu.
+    - ne -> Chybí datum.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+spatny_rok() :-
+    dotaz('Není datum v budoucnosti ani v hluboké minulosti?', datum).
+
+spravne_datum() :- % Chybí datum.
+    dotaz('Nachází se na účtence datum?', datum), not(spatny_rok()).
+
+================================================================================================================================
+
+    Chybí údaje o dodavateli (IČO nebo DIČ).
+
+Je uvedeno IČO dodavatele?
+    - ano -> Jedná se o daňový doklad?
+        - ano -> Je uvedeno DIČ dodavatele?
+            - ano -> OK.
+            - ne -> Chybí údaje o dodavateli.
+        - ne -> OK.
+    - ne -> Chybí údaje o dodavateli.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+chybi_ico_dodavatele() :- % Chybí IČO dodavatele.
+    not(dotaz('Je uvedeno IČO dodavatele?', ico_dodavatele)).
+
+chybi_dic_dodavatele() :- % Chybí DIČ dodavatele.
+    danovy_doklad(), not(dotaz('Je uvedeno DIČ dodavatele?', dic_dodavatele)).
+
+================================================================================================================================
+
+    Chybné sazby DPH.
+
+Jsou účtovány potraviny?
+    - ano -> Jedná se o sazbu DPH 10%?
+        - ano -> Jsou položky v sazbě DPH 10% konzumovány v prostorách dodavatele?
+            - ano -> OK.
+            - ne -> Chybné sazby DPH.
+        - ne -> OK.
+    - ne -> OK.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+potraviny() :-
+    dotaz('Jsou účtovány potraviny?', potraviny).
+
+dph_deset() :-
+    dotaz('Jedná se o sazbu DPH 10%?', dph_10).
+
+dph_deset_konzumace() :-
+    dotaz('Jsou položky v sazbě DPH 10% konzumovány v prostorách dodavatele?', dph_deset_konzumace).
+
+chyba_dph() :- % Chybné sazby DPH.
+    potraviny(), dph_deset(), dph_deset_konzumace()    
+
+================================================================================================================================
+
+    Chybí číslo dokladu.
+
+Obsahuje účtenka číslo dokladu?
+    - ano -> OK.
+    - ne -> Chybí číslo dokladu.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+cislo_dokladu() :- % Chybí číslo dokladu.
+    dotaz('Obsahuje účtenka číslo dokladu?', cislo_dokladu).
+
+================================================================================================================================
+
+    Chybné IČO a DIČ odběratele.
+
+Najděte IČO odběratele
+    - ano -> Proveďte kontrolu IČO (podle algoritmu)
+        - ano - OK.
+        - ne - Chybné IČO odběratele.
+    - ne -> nic nedělat
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+ico_odberatele() :-
+    dotaz('Nachází se na dokladu IČO odběratele?', ico_odberatele).
+
+kontrola_ico() :- 
+    dotaz('Proveďte kontrolu IČO, je v pořádku?', kontrola_ico).
+
+chyba_ico_odberatele() :- % Chybné IČO odběratele.
+    ico_odberatele(), not(kontrola_ico())
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Jedná se o daňový doklad?
+    - ano -> Jedná se o zjednodušený daňový doklad?
+        - ano -> Proveďte kontrolu DIČ (podle algoritmu)
+            - ano -> OK.
+            - ne -> Chybné DIČ odběratele.
+        - ne -> OK.
+    - ne -> OK.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+kontrola_dic() :-
+    dotaz("Proveďte kontrolu DIČ, je v pořádku?", kontrola_dic).
+
+chyba_dic_odberatele() :- % Chybné DIČ odběratele.
+    danovy_doklad(), zjednoduseny_danovy_doklad(), not(kontrola_dic())
+
+================================================================================================================================
+
+    Chybí údaje o zápisu dodavatele do obchodního nebo živnostenského rejstříku.
+
+Obsahuje účtenka údaje o zápisu dodavatele do obchodního nebo živnostenského rejstříku?
+    - ano -> OK.
+    - ne -> Chybí údaje o zápisu dodavatele do obchodního nebo živnostenského rejstříku.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+udaje_o_zapisu() :- % Chybí údaje o zápisu dodavatele do obchodního nebo živnostenského rejstříku.
+    dotaz("Obsahuje účtenka údaje o zápisu dodavatele do obchodního nebo živnostenského rejstříku?", udaje_o_zapisu).
+
+================================================================================================================================
+
+    Chybí datum uskutečnění zdanitelného plnění.
+
+Nachází se na dokladu datum vystavení dokladu?
+    - ano -> OK.
+    - ne -> Chybí datum uskutečnění zdanitelného plnění.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+datum_uskutecneni() :- % Chybí datum uskutečnění zdanitelného plnění.
+    dotaz("Nachází se na dokladu datum vystavení dokladu?", datum_uskutecneni).
+
+================================================================================================================================
+
+    Jedná se o zjednodušený daňový doklad, ale celková částka je přes 10.000 Kč.
+
+Jedná se o zjednodušený daňový doklad?
+    - ano -> Je celková částka vyšší než 10 000 Kč?
+        - ano -> Jedná se o zjednodušený daňový doklad, ale celková částka je přes 10.000 Kč.
+        - ne -> OK.
+    - ne -> OK.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+chyba_castka() :- % Jedná se o zjednodušený daňový doklad, ale celková částka je přes 10.000 Kč.
+    zjednoduseny_danovy_doklad(), celkova_castka(A), A > 10000
+
+================================================================================================================================
+
+1, Začněte tím, že zpracujete analýzu problému. Vycházejte z tabulky popisující dataset a z informací od experta. Pro každou chybu určete atributy, které může expertní systém použít k její diagnostice, a jejich hodnoty (ano, ne). Pokud je třeba, navrhněte další atributy než jsou v tabulce.
+
+2, Znalosti popište formálně. Buď pomocí pravidel nebo pomocí formalismu predikátové logiky prvnho řádu. Použijte predikáty a implikace (pravidla). Predikáty volte tak, aby uživatel posuzoval, zda má predikát danou hodnou nebo nemá, tj. mohl odpovídat ano/ne.+ Myslete na to, že dané doméně (problematice chyb v účtenkách) nemusíte rozumět, vaším úkolem je převést znalosti od experta do zvoleného modelu znalostí.
+
+3, Zkontrolujte, zda všechny implikace/ pravidla odpovídají Hornovým klauzulím. Pokud ne, převeďte je do tvaru Hornových kalauzulí. Pravidla jde v bodě 2 přímo navrhnout tak, aby odpovídaly Hornovým klauzulím, nicmén je to "tvůrčí úloha" a může se stát, že si navrhnete pravidla, která tuto podmínku nesplňují. Pak je třeba je převést.
+
+4, K predikátům vymyslete vhodné dotazy. Volte dotazy tak, aby se systém vždy ptal uživatele otázkou, na kterou uživatel může odpovědět buď ano nebo ne.
+
+5, Celý model - predikáty, pravidla a navržené texty dotazů převeďte do jazyka PROLOG. Změníte pouze bázi znalostí v programu vtyvořeném společně na cvičení 4. Převod do jazyka PROLOG tvoří pouze poslední stupeň
+
+

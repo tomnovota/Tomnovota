@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1646723352">
+  <File Type="PA-TCL" Name="multiplier_vhdl.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="multiplier_vhdl_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="multiplier_vhdl_reports.tcl"/>
+  <File Type="RDS-RDS" Name="multiplier_vhdl.vds"/>
+  <File Type="RDS-UTIL" Name="multiplier_vhdl_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="multiplier_vhdl_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="multiplier_vhdl.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="multiplier_vhdl_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="multiplier_vhdl_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/SAP/decoder_mix.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../decoder_mix.vhd"/>
+        <Attr Name="ImportTime" Val="1645820729"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/SAP/multiplier_2x2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../multiplier_2x2.vhd"/>
+        <Attr Name="ImportTime" Val="1646523631"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/tmp/multiplier.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/tmp/multiplier.vhd"/>
+        <Attr Name="ImportTime" Val="1646722605"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/multiplier/multiplier.bd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="multiplier_vhdl"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/multiplier.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/multiplier.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

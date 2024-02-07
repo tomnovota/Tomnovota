@@ -1,0 +1,7 @@
+<map id="COperatorMulti" name="COperatorMulti">
+<area shape="rect" id="node1" title="Class representing multiplication in expression." alt="" coords="142,545,299,667"/>
+<area shape="rect" id="node2" href="$classCBinaryOperator.html" title="Abstract class representing special type of operator with 2 operand." alt="" coords="137,375,304,496"/>
+<area shape="rect" id="node3" href="$classCOperator.html" title="Abstract class representing operator in expression tree." alt="" coords="5,161,145,297"/>
+<area shape="rect" id="node4" href="$classCExpression.html" title="Abstract class representing node in a tree representing expression in a cell." alt="" coords="6,5,145,112"/>
+<area shape="rect" id="node5" title=" " alt="" coords="169,191,371,268"/>
+</map>

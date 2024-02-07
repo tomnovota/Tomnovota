@@ -1,0 +1,406 @@
+/*
+
+Xilinx Vivado v2018.2 (64-bit) [Major: 2018, Minor: 2]
+SW Build: 2258646 on Thu Jun 14 20:03:12 MDT 2018
+IP Build: 2256618 on Thu Jun 14 22:10:49 MDT 2018
+
+Process ID: 9244
+License: Customer
+
+Current time: 	Thu Feb 24 11:49:52 CET 2022
+Time zone: 	Central European Time (Europe/Prague)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 12
+
+Screen size: 1536x864
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 464 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2018.2/tps/win64/jre
+Java executable location: 	C:/Xilinx/Vivado/2018.2/tps/win64/jre/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 2 GB
+
+
+User name: 	tomnovota
+User home directory: C:/Users/tomnovota
+User working directory: X:/SAP/lab2
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2018.2
+RDI_DATADIR: C:/Xilinx/Vivado/2018.2/data
+RDI_BINDIR: C:/Xilinx/Vivado/2018.2/bin
+
+Vivado preferences file location: C:/Users/tomnovota/AppData/Roaming/Xilinx/Vivado/2018.2/vivado.xml
+Vivado preferences directory: C:/Users/tomnovota/AppData/Roaming/Xilinx/Vivado/2018.2/
+Vivado layouts directory: C:/Users/tomnovota/AppData/Roaming/Xilinx/Vivado/2018.2/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2018.2/lib/classes/planAhead.jar
+Vivado log file location: 	X:/SAP/lab2/vivado.log
+Vivado journal file location: 	X:/SAP/lab2/vivado.jou
+Engine tmp dir: 	X:/SAP/lab2/.Xil/Vivado-9244-DESKTOP-KJ4U6QN
+
+Xilinx Environment Variables
+----------------------------
+XILINX: C:/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2018.2
+XILINX_VIVADO: C:/Xilinx/Vivado/2018.2
+XILINX_VIVADO_HLS: C:/Xilinx/Vivado/2018.2
+
+
+GUI allocated memory:	204 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 487 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bx (ck):  Open Project : addNotify
+// Opening Vivado Project: X:\SAP\lab2\lab2.xpr. Version: Vivado v2018.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project X:/SAP/lab2/lab2.xpr 
+// [GUI Memory]: 55 MB (+55681kb) [00:00:09]
+// [Engine Memory]: 478 MB (+349993kb) [00:00:09]
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project X:/SAP/lab2/lab2.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories 
+// HMemoryUtils.trashcanNow. Engine heap size: 487 MB. GUI used memory: 34 MB. Current time: 2/24/22 11:49:54 AM CET
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'x:/SAP/lib_SAP_2022_02_02'. 
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'. 
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 540 MB (+40182kb) [00:00:16]
+// Project name: lab2; location: X:/SAP/lab2; part: xc7a35tcpg236-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:11 . Memory (MB): peak = 804.855 ; gain = 65.242 
+dismissDialog("Open Project"); // bx (ck)
+// [GUI Memory]: 60 MB (+1911kb) [00:00:19]
+// [Engine Memory]: 571 MB (+3621kb) [00:00:19]
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+// WARNING: HTimer (HSTRUtils Dump STR Log Timer) is taking 3702ms to process. Increasing delay to 4000 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 4538 ms. Increasing delay to 3000 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 588 MB. GUI used memory: 38 MB. Current time: 2/24/22 11:50:11 AM CET
+// Elapsed time: 17 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 4); // B (D, ck)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 5); // B (D, ck)
+// PAPropertyPanels.initPanels (l2_truth_table_4.vhd) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, truth_table_4(behavioral) (l2_truth_table_4.vhd)]", 1, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, truth_table_4(behavioral) (l2_truth_table_4.vhd)]", 1, false, false, false, false, false, true); // B (D, ck) - Double Click
+// [GUI Memory]: 64 MB (+1364kb) [00:01:57]
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 34012ms to process. Increasing delay to 6000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 26791 ms to process. Increasing delay to 2000 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 34114 ms. Increasing delay to 4000 ms.
+// WARNING: HSwingWorker (Monitor File Timestamp Swing Worker) is taking 2601 ms to process. Increasing delay to 3000 ms.
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 1552ms to process. Increasing delay to 6000 ms.
+// [GUI Memory]: 68 MB (+807kb) [00:04:45]
+// Elapsed time: 298 seconds
+selectCodeEditor("l2_truth_table_4.vhd", 137, 116); // ce (w, ck)
+selectCodeEditor("l2_truth_table_4.vhd", 133, 113); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// [GUI Memory]: 73 MB (+1270kb) [00:06:00]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 561ms to process. Increasing delay to 3000 ms.
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// [GUI Memory]: 78 MB (+795kb) [00:06:17]
+// [Engine Memory]: 600 MB (+502kb) [00:06:24]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 134 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u (O, ck)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ad (aj, ck)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// e (ck):  Run Simulation : addNotify
+// TclEventType: LAUNCH_SIM
+// Tcl Message: launch_simulation 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in 'X:/SAP/lab2/lab2.sim/sim_1/behav/xsim' INFO: [SIM-utils-51] Simulation object is 'sim_1' INFO: [SIM-utils-54] Inspecting design source files for 'truth_table_4_test' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-2] XSim::Compile design 
+// [GUI Memory]: 85 MB (+3758kb) [00:08:06]
+// Tcl Message: INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'X:/SAP/lab2/lab2.sim/sim_1/behav/xsim' 
+// Tcl Message: "xvhdl --incr --relax -prj truth_table_4_test_vhdl.prj" 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "X:/SAP/lab2/lab2.srcs/sources_1/imports/SAP/l2_truth_table_4.vhd" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity truth_table_4 INFO: [VRFC 10-163] Analyzing VHDL file "X:/SAP/lab2/lab2.srcs/sim_1/imports/SAP/l2_truth_table_4_test.vhd" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity truth_table_4_test 
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 1221ms to process. Increasing delay to 7000 ms.
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 840.902 ; gain = 0.000 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '6' seconds INFO: [USF-XSim-3] XSim::Elaborate design 
+// Tcl Message: INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'X:/SAP/lab2/lab2.sim/sim_1/behav/xsim' 
+// Tcl Message: Vivado Simulator 2018.2 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved. Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto bf919dc0c8f04378bdf9767ee6967526 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot truth_table_4_test_behav xil_defaultlib.truth_table_4_test -log elaborate.log  Using 2 slave threads. Starting static elaboration 
+// Tcl Message: Completed static elaboration Starting simulation data flow analysis Completed simulation data flow analysis Time Resolution for simulation is 1ps Compiling package std.standard Compiling package std.textio Compiling package ieee.std_logic_1164 Compiling package ieee.std_logic_arith Compiling package ieee.std_logic_unsigned Compiling architecture behavioral of entity xil_defaultlib.truth_table_4 [truth_table_4_default] Compiling architecture behavior of entity xil_defaultlib.truth_table_4_test 
+// Tcl Message: Built simulation snapshot truth_table_4_test_behav 
+// Tcl Message:  ****** Webtalk v2018.2 (64-bit)   **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018   **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.  source X:/SAP/lab2/lab2.sim/sim_1/behav/xsim/xsim.dir/truth_table_4_test_behav/webtalk/xsim_webtalk.tcl -notrace 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 54.203 ; gain = 1.090 INFO: [Common 17-206] Exiting Webtalk at Thu Feb 24 11:58:17 2022... 
+// Tcl Message: run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:22 . Memory (MB): peak = 840.902 ; gain = 0.000 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '22' seconds 
+// TclEventType: LOAD_FEATURE
+// Tcl Message: INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'X:/SAP/lab2/lab2.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "truth_table_4_test_behav -key {Behavioral:sim_1:Functional:truth_table_4_test} -tclbatch {truth_table_4_test.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2018.2 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// Waveform: addNotify
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: source truth_table_4_test.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// HMemoryUtils.trashcanNow. Engine heap size: 616 MB. GUI used memory: 45 MB. Current time: 2/24/22 11:58:22 AM CET
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: # run 1000ns 
+// Tcl Message: ### Simulation start ### ### Total number of errors = Unknown - check waveforms manually / zkontrolujte prubehy rucne ### Simulation finished ### 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'truth_table_4_test_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:10 ; elapsed = 00:00:37 . Memory (MB): peak = 866.750 ; gain = 25.848 
+// 'd' command handler elapsed time: 37 seconds
+// [Engine Memory]: 631 MB (+437kb) [00:08:40]
+// Elapsed time: 37 seconds
+dismissDialog("Run Simulation"); // e (ck)
+// Elapsed time: 45 seconds
+selectButton(RDIResource.GraphicalView_ZOOM_FIT, "Waveform Viewer_zoom_fit"); // B (f, ck)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Run Command: RDIResourceCommand.RDICommands_WAVEFORM_SAVE_CONFIGURATION
+// Elapsed time: 26 seconds
+setFileChooser("X:/SAP/lab2/truth_table_4_test_behav.wcfg");
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// A (ck): Waveform Configuration File: addNotify
+// Tcl Message: save_wave_config {X:/SAP/lab2/truth_table_4_test_behav.wcfg} 
+// Elapsed time: 19 seconds
+selectButton(RDIResource.BaseDialog_NO, "No"); // a (A)
+// 'e' command handler elapsed time: 42 seconds
+dismissDialog("Waveform Configuration File"); // A (ck)
+// TclEventType: WAVEFORM_CLOSE_WCFG
+closeView(RDIResource.RDIViews_WAVEFORM_VIEWER, "truth_table_4_test_behav.wcfg"); // w
+// Elapsed time: 79 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// f (ck): Launch Runs: addNotify
+selectCheckBox(PAResourceItoN.LaunchPanel_DONT_SHOW_THIS_DIALOG_AGAIN, "Don't show this dialog again", true); // g (a, f): TRUE
+selectCheckBox(PAResourceItoN.LaunchPanel_DONT_SHOW_THIS_DIALOG_AGAIN, "Don't show this dialog again", false); // g (a, f): FALSE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// Tcl Message: launch_runs synth_1 -jobs 6 
+// [GUI Memory]: 90 MB (+332kb) [00:11:54]
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu Feb 24 12:01:39 2022] Launched synth_1... Run output will be captured here: X:/SAP/lab2/lab2.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 19 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 513ms to process. Increasing delay to 2000 ms.
+// ah (ck): Synthesis Completed: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 652 MB. GUI used memory: 48 MB. Current time: 2/24/22 12:02:40 PM CET
+// Elapsed time: 124 seconds
+selectRadioButton(PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN, "Open Synthesized Design"); // a (Q, ah)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN
+// bx (ck):  Open Synthesized Design : addNotify
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7a35tcpg236-1 
+// [Engine Memory]: 708 MB (+47821kb) [00:14:05]
+// HMemoryUtils.trashcanNow. Engine heap size: 770 MB. GUI used memory: 48 MB. Current time: 2/24/22 12:03:50 PM CET
+// [Engine Memory]: 801 MB (+60828kb) [00:14:10]
+// [Engine Memory]: 853 MB (+12049kb) [00:14:20]
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 947 MB. GUI used memory: 48 MB. Current time: 2/24/22 12:04:05 PM CET
+// [Engine Memory]: 951 MB (+58502kb) [00:14:22]
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// [Engine Memory]: 1,028 MB (+30239kb) [00:14:23]
+// Device: addNotify
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2018.2 INFO: [Device 21-403] Loading part xc7a35tcpg236-1 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Device view-level: 0,0
+// Tcl Message: open_run: Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1252.027 ; gain = 371.664 
+// 'dP' command handler elapsed time: 23 seconds
+// Elapsed time: 23 seconds
+dismissDialog("Open Synthesized Design"); // bx (ck)
+// [GUI Memory]: 98 MB (+4032kb) [00:14:26]
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 3250 ms. Increasing delay to 3000 ms.
+// [Engine Memory]: 1,093 MB (+14878kb) [00:14:35]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,107 MB. GUI used memory: 74 MB. Current time: 2/24/22 12:04:20 PM CET
+// Elapsed time: 14 seconds
+selectTab((HResource) null, (HResource) null, "Design Runs", 4); // aE (Q, ck)
+// [Engine Memory]: 1,340 MB (+201121kb) [00:14:45]
+// RouteApi::initDelayMediator elapsed time: 20.7s
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// [Engine Memory]: 1,481 MB (+78397kb) [00:14:49]
+// Elapsed time: 45 seconds
+selectComboBox(RDIResource.MainWinToolbarMgr_SELECT_OR_SAVE_WINDOW_LAYOUT, "I/O Planning", 1); // be (f, ck)
+// Package: addNotify
+// Elapsed time: 11 seconds
+selectButton(PAResourceQtoS.SignalsView_GROUP_BY_INTERFACE_AND_BUS, "I/O Ports_groupbytype"); // u (f, ck): FALSE
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 2247ms to process. Increasing delay to 8000 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 2227 ms. Increasing delay to 5000 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 1841 ms. Increasing delay to 4000 ms.
+// PAPropertyPanels.initPanels (a) elapsed time: 0.6s
+// Elapsed time: 47 seconds
+selectTable(PAResourceQtoS.SignalTablePanel_SIGNAL_TABLE, "a ; IN ;  ;  ;  ;  ;  ;  ;  ; default (LVCMOS18) ; 1.8 ;  ;  ;  ; NONE ; NONE ;  ; N/A", 0, "default (LVCMOS18)", 9); // m (O, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,507 MB. GUI used memory: 80 MB. Current time: 2/24/22 12:06:10 PM CET
+// TclEventType: SIGNAL_MODIFY
+// Tcl Message: set_property IOSTANDARD LVCMOS33 [get_ports [list a]] 
+selectTable(PAResourceQtoS.SignalTablePanel_SIGNAL_TABLE, "a ; IN ;  ;  ;  ;  ;  ;  ;  ; LVCMOS33 ; 3.3 ;  ;  ;  ; NONE ; NONE ;  ; N/A", 0, (String) null, 6); // m (O, ck)
+// [GUI Memory]: 109 MB (+6200kb) [00:16:33]
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// Tcl Message: place_ports a V17 
+// Elapsed time: 16 seconds
+selectTable(PAResourceQtoS.SignalTablePanel_SIGNAL_TABLE, "b ; IN ;  ;  ;  ;  ;  ;  ;  ; default (LVCMOS18) ; 1.8 ;  ;  ;  ; NONE ; NONE ;  ; N/A", 1, (String) null, 6); // m (O, ck)
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// Tcl Message: place_ports b V16 
+selectTable(PAResourceQtoS.SignalTablePanel_SIGNAL_TABLE, "c ; IN ;  ;  ;  ;  ;  ;  ;  ; default (LVCMOS18) ; 1.8 ;  ;  ;  ; NONE ; NONE ;  ; N/A", 2, (String) null, 6); // m (O, ck)
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// Tcl Message: place_ports c W16 
+// [GUI Memory]: 118 MB (+4389kb) [00:16:58]
+selectTable(PAResourceQtoS.SignalTablePanel_SIGNAL_TABLE, "d ; IN ;  ;  ;  ;  ;  ;  ;  ; default (LVCMOS18) ; 1.8 ;  ;  ;  ; NONE ; NONE ;  ; N/A", 3, (String) null, 6); // m (O, ck)
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// Tcl Message: place_ports d W17 
+selectTable(PAResourceQtoS.SignalTablePanel_SIGNAL_TABLE, "f ; OUT ;  ;  ;  ;  ;  ;  ;  ; default (LVCMOS18) ; 1.8 ;  ; 12 ; SLOW ; NONE ; FP_VTT_50 ;  ; N/A", 4, (String) null, 6); // m (O, ck)
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// Tcl Message: place_ports f U16 
+selectTable(PAResourceQtoS.SignalTablePanel_SIGNAL_TABLE, "b ; IN ;  ;  ;  ;  ; V16 ; true ; 14 ; default (LVCMOS18) ; 1.8 ;  ;  ;  ; NONE ; NONE ;  ; N/A", 1, "default (LVCMOS18)", 9); // m (O, ck)
+// TclEventType: SIGNAL_MODIFY
+// Tcl Message: set_property IOSTANDARD LVCMOS33 [get_ports [list b]] 
+selectTable(PAResourceQtoS.SignalTablePanel_SIGNAL_TABLE, "c ; IN ;  ;  ;  ;  ; W16 ; true ; 14 ; default (LVCMOS18) ; 1.8 ;  ;  ;  ; NONE ; NONE ;  ; N/A", 2, "default (LVCMOS18)", 9); // m (O, ck)
+// TclEventType: SIGNAL_MODIFY
+// Tcl Message: set_property IOSTANDARD LVCMOS33 [get_ports [list c]] 
+selectTable(PAResourceQtoS.SignalTablePanel_SIGNAL_TABLE, "d ; IN ;  ;  ;  ;  ; W17 ; true ; 14 ; default (LVCMOS18) ; 1.8 ;  ;  ;  ; NONE ; NONE ;  ; N/A", 3, "default (LVCMOS18)", 9); // m (O, ck)
+// TclEventType: SIGNAL_MODIFY
+// Tcl Message: set_property IOSTANDARD LVCMOS33 [get_ports [list d]] 
+selectTable(PAResourceQtoS.SignalTablePanel_SIGNAL_TABLE, "f ; OUT ;  ;  ;  ;  ; U16 ; true ; 14 ; default (LVCMOS18) ; 1.8 ;  ; 12 ; SLOW ; NONE ; FP_VTT_50 ;  ; N/A", 4, "default (LVCMOS18)", 9); // m (O, ck)
+// TclEventType: SIGNAL_MODIFY
+// Tcl Message: set_property IOSTANDARD LVCMOS33 [get_ports [list f]] 
+// Run Command: PAResourceCommand.PACommandNames_SAVE_DESIGN
+// A (ck): Out of Date Design: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (A)
+// a (ck): Save Constraints: addNotify
+dismissDialog("Out of Date Design"); // A (ck)
+// WARNING: HTimer (HSTRUtils Dump STR Log Timer) is taking 1657ms to process. Increasing delay to 5000 ms.
+setText(PAResourceAtoD.CreateConstraintsFilePanel_FILE_NAME, (String) null); // X (C, a)
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 2557 ms. Increasing delay to 6000 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 3566 ms. Increasing delay to 5000 ms.
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 2091ms to process. Increasing delay to 9000 ms.
+// Elapsed time: 34 seconds
+setText(PAResourceAtoD.CreateConstraintsFilePanel_FILE_NAME, "lab2_"); // X (C, a)
+setText(PAResourceAtoD.CreateConstraintsFilePanel_FILE_NAME, "lab2_"); // X (C, a)
+// [GUI Memory]: 124 MB (+39kb) [00:18:11]
+// Elapsed time: 13 seconds
+setText(PAResourceAtoD.CreateConstraintsFilePanel_FILE_NAME, "lab2_table"); // X (C, a)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (a)
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// bx (ck):  Save Constraints : addNotify
+// Tcl Message: file mkdir X:/SAP/lab2/lab2.srcs/constrs_1/new 
+// Tcl Message: close [ open X:/SAP/lab2/lab2.srcs/constrs_1/new/lab2_table.xdc w ] 
+// Tcl Message: add_files -fileset constrs_1 X:/SAP/lab2/lab2.srcs/constrs_1/new/lab2_table.xdc 
+// Tcl Message: set_property target_constrs_file X:/SAP/lab2/lab2.srcs/constrs_1/new/lab2_table.xdc [current_fileset -constrset] 
+dismissDialog("Save Constraints"); // a (ck)
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_SAVE
+// Tcl Message: save_constraints -force 
+// 'h' command handler elapsed time: 65 seconds
+dismissDialog("Save Constraints"); // bx (ck)
+// Elapsed time: 35 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 29, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// A (ck): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (A)
+// bx (ck):  Resetting Runs : addNotify
+dismissDialog("Synthesis is Out-of-date"); // A (ck)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (ck): Launch Runs: addNotify
+// Elapsed time: 22 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// Tcl Message: launch_runs impl_1 -jobs 6 
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu Feb 24 12:09:13 2022] Launched synth_1... Run output will be captured here: X:/SAP/lab2/lab2.runs/synth_1/runme.log [Thu Feb 24 12:09:13 2022] Launched impl_1... Run output will be captured here: X:/SAP/lab2/lab2.runs/impl_1/runme.log 
+dismissDialog("Starting Design Runs"); // bx (ck)
+// [GUI Memory]: 131 MB (+266kb) [00:19:32]
+// WARNING: HTimer (ExpRunMonitor Open Timer) is taking 1282ms to process. Increasing delay to 6000 ms.

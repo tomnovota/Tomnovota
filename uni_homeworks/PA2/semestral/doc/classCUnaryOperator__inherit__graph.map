@@ -1,0 +1,9 @@
+<map id="CUnaryOperator" name="CUnaryOperator">
+<area shape="rect" id="node1" title="Abstract class representing type of operator with 1 operand." alt="" coords="268,344,431,465"/>
+<area shape="rect" id="node4" href="$classCFunctionAbs.html" title="Class representing absolute value function in expression." alt="" coords="5,513,152,635"/>
+<area shape="rect" id="node5" href="$classCFunctionLower.html" title="Class representing lowercase function in expression." alt="" coords="177,513,338,635"/>
+<area shape="rect" id="node6" href="$classCFunctionUpper.html" title="Class representing uppercase function in expression." alt="" coords="362,513,523,635"/>
+<area shape="rect" id="node7" href="$classCPar.html" title="Class representing left parenthesis in expression." alt="" coords="548,513,671,635"/>
+<area shape="rect" id="node2" href="$classCOperator.html" title="Abstract class representing operator in expression tree." alt="" coords="279,160,419,296"/>
+<area shape="rect" id="node3" href="$classCExpression.html" title="Abstract class representing node in a tree representing expression in a cell." alt="" coords="280,5,419,112"/>
+</map>

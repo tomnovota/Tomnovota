@@ -1,0 +1,6 @@
+<map id="COperandCell" name="COperandCell">
+<area shape="rect" id="node1" title="Class representing cell reference in expression." alt="" coords="83,331,229,467"/>
+<area shape="rect" id="node2" href="$classCOperand.html" title="Abstract class representing operand in expression." alt="" coords="13,161,137,268"/>
+<area shape="rect" id="node3" href="$classCExpression.html" title="Abstract class representing node in a tree representing expression in a cell." alt="" coords="5,5,144,112"/>
+<area shape="rect" id="node4" title=" " alt="" coords="161,176,316,253"/>
+</map>

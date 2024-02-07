@@ -1,0 +1,70 @@
+            ================================================
+            =          STOCHASTIC TRANSPORT MODEL          =
+            ================================================
+
+    - vycházet může z: Nagel-Schreckenberg, Fukui-Ishibashi
+
+    ZÁKLADNÍ VLASTNOSTI:
+     - cellular automata (diskrétní čas i prostor)
+     - mikroskopický
+     - paralelní aktualizace
+     - bezkolizní
+
+     - rule-based:
+        - distance-headway
+        - time-headway
+        - velocity
+        - acceleration
+        - definiton of jam (v = 0)
+        - definice okolí agenta (Moore)
+        - lane changing (diagonal-stepping)
+
+    PEDESTRIAN VLASTNOSTI:
+     - bez limitů
+     - optimální rychlost není limitem
+     - zrychlení a zastavení ihned
+     - rychlejší jednosměrný provoz
+     - tvoření řady (lane formation) - mění se v čase, po průchodu bottlenecku prvním chodcem, je provoz jednoduše obnoven
+
+    PARAMETRY:
+     - plocha chodce: 40*40 cm^2
+     - šířka haťe: 120 cm
+     - distribuce rychlosti: Gauss (průměr=1,10-1,30 m/s, sd=0,26m/s)
+     - maximální hustota v jednosměrném proudu: 1,8 m^-2
+
+    POZOROVÁNÍ:
+     - proud (flow) J
+     - hustota (density) ρ
+     - traffic jams (bottleneck, spontaneous)
+     - fundamentální diagram (flow / jam)
+        - při zvyšování hustoty narůstá i provoz (free flow)
+        - přetížení (congested)
+     - headway distribution
+     - lifetime of jam distribution
+
+    NÁVRHY:
+     - territorial effect menší mezi lidmi ve skupince než mezi cizími
+     - potlačení tendence zrychlovat zběsile na optimální rychlost
+     - skupinky více lidí - pomalejší rychlost
+     - šance na úplné zastavení (přestávka)
+     - teplota má vliv na rychlost chodců
+     - potlačení předjíždění (např. pokud rychlost toho před není zas tak pomalá, tak pouze zpomalit)
+     - vysoká komfortní headway - menší v případě jamu / předjíždění
+     - zpomalení, když jde někdo naproti
+     - různorodost návštěvníků - procházky / rychlochůze - různé chování
+     - tendence jít za sebou při nějaké hustotě, při velmi nízké jít i vedle sebe
+ 
+
+    VLASTNOSTI AGENTNÍHO MODELU: 
+     - self interested
+     - sociální
+     - proaktivní
+     - plně pozorovatelné prostředí
+     - stochastické
+     - dynamické
+     - diskrétní
+     - multi-agent
+
+    ========================================================
+    =             DISTRIBUTION OF COMING AGENTS            =
+    ========================================================

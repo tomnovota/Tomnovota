@@ -1,0 +1,4 @@
+<map id="CControl::ExitDialog" name="CControl::ExitDialog">
+<area shape="rect" id="node1" title="Dialog about table saving." alt="" coords="5,5,159,32"/>
+<area shape="rect" id="node2" href="$classCControl.html#a28a1860be9f1854f3981e0f356331201" title="Dialog about file name." alt="" coords="207,5,335,32"/>
+</map>

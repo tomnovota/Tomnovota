@@ -1,0 +1,4 @@
+<map id="CLoadTable::CheckLineSep" name="CLoadTable::CheckLineSep">
+<area shape="rect" id="node1" title="Checks line separating rows." alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node2" href="$classCLoadTable.html#a169300aebe10a0bc38981a15b7d9f944" title="Reads line from file and saves it in m_Line." alt="" coords="248,5,412,32"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="CPrint::PrintContent" name="CPrint::PrintContent">
+<area shape="rect" id="node1" title="Prints given cell content and requiered gap." alt="" coords="5,5,156,32"/>
+<area shape="rect" id="node2" href="$classCPrint.html#af2fceba080f8c34fe5a6999157662d0b" title="Prints given number times space." alt="" coords="204,5,349,32"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="CParser::ShuntingYard" name="CParser::ShuntingYard">
+<area shape="rect" id="node1" title="Algorithm processing given text source of expression and creating expression tree belonging to partic..." alt="" coords="239,5,401,32"/>
+<area shape="rect" id="node2" href="$classCParser.html#aac2c5bc5bf9b7b30ffe608f264c9c897" title="Returns cell properties contained in text expression in given stream." alt="" coords="5,5,191,32"/>
+</map>

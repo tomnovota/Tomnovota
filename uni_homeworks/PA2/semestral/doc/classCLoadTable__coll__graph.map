@@ -1,0 +1,11 @@
+<map id="CLoadTable" name="CLoadTable">
+<area shape="rect" id="node1" title="Class ensuring loading table save." alt="" coords="416,807,581,987"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,542,136,619"/>
+<area shape="rect" id="node3" href="$classCParser.html" title="Class parsing given string constructs and returning result in suitable form." alt="" coords="282,432,435,729"/>
+<area shape="rect" id="node4" href="$classCTable.html" title="Class representing table." alt="" coords="143,160,287,369"/>
+<area shape="rect" id="node5" title=" " alt="" coords="101,5,329,97"/>
+<area shape="rect" id="node6" title=" " alt="" coords="460,542,537,619"/>
+<area shape="rect" id="node7" title=" " alt="" coords="562,542,622,619"/>
+<area shape="rect" id="node8" title=" " alt="" coords="731,542,789,619"/>
+<area shape="rect" id="node9" title=" " alt="" coords="869,542,974,619"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="CParser::ProcessOperator" name="CParser::ProcessOperator">
+<area shape="rect" id="node1" title="ShuntingYard algorithm part proccessing common operator token." alt="" coords="5,31,192,57"/>
+<area shape="rect" id="node2" href="$classCParser.html#a680004373215e85524cf7c2e43568c10" title="Assigns operands to operator on top of stack and saves result to operand container." alt="" coords="243,5,416,32"/>
+<area shape="rect" id="node3" href="$classCParser.html#a66574087ea6ace35f2b79bf603e35fe9" title="Recognises token and creates appropriate operator node." alt="" coords="240,56,419,83"/>
+</map>

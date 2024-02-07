@@ -1,0 +1,793 @@
+'use strict';
+
+$(window).resize(() => {
+    resizeBoxes();
+    resizeQueries();
+});
+
+$(window).on('load', () => {
+    resizeQueries();
+});
+
+$(() => {
+    colorTableInit();
+
+    DBSDMCorrectionModeInit();
+
+    initDiffButton();
+    initDeadlineForm();
+
+    initQueryFromRemoval();
+
+    initCloseModalHelpers();
+
+    initFullScreenImage();
+
+    setBoxClassByHeader();
+    setCommentsDisplay();
+
+    initEvaluationPointSummary();
+    initBoxColorUpdate();
+
+    initCategoryScrollTo();
+
+    initCollapseExpandButtons();
+    initScriptUi();
+
+    initScriptSearchButton();
+});
+
+initBoxHeaderQueries();
+initDataGridHelpers();
+initTaskPointHandler();
+
+function initQueryFromRemoval() {
+    $('body').on('click', 'a.query-remove', function (event) {
+        event.preventDefault();
+
+        const $link = $(this);
+
+        $.nette.ajax({
+            url: $link.attr('href')
+        }).success(() => {
+            $(`#snippet--query-${$link.data('queryId')}`).remove();
+        });
+    });
+}
+
+function initDeadlineForm() {
+    $('#deadline_form').on('submit', () => {
+        const rows = [];
+
+        $('#frm-deadlineGrido-form input[type="checkbox"]:checked').each(function () {
+            const name = $(this).attr('name');
+
+            if (name !== undefined && name.length > 0) {
+                const id = name.match(/\d+/);
+
+                if (id !== null) {
+                    rows.push(id.toString());
+                }
+            }
+        });
+
+        $('#deadline_form-rows').val(rows);
+
+        return (rows.length > 0);
+    });
+}
+
+function initDiffButton() {
+    $('.diff-btn').on('click', function (event) {
+        event.stopPropagation();
+
+        const $btn = $(this);
+
+        $btn.toggleClass('btn-secondary btn-primary');
+
+        const sections = getDiffBtnSections($btn);
+
+        sections.$origCol.toggleClass('col-sm-6 col-sm-12');
+
+        sections.$diffCol.toggle(sections.$origCol.hasClass('col-sm-6'));
+
+        if (sections.$btnBody.attr('id') === 'querybox') {
+            const $queries = $('#queries-display').find('td.second-col');
+
+            $queries.each(function () {
+                const $query = $(this);
+                $query.toggle();
+            });
+        }
+
+        resizeBoxes();
+    });
+}
+
+function initCloseModalHelpers() {
+    $('.query-category-modal-submit').on('click', () => {
+        $('.query-category-modal-submit').parents('.modal-content')
+            .children('.modal-header').children('button').trigger('click');
+    });
+
+    $('.requirement-modal-submit').on('click', () => {
+        $('.requirement-modal-submit').parents('.modal-content')
+            .children('.modal-header').children('button').trigger('click');
+    });
+}
+
+function initFullScreenImage() {
+    $('img.fullscreen').on('click', event => {
+        const img = event.target;
+        const requestFullScreen = img.requestFullScreen || img.msRequestFullscreen || img.webkitRequestFullScreen || img.mozRequestFullScreen;
+
+        requestFullScreen.call(img);
+    });
+}
+
+function setCommentsDisplay() {
+    setDisplay('teacher');
+    setDisplay('student');
+
+    function setDisplay(key) {
+        const $comment = $(`.comment-${key}`);
+        const $commentBox = $comment.closest('.box');
+        const $commentQueryBox = $comment.closest('#querybox');
+
+        const unsetDisplay = {'display': ''};
+
+        // Show comment icons if comments are not hidden
+        $commentBox.find(`.comment-${key}-icon`).css(unsetDisplay);
+        $commentBox.find(`.previous-comment-${key}-icon`).css(unsetDisplay);
+
+        $commentQueryBox.parent('.box').children().children().children(`.comment-${key}-icon`).first().css(unsetDisplay);
+        $commentQueryBox.parent('.box').children().children().children(`.previous-comment-${key}-icon`).first().css(unsetDisplay);
+    }
+}
+
+function initEvaluationPointSummary() {
+    function blink($el) {
+        $el.fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+    }
+
+    const $scoreSpan = $('.evaluate-total-score');
+
+    if ($scoreSpan.length > 0) {
+        const limitScore = Number($('.evaluate-limit-score').first().text());
+        const $inputs = $('.js_input-score');
+
+        function updatePoints() {
+            const $elm = $(this);
+            let minusPoints = 0;
+
+            $inputs.each(function () {
+                const $input = $(this);
+                let value = Number($input.val());
+
+                // limit points to max
+                const maxVal = Number($input.attr('max'));
+                if (value > maxVal) {
+                    $input.val(maxVal);
+                    value = maxVal;
+                    // alert user to the max deducted points by blinking
+                    blink($input.parent().parent().find('.max-deducted-points'));
+                }
+
+                const minVal = Number($input.attr('min'));
+                if (value < minVal) {
+                    $input.val(minVal);
+                    value = minVal;
+                    blink($input.parent().parent().find('.min-deducted-points'));
+                }
+
+                // bonus points
+                if ($input.hasClass('js_input-score-bonus'))
+                    value = -value;
+
+                // late points
+                if ($input.hasClass('js_input-score-late'))
+                    value = 0; // do not count late score now
+
+                minusPoints += value ? value : 0;
+            });
+
+            let score = limitScore - minusPoints;
+
+            // limit points to total max
+            if (score < 0) {
+                const value = Number($elm.val());
+
+                $elm.val(value + score);
+                score = 0;
+                blink($elm.parent().parent().find('.total-deducted-points'));
+            }
+
+            // latePoints are positive, substract to get total points
+            score = parseFloat(score) - parseFloat($('.js_input-score-late').val());
+
+            $scoreSpan.text(parseFloat(score.toFixed(2)));
+        }
+
+        $inputs.on('change', updatePoints);
+        updatePoints();
+    }
+}
+
+function initBoxColorUpdate() {
+    function updateBoxColor(event) {
+        // find closest parent box
+        const $box = $(event.target).closest('div.box');
+
+        if (!$box.length) return;
+
+        let points = Number($box.find('input[type="number"]').val());
+
+        if (points === 0) {
+            $box.removeClass('box-warning box-danger');
+            $box.addClass('box-success');
+        } else {
+            $box.removeClass('box-success box-danger');
+            $box.addClass('box-warning');
+        }
+    }
+
+    const $formInput = $('.form-group input');
+    $formInput.on('click', updateBoxColor);
+    $formInput.on('change', updateBoxColor);
+}
+
+function initCategoryScrollTo() {
+    let timeout = 0;
+
+    $('span[data-scroll-to-category]').on('click', function (event) {
+        event.stopPropagation();
+
+        const tableName = '#category-table';
+        const categoryId = $(this).data('scroll-to-category');
+
+        const $table = $(tableName);
+
+        if ($table.is(':visible') === false) {
+            $table.parents('.box-body').parent().children('.box-header').trigger('click');
+            timeout = 500;
+        } else {
+            timeout = 0;
+        }
+
+        setTimeout(() => {
+            $(document).scrollTop($(`#category-${categoryId}`).offset().top - $('.main-header').height());
+        }, timeout);
+    });
+}
+
+function initCollapseExpandButtons() {
+    $("button#expand-all-sections").click(event => {
+        event.stopPropagation();
+        $('.box-primary.collapsed-box').find('button[data-widget="collapse"]:first').trigger('click');
+    });
+
+    $("button#collapse-all-sections").click(event => {
+        event.stopPropagation();
+        $('.box-primary:not(.collapsed-box)').find('button[data-widget="collapse"]:first').trigger('click');
+    });
+
+    const collapseAllButtons = (event, boxSelector) => {
+        event.stopPropagation();
+
+        const $buttons = $(`#queries-control > .box-body > ${boxSelector}`)
+            .find('button[data-widget="collapse"]');
+
+        $buttons.each(function () {
+            const $button = $(this);
+            $.AdminLTE.boxWidget.collapse($button);
+        });
+    }
+
+    $('button#queries-control-collapseall').on('click', event => {
+        collapseAllButtons(event, '.box:not(.collapsed-box)');
+    });
+
+    $("button#queries-control-expandall").click(function (event) {
+        collapseAllButtons(event, '.box.collapsed-box');
+    });
+
+    $('[data-widget="topCollapse"]').click(function () {
+        const box = this.parentElement.parentElement.parentElement.parentElement;
+        const $buttonMinus = $(box).find('[data-widget="collapse"]').first();
+        $buttonMinus.trigger('click');
+    });
+}
+
+function initBoxHeaderQueries() {
+    $('#box-header-queries').on('click', function () {
+        $.AdminLTE.boxWidget.collapse($(this).find('button[data-widget="collapse"]'));
+        resizeBoxes();
+    });
+}
+
+function resizeBoxes() {
+    const $element = $('#box-header-queries');
+    const $body = $element.next();
+
+    if ($body.is(':visible')) {
+        const $queries = $body.find('.box-info');
+
+        $queries.each(function () {
+            const $query = $(this);
+            $query.find('h4.query-header').css('width',
+                $query.find('.box-query').width() - $query.find('.box-tools').width());
+        });
+    }
+}
+
+function addWordBreakToParagraph($element) {
+    $element.next().find('p').first().css('word-break', 'break-all');
+}
+
+function removeOldRemnants() {
+    $('.table-delete').remove();
+    $('td.second-col').hide();
+}
+
+
+function moveQueriesToTable() {
+    const $oldQueriesToCompare = $('#queries-package');
+    const $divQuery = $('#queries-display');
+    const size = $oldQueriesToCompare.children('div').size();
+
+    for (let i = 0; i < size; i++) {
+        const oldQueryPlaceKey = `table.table-queries:eq(${i}) tr:eq(0) td:eq(0)`;
+        const $td = $divQuery.find(oldQueryPlaceKey);
+
+        if ($td.length !== 0) {
+            $td.children('div').replaceWith($('#queries-package > div:eq(0)'));
+            $td.show();
+        } else {
+            $divQuery.append('<table class=\")table table-queries table-delete\"><tr><td class="td-query second-col"></td><td class="td-query first-col"></td></tr></table>');
+            $divQuery.find(oldQueryPlaceKey).append($('#queries-package > div:eq(0)'));
+        }
+    }
+}
+
+function afterAjaxLoad() {
+    removeOldRemnants();
+    moveQueriesToTable();
+
+    const $collapseBoxes = $('.box button[data-widget="collapse"]');
+    //Alert inside query boxes ( SQL Warning etc. )
+    let $headers = $collapseBoxes.closest('.query-alert');
+
+    $headers.css('cursor', 'pointer');
+    $collapseBoxes.closest('.query-alert').on('click', function () {
+        $.AdminLTE.boxWidget.collapse($(this).find('button[data-widget="collapse"]'));
+    });
+
+    //Query boxes
+    $headers = $collapseBoxes.closest('.box-header.box-query');
+    $headers.css('cursor', 'pointer');
+    $headers.on('click', function () {
+        const queryId = $(this).attr('id').split('_')[0];
+        const $newQ = $(`#${queryId}`);
+        const $oldQ = $(`#${queryId}_old`);
+
+        $.AdminLTE.boxWidget.collapse($newQ.find('button[data-widget="collapse"]'));
+        $.AdminLTE.boxWidget.collapse($oldQ.find('button[data-widget="collapse"]'));
+
+        addWordBreakToParagraph($newQ);
+        addWordBreakToParagraph($oldQ);
+    });
+
+    $headers.each(function () {
+        const $header = $(this);
+
+        if ($header.hasClass('box-query-new')) {
+            //if is collapsed, collapse opposite if exists;
+            if ($header.next().is(':visible')) {
+                const queryId = $header.attr('id').split('_')[0];
+                const $oldQ = $(`#${queryId}_old`);
+
+                addWordBreakToParagraph($header);
+                addWordBreakToParagraph($oldQ);
+
+                $.AdminLTE.boxWidget.collapse($oldQ.find('button[data-widget="collapse"]'));
+            }
+        }
+    });
+
+    setBoxClassByHeader();
+
+    $('.diff-btn').each(function () {
+        const $btn = $(this);
+        const sections = getDiffBtnSections($btn);
+
+        if (sections.$diffCol.length === 0) {
+            $btn.hide();
+            sections.$origCol.removeClass('col-sm-6').addClass('col-sm-12');
+        } else {
+            $btn.children().toggle(sections.$diffCol.hasClass('diffChanged'));
+
+            $btn.show();
+            sections.$origCol.removeClass('col-sm-12').addClass('col-sm-6');
+            $btn.removeClass('btn-secondary').addClass('btn-primary');
+        }
+    });
+}
+
+function colorTableInit() {
+    $('.colortable-success').parent().addClass('success');
+    $('.colortable-warning').parent().addClass('warning');
+    $('.colortable-danger').parent().addClass('danger');
+}
+
+function DBSDMCorrectionModeInit() {
+    const $kreslitkoWrapper = $('#frm-evaluateForm-form').find('div.kreslitko-wrapper');
+
+    if ($kreslitkoWrapper.length !== 0) {
+        $kreslitkoWrapper.each(function () {
+            const $wrapper = $(this);
+            const $kreslitkoBox = $wrapper.parents('.box');
+
+            $kreslitkoBox.children('.box-header').on('click', () => {
+                setTimeout(() => {
+                    if ($kreslitkoBox.children('.box-body').css('display') !== 'none') {
+                        $wrapper.each(function () {
+                            const canvas = DBSDM.Registry.get($(this).attr('data-component-name'));
+                            canvas.ui.correctionMode();
+                        });
+                    }
+                }, 1250);
+            });
+        });
+    }
+}
+
+$.nette.ext('restoreListeners', {
+    success: () => {
+        colorTableInit();
+    }
+});
+
+// Scroll to top of query form after ajax
+$.nette.ext('autoScroll', {
+    init: function () {
+        const _this = this;
+
+        $.nette.ext('snippets').after(el => {
+            if (_this.hasAutoScroll && (el.find('input[data-auto-scroll]').size() >= 1)) {
+                $('html, body').stop().animate({scrollTop: el.offset().top - 66});
+
+                _this.hasAutoScroll = false;
+            }
+        });
+    },
+    before: function (xhr, settings) {
+        if (!settings.nette) {
+            return;
+        }
+
+        this.hasAutoScroll = settings.nette.el.data('autoScroll') !== undefined;
+    }
+}, {
+    hasAutoScroll: false
+});
+
+function scrollToQuery(id) {
+    const hid = `#query-${id}`;
+    const $query = $(hid);
+
+    let timeout = 0;
+
+    if ($query.is(':visible') === false) {
+        $query.parents('.box-body').parent().children('.box-header').trigger('click');
+        timeout = 500;
+    } else {
+        timeout = 0;
+    }
+
+    setTimeout(() => {
+        $(document).scrollTop($query.offset().top - $('.main-header').height() - 20);
+    }, timeout);
+}
+
+function resizeQueries() {
+    const queryHeadlines = document.getElementsByClassName('query-header');
+
+    if (queryHeadlines.length > 0) {
+        const sizeOfContent = $('.content').width();
+        const queryCategoryDivs = document.getElementsByClassName('query-box');
+        const parentDiv = document.getElementById('querybox');
+        let originalDisplay = null;
+
+        if (parentDiv !== null) {
+            originalDisplay = parentDiv.style.display;
+            parentDiv.style.display = 'block';
+        }
+
+        for (let i = 0; i < queryHeadlines.length; i++) {
+            const widthOfHeader = (0.9 * sizeOfContent - ((queryCategoryDivs && queryCategoryDivs[i]) ? queryCategoryDivs[i].offsetWidth : 0));
+            queryHeadlines[i].style = `width: ${widthOfHeader}px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis`;
+        }
+
+        if (parentDiv !== null)
+            parentDiv.style.display = originalDisplay;
+    }
+}
+
+function initScriptUi() {
+    if ($('#script-textarea').length === 0) {
+        return;
+    }
+
+    const editor = ace.edit('script-textarea');
+
+    $('input.btn-file-upload').on('change', function (event) {
+        const file = this.files[0];
+        const $input = $(this).parents('.input-group').find(':text');
+        $input.val(file.name);
+    });
+
+    $('#script-upload-modal-form').on('submit', function (event) {
+        event.preventDefault();
+
+        // Load values
+        const $self = $(this);
+        const encoding = $self.find('select').val();
+        const file = $self.find(':file')[0].files[0];
+
+        // Read file
+        const reader = new FileReader();
+
+        reader.onload = event => {
+            editor.getSession().setValue(reader.result);
+        };
+
+        reader.readAsText(file, encoding);
+
+        // Hide modal
+        $('#script-upload-modal').modal('hide');
+        $('#file-loaded').show();
+    });
+
+    $('a.delegate-submit').on('click', function (event) {
+        event.stopPropagation();
+
+        $(this).parent().find(':submit').trigger('click');
+    });
+
+    $('#file-loaded').find('button.close').on('click', event => {
+        event.stopPropagation();
+
+        $('#file-loaded').hide();
+    });
+
+    const $loadAsync = $('div.load-script-from-url');
+
+    if ($loadAsync.length > 0) {
+        $.get($loadAsync.data('url'), data => {
+            editor.getSession().setValue(data.script);
+            $loadAsync.remove();
+        });
+    }
+}
+
+function initDeadlineDateTimePicker(id) {
+    const $input = $(`#${id}`);
+    let currentDate = $input.val();
+
+    const initDateChecker = (event) => {
+        const setDate = $input.val();
+        const now = new Date().getTime();
+
+        const setTimeTs = moment(setDate, ['DD.MM.YYYY HH:mm', 'DD/MM/YYYY HH:mm']).format('x');
+
+        const unbindButtons = () => {
+            $('#deadline-modal-cancel').off('click');
+            $('#deadline-modal-confirm').off('click');
+        }
+
+        if (setTimeTs < now) {
+            $('#deadline-modal').modal('show');
+
+            $('#deadline-modal-cancel').on('click', () => {
+                if (currentDate === '') {
+                    $input.data("DateTimePicker").date(new Date());
+                    $input.val('');
+                } else {
+                    $input.data("DateTimePicker").date(currentDate);
+                }
+
+                unbindButtons();
+            });
+
+            $('#deadline-modal-confirm').on('click', () => {
+                currentDate = $input.val();
+                unbindButtons();
+            });
+        } else {
+            currentDate = $input.val();
+        }
+    }
+
+    $input.removeAttr('onClick');
+    $input.wrap('<div style="position: relative"></div>');
+    $input.datetimepicker({
+        showClose: true,
+        showClear: true,
+        sideBySide: true,
+        locale: 'cs',
+        widgetPositioning: {
+            horizontal: 'left',
+            vertical: 'bottom'
+        }
+    }).on("dp.hide", initDateChecker);
+}
+
+function initDataGridHelpers() {
+    $('.datagrid').on('click', () => {
+        const girdDeadlineGrido = $('.datagrid-deadlineGrido')[0];
+
+        if (!girdDeadlineGrido) return;
+
+        girdDeadlineGrido.scrollLeft = 400000;
+        girdDeadlineGrido.scrollTop = 400000;
+    });
+}
+
+function initTaskPointHandler() {
+    $('.task-points').on('change', function () {
+        const $elm = $(this);
+        const maxPoints = parseInt($elm.parent().siblings('.control-label')
+            .find('.max-deducted-points').text().split(':')[1]);
+
+        if ($elm.val() <= maxPoints) {
+            const $box = $elm.closest('.box');
+            let $header = $box.children('.box-header');
+            const $boxBody = $box.children('.box-body');
+            let $points = $header.find('.default-minus-points');
+
+            if ($points.length === 0) {
+                $points = $header.find('.edit-minus-points');
+            }
+
+            //get all minus points from all requirements
+            let allPoints = 0;
+            let $allInputs;
+
+            if ($box.hasClass('box-query')) {
+                $allInputs = $boxBody.find('.task-points');
+            } else {
+                $allInputs = $boxBody.find('.first-col').find('.task-points');
+            }
+
+            $allInputs.each(function () {
+                const value = $(this).val();
+
+                if (value !== '') {
+                    allPoints += parseFloat(value);
+                }
+            });
+
+            $points.text(`-${allPoints}`);
+
+            if (allPoints !== 0) {
+                $points.show();
+            } else {
+                $points.hide();
+            }
+
+            if ($box.hasClass('box-query') || $boxBody.hasClass('query-body')) {
+                //go through all boxes, fix
+                let $boxAllQueries = $box;
+                if ($box.hasClass('box-query')) {
+                    $boxAllQueries = $box.parent().closest('.box');
+                }
+
+                allPoints = 0;
+                $allInputs = $boxAllQueries.children('.box-body').find('.first-col').find('.task-points');
+                $allInputs.each(function () {
+                    const value = $(this).val();
+
+                    if (value !== '') {
+                        allPoints += parseFloat(value);
+                    }
+                });
+
+                allPoints *= -1.0;
+
+                const $allQueries = $boxAllQueries.children('.box-body').children('.box');
+
+                $allQueries.each(function () {
+                    $header = $(this).children('.box-header');
+                    $points = $header.find('.default-minus-points');
+
+                    if ($points.length === 0) {
+                        $points = $header.find('.edit-minus-points');
+                    }
+
+                    allPoints += parseFloat($points.text());
+                });
+
+                $header = $boxAllQueries.children('.box-header');
+                $points = $header.find('.default-minus-points');
+
+                if ($points.length === 0) {
+                    $points = $header.find('.edit-minus-points');
+                }
+
+                $points.text(allPoints);
+                $points.toggle(allPoints !== 0);
+            }
+        }
+    });
+}
+
+function initScriptSearchButton() {
+    $('.search-script-button').on('click', function(event) {
+        event.stopPropagation();
+
+        const editorElement = $(this).attr('editor-element');
+        openAceScriptSearchBox(editorElement);
+    });
+
+    function openAceScriptSearchBox(editorId) {
+        let aceElem;
+        const $editor = $(`#${editorId}`);
+
+        if ($editor.hasClass('ace_editor')) {
+            aceElem = $editor.get()[0];
+        } else {
+            aceElem = $editor.find('.ace_editor').get()[0];
+        }
+
+        const editor = ace.edit(aceElem);
+        editor.execCommand("find");
+    }
+}
+
+function getDiffBtnSections($btn) {
+    let $btnBody;
+
+    if ($btn.hasClass('diff-btn-no-dropdown')) {
+        $btnBody = $btn.parent().siblings('.box-body');
+    } else $btnBody = $btn.parent().parent().siblings('.box-body');
+
+    return {
+        $btnBody: $btnBody,
+        $diffCol: $btnBody.children('.row').find('.second-col'),
+        $origCol: $btnBody.children('.row').find('.first-col')
+    };
+}
+
+function setBoxClassByHeader() {
+    const headerBox = {
+        'box-header-success': 'box-ok',
+        'box-header-error': 'box-problem',
+        'box-header-warning': 'box-warning',
+        'box-header-nocheck': 'box-nocheck',
+        'box-header-optional-success': 'box-nocheck',
+        'box-header-optional-error': 'box-nocheck',
+    };
+
+    $.each(headerBox, (headerClass, boxClass) => {
+        $(`.${headerClass}`).parent().addClass(boxClass);
+    });
+}
+
+// button visualize graph
+$(".mantaGraph").on('click', function(e) {
+    $.ajax({
+        type: "GET",
+        url: $(this).data('href'),
+        success: function (response) {
+            if (response.status === 'success') {
+                var url = response.url;
+                window.open(url);
+            } else {
+                console.log(response);
+            }
+        },
+        error: function (response) {
+            // ajax error
+        }
+    });
+});

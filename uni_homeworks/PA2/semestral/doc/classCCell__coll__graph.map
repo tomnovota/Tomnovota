@@ -1,0 +1,9 @@
+<map id="CCell" name="CCell">
+<area shape="rect" id="node1" title="Class representing cell in a table." alt="" coords="188,432,311,612"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,233,64,311"/>
+<area shape="rect" id="node3" title=" " alt="" coords="89,233,221,311"/>
+<area shape="rect" id="node4" title=" " alt="" coords="245,233,446,311"/>
+<area shape="rect" id="node5" href="$structCValue.html" title="Wrapper around variant representing constant value in table." alt="" coords="471,175,593,369"/>
+<area shape="rect" id="node6" title=" " alt="" coords="405,5,541,97"/>
+<area shape="rect" id="node7" title=" " alt="" coords="565,13,616,90"/>
+</map>

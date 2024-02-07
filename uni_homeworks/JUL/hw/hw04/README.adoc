@@ -1,0 +1,215 @@
+
+= 4. Domácí úkol: Intervalová aritmetika
+:toc:
+:author: Tomáš Kalvoda
+:date: 2022-11-28
+:stem: latexmath
+
+
+[[intro]]
+== Úvod
+
+Během svých programovacích dobrodružstvích jste již určitě narazili na problémy s počítáním se strojovými čísly (tak jak je definuje standard https://en.wikipedia.org/wiki/IEEE_754[IEEE 754]).
+Jejich výhodou je rychlost, operace s nimi jsou prováděny na hardwarové úrovni (přesněji v Julia jde o typy `Float64`, `Float32` a `Float16`, `BigFloat` do této efektivní kategorie už nepatří).
+Mezi nevýhody patří ztráta přesnosti při zaokrouhlování, https://en.wikipedia.org/wiki/Catastrophic_cancellation["katastrofické krácení"], jejich nerovnoměrné rozložení na reálné ose, atd.
+
+V důsledku těchto problémů je nutné při práci s nimi postupovat opatrně a snažit se aktivně vyhýbat situacím, kde by mohla vzniknout fatální chyba.
+Například výrazy, které jsou z matematického pohledu totožné nemusí být ekvivalentní či vhodné k použití v implementaci (například stem:[x - y = (x^2 - y^2) / (x + y)] pro různá stem:[x] a stem:[y]).
+Některé numerické algoritmy, které jsou správné při ideálních operacích s reálnými čísly selhávají při implementaci ve strojových číslech (nejkřiklavějším případem je asi Gaussova eliminace).
+
+Existují různé další přístupy modelující reálná čísla na počítačích.
+V tomto úkolu se podíváme na tzv. *Intervalovou aritmetiku*.
+Dalším velmi zajímavým přístupem je třeba číselný formát https://en.wikipedia.org/wiki/Unum_(number_format)[Unum].
+Například https://www.wolfram.com/mathematica/[_Mathematica_] k problému přistupuje rozlišováním dvou typů "přesnosti": https://reference.wolfram.com/language/ref/Accuracy.html[_accuracy_] a https://reference.wolfram.com/language/ref/Precision.html[_precision_].
+
+
+[[intervalova-aritmetika]]
+== Intervalová aritmetika
+
+Tento přístup k nepřesné aproximaci tělesa reálných čísel spočívá ve snaze hlídat velikost možné chyby akumulované během výpočtu a zároveň v možnosti práce s vrozenou neurčitostí hodnot, s kterými pracujeme.
+
+Místo _čísel_ stem:[x\in\mathbb{R}] budeme pracovat s _uzavřenými intervaly_ stem:[[x_1,\,x_2\]], stem:[x_1 \leq x_2].
+Intervalovou hodnotou stem:[x = [x_1,\,x_2\]] reprezentujeme fakt, že stem:[x] může mít libovolnou hodnotu z daného intervalu.
+Připouštíme rovnost krajních bodů intervalu (tím popíšeme situaci, kdy danou hodnotu známe _přesně_) a množina všech intervalových hodnot tak přirozeně i obsahuje všechna "stará" reálná čísla (jakožto stem:[[x_1,\,x_1\]]).
+
+
+[[algebraicke-operace]]
+=== Algebraické operace
+
+Dále definujeme algebraické operace *sčítání*
+
+[stem]
+++++
+  [x_1,\, x_2] + [y_1,\, y_2] := [x_1 + y_1,\, x_2 + y_2],
+++++
+
+*odčítání*
+
+[stem]
+++++
+  [x_1,\, x_2] - [y_1,\, y_2] := [x_1 - y_2,\, x_2 - y_1],
+++++
+
+a *násobení*
+
+[stem]
+++++
+  [x_1,\, x_2] \cdot [y_1,\, y_2] := \Big[ \min(x_1 y_1, x_1 y_2, x_2 y_1, x_2 y_2),\, \max(x_1 y_1, x_1 y_2, x_2 y_1, x_2 y_2) \Big].
+++++
+
+Definice každé z těchto operací je poměrně přirozená.
+Pokud hodnoty operandů příslušely uvedeným intervalům, pak libovolná výsledná hodnota padne do uvedeného výsledného intervalu a zároveň je tento výsledný interval nejmenší možný s touto vlastností.
+
+Operace *dělení* je komplikovanější kvůli ne/možnosti dělení nulou, definujeme ji předpisem
+
+[stem]
+++++
+  [x_1,\, x_2] / [y_1,\, y_2] := [x_1\, x_2] \cdot [y_1,\, y_2]^{-1},
+++++
+
+kde
+
+[stem]
+++++
+  [y_1,\, y_2]^{-1} := \left[ \frac{1}{y_2}, \frac{1}{y_1} \right],
+  \quad
+  \text{pokud} \ 0 \neq [y_1, \, y_2].
+++++
+
+Situaci, kdy je v děliteli obsažena nula uvažovat nebudeme (lze to, ale situace by se poměrně komplikovala), vyvoláme výjimku dělení nulou.
+
+Obyčejná reálná čísla stem:[x \in \mathbb{R}] jsou v tomto číselném systému přirozeně obsažena jako "intervaly" stem:[[x, x\]].
+
+
+[[zadani]]
+== Zadání
+
+Cílem tohoto úkolu je vytvořit Julia balíček `IntervalArithmetic.jl`, který bude implementovat datový typ modelující intervaly a dále bude implementovat metody pro práci s objekty tohoto typu, zejména algebraické operace.
+
+Kód musí mít náležitou strukturu, aby se s repozitářem dalo pracovat jako s Julia balíčkem (viz sekci xref:balicek[Julia balíček]).
+
+Zadání připravené na větvi `assignment/04-interval` je záměrně prakticky prázdné, abyste nebyli nijak omezeni nebo tlačeni v jistém směru.
+Ohledně struktury Julia balíčku se můžete inspirovat ve https://courses.fit.cvut.cz/BI-JUL/tutorials/bi-jul-08.html[výukových materiálech], balíčku https://github.com/JuliaCI/PkgTemplates.jl[PkgTemplates.jl] a našeho ukázkového balíčku https://gitlab.fit.cvut.cz/BI-JUL/WLS.jl[WLS.jl].
+
+
+=== Otázky
+
+Dále pomocí své implementace prozkoumejte jeden ze známých klasických ukázek tzv. katastrofického krácení.
+
+Mějme dvě čísla exaktně reprezentovatelná v 64 bitové přesnosti, stem:[x = 1 + 2^{-29}] a stem:[y = 1 + 2^{-30}].
+
+Vypočtěte přesnou hodnotu výrazu stem:[x^2 - y^2].
+
+  1. Jak se tato přesná hodnota liší od hodnoty získané pomocí standardních operací s čísly typu `Float64`?
+  2. Jak se tato přesná hodnota liší od hodnoty (z matematicky identického) výrazu stem:[(x+y)(x-y)] opět vyhodnoceného v aritmetice strojových čísel?
+  3. Která z hodnot získaná počítáním se strojovými čísly je přesnější (to bez znalosti exaktní hodnoty nelze určit)?
+
+Nyní oba výpočte proveďte v intervalové aritmetice, tj. s čísly `Interval(x) + Interval(-eps(Float64), Float(64))` a `Interval(y) + Interval(-eps(Float64), eps(Float64))`.
+Získáme z příslušných výsledků nějakou informaci, kterou jsme v předchozích výpočtech s obyčejnými strojovými čísly neměli?
+
+Odpovědi na tyto otázky uveďte v textu _merge requestu_, nebo přidejte do notebooku v repozitáři.
+
+NOTE: `eps(Float64)` je vzdálenost mezi jedničkou a následujícím strojovým číslem; v tomto smyslu udává jistou míru neurčitosti v naší znalosti přesné hodnoty těchto strojových čísel.
+
+
+=== Typ `Interval{T}`
+
+Modul `IntervalArithmetic` bude exportovat parametrický typ `Interval{T}`, který bude podtypem typu `Real`, a kde `T` je podtyp typu `Real`.
+Každá instance `Interval{T}` bude mít atributy `x1` a `x2` typu `T` udávající počáteční a koncový bod intervalu (situace, kdy `x2` je menší než `x1` nastat nesmí).
+Obě hodnoty mohou být shodné.
+
+Instance typu `Interval{T}` půjde vytvořit pomocí standardního konstruktoru
+
+[source,julia]
+----
+Interval(1.0, 2.0)
+----
+
+Dále chceme pracovat i s intervaly nulové délky a tak musíme definovat konstruktory
+
+  * `Interval(x::T)`, který vytvoří instanci typu `Interval{T}` se shodnými krajními body `x`,
+  * `Interval{T}(x::S)`, který vytvoří instanci typu `Interval{T}` s krajními body `T(x)`. Tento konstruktor je potřeba k tomu, aby nám dobře fungovaly algebraické operace s původními reálnými čísly (včetně celých čísel atp.), viz níže.
+
+
+=== Algebraické operace
+
+Podle xref:algebraicke-operace[popisu výše] implementujte algebraické metody `+`, `-`, `\*` a `/` mezi objekty typu `Interval{T}` se _stejným_ typem `T`.
+
+Dále zajistěte, aby se tento nový typ choval přátelsky k již existujícím reálně-číselným typům a intervalům s jiným číselným typem.
+Přesněji, například součet `1 + Interval(2, 3)` má velmi dobrý smysl jako `Interval(3, 4)` a součet `Interval(2, 3) + Interval(-1.0, -1.0)` jako `Interval(1.0, 2.0)`.
+Toho docílíme zadefinováním dvou pomocných metod `promote_rule` a `convert`:
+
+[source,julia]
+----
+import Base.promote_rule, Base.convert
+
+promote_rule(::Type{Interval{T}}, ::Type{Interval{S}}) where { T <: Real, S <: Real } = Interval{promote_type(S, T)}
+
+promote_rule(::Type{Interval{T}}, ::Type{S}) where { T <: Real, S <: Real } = Interval{promote_type(S, T)}
+
+function convert(::Type{Interval{T}}, x::Interval{S}) where { T <: Real, S <: Real }
+  return Interval(T(x.x1), T(x.x2))
+end
+
+function convert(::Type{Interval{T}}, x::S) where { T <: Real, S <: Real }
+  return Interval(T(x), T(x))
+end
+----
+
+Zájemci mohou více detailů nalézt v https://docs.julialang.org/en/v1/manual/conversion-and-promotion/[dokumentaci], ale výše uvedený snippet by měl být dostatečný.
+
+
+=== Funkce `show`
+
+Rozšiřte funkci `show` o metodu umožňující pěkný výpis intervalu, k znázornění uzavřeného intervalu můžete využít hranatých závorek: `[1, 2]` nebo vhodného unicode symbolu.
+
+
+=== Ukázka použití
+
+K otestování a ukázce použití je v repozitáři připraven notebook `notebooks/demo.ipynb`, který obsahuje
+
+  * ukázky základního použití balíčku,
+  * demonstrace chování chyby u některých algoritmů.
+
+
+== Implementační poznámky
+
+
+[[balicek]]
+=== Julia balíček
+
+Julia balíček bude vybaven automatizovanými unit testy a generátorem dokumentace pomocí `Documenter.jl`.
+Dokumentaci nemusíte vystavovat veřejně přístupnou na webu.
+Stačí, když půjde lokálně vytvořit.
+Inspirovat se můžete v balíčku, který jsme vytvářeli v semestru https://gitlab.fit.cvut.cz/BI-JUL/WLS.jl[WLS.jl]
+
+Strukturu balíčku vytvořte ve svém repozitáři ve větvi `solution/04-interval`.
+Uživatel/opravující ho pak bude moci instalovat v `Pkg` módu příkazem
+
+[source]
+----
+] add https://gitlab.fit.cvut.cz/BI-JUL/B221/USERNAME#solution/04-interval
+----
+
+případně
+
+[source]
+----
+] dev https://gitlab.fit.cvut.cz/BI-JUL/B221/USERNAME#solution/04-interval
+----
+
+
+== Jak úkol vyřeším, odevzdám?
+
+Snadno.
+Při řešení zadání na větvi `assignment/XY-TITLE` vytvořte vlastní
+větev `solution/XY-TITLE` vycházející z větve se zadáním.
+
+Nyní pracujte, upravujte, dle libosti, větev `solution/XY-TITLE`.
+
+Pokud jste se stavem spokojeni, vytvořte _merge request_ (MR) větve `solution/XY-TITLE` do větve `assignment/XY-TITLE` a přiřaďte mě (Tomáš Kalvoda) k tomuto (MR).
+
+Při vytvoření MR také dojde k zobrazení stavu případných testů, které zadání
+obsahuje.
+
+Detailní pokyny k tomuto procesu budou také vždy uvedeny přímo ve větvi se zadáním.

@@ -1,0 +1,5 @@
+<map id="CTable::Expand" name="CTable::Expand">
+<area shape="rect" id="node1" title="Ensures new_size x new_size array of cells would be created and existing cells untouched." alt="" coords="169,31,291,57"/>
+<area shape="rect" id="node2" href="$classCTable.html#a7c472595534d5af1a405e8bf21003705" title=" " alt="" coords="5,5,121,32"/>
+<area shape="rect" id="node3" href="$classCTable.html#a2b489a4b372d4e69a4fb5e84d48da57d" title="Edit cell on given position and insert given properties and checks cycle references." alt="" coords="14,56,113,83"/>
+</map>

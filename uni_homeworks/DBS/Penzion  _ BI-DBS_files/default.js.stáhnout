@@ -1,0 +1,851 @@
+'use strict';
+
+initAlerts(window.alerts = window.alerts || {});
+
+$(() => {
+    initResizeHandlers();
+    initModalCloseAfterLangSelected();
+    initRolloutBoxHelper();
+    initPostMaxHelper();
+    initResponsiveHeader();
+
+    registerNetteHandlers();
+
+    $('#login-btn').focus();
+
+    initNette();
+    initEditors();
+    initRaInputHelpers();
+    initCloseAllAlerts();
+});
+
+function initNette() {
+    // Initialize Nette plugin
+    $.nette.init();
+
+    $('.datetimepicker').datetimepicker({
+        locale: 'cs',
+        sideBySide: true
+    });
+}
+
+function initResizeHandlers() {
+    const $body = $('body');
+    let resizeTimeout;
+
+    // Top menu
+    function onresize() {
+        const $navbar = $('#navbar-top-main');
+        const $navbarList = $navbar.find('.navbar-nav');
+        const $dropdown = $navbar.find('.navbar-nav > li:last-of-type');
+        const $dropdownList = $dropdown.find('> ul');
+        const $dropdownItems = $dropdownList.find('> li');
+
+        // reset to the original state - move all items to $navbarList
+        $navbarList.append($dropdownItems);
+        $navbarList.append($dropdown);
+
+        if (innerWidth < 768) {
+            $dropdown.hide();
+            return;
+        }
+
+        $navbar.addClass('navbar-top-main-visible'); // hidden by default to prevent overflowing before JS loads
+
+        const $items = $navbarList.find('> li:not(:last-of-type)');
+        const widthAvailable = $('.navbar-static-top').width();
+        let visibleItemsWidth = $dropdown.outerWidth() + $('.navbar-custom-menu').outerWidth() + 10;
+
+        while ($items.length && visibleItemsWidth + $items.first().outerWidth() < widthAvailable) {
+            visibleItemsWidth += $items.first().outerWidth();
+            $items.splice(0, 1);
+        }
+
+        if ($items.length) {
+            $dropdown.show();
+            $dropdownList.append($items);
+        } else {
+            $dropdown.hide();
+        }
+    }
+
+    function animateResize(duration) {
+        if (!resizeTimeout) {
+            requestAnimationFrame(function f() {
+                onresize();
+
+                if (resizeTimeout) {
+                    requestAnimationFrame(f);
+                }
+            });
+        }
+
+        clearTimeout(resizeTimeout);
+
+        resizeTimeout = setTimeout(() => {
+            resizeTimeout = null;
+        }, duration);
+    }
+
+    function setHidden(value) {
+        Cookies.set('main-sidebar-hidden', value ? 1 : 0);
+    }
+
+    onresize();
+
+    // Expanding/collapsing the sidebar changes the available width...
+    $body.on('expanded.pushMenu collapsed.pushMenu', () => {
+        // ... and because the process is animated, we need to recalculate multiple times.
+        animateResize(1000);
+
+        // Remember the preference after page reload.
+        setHidden($body.hasClass('sidebar-collapse'));
+    });
+
+    // Some browsers will fire this when the animation ends.
+    $('.main-sidebar').on('transitionend', onresize);
+
+    // orientationchange needs some update delay as well
+    $(window).on('resize orientationchange', () => {
+        animateResize(400);
+    });
+
+    // Sidebar
+    $('.main-sidebar .treeview').on('click', () => {
+        if ($body.hasClass('sidebar-collapse')) {
+            $($.AdminLTE.options.sidebarToggleSelector).first().trigger('click');
+        }
+    });
+}
+
+function initModalCloseAfterLangSelected() {
+    $('#locale-modal-submit').on('click', () => {
+        $('#locale-modal-submit').parents('.modal-content').children('.modal-header')
+            .children('button').trigger('click');
+    });
+}
+
+function initRolloutBoxHelper() {
+    // Make rollout boxes clickable on the whole header
+    const $headers = $('.box button[data-widget="collapse"]').closest('.box-header');
+    $headers.css('cursor', 'pointer');
+    $headers.on('click', function () {
+        $.AdminLTE.boxWidget.collapse($(this).find('button[data-widget="collapse"]'));
+    });
+}
+
+function initPostMaxHelper() {
+    const $postMax = $('input[name="post_max_size"]');
+
+    if ($postMax.length) {
+        const maxSize = $postMax.val();
+        const message = $postMax.data('message');
+
+        $postMax.closest('form').on('submit', function () {
+            let totalSize = 0;
+            const $form = $(this);
+
+            $form.children().find('input[type="file"]').each(function () {
+                for (let i = 0; i < this.files.length; i++) {
+                    totalSize += this.files[i].size;
+                }
+            });
+
+            if (totalSize >= maxSize) {
+                if (!$('#post-max-error').length) {
+                    $form.prepend(`<p id="post-max-error" class="text-red text-bold">${message}</p>`);
+                }
+
+                return false;
+            }
+
+            return true;
+        });
+    }
+}
+
+function initResponsiveHeader() {
+    // Auto hide header in responsive view
+    let lastScrollTop = 0;
+    // on scroll, let the interval function know the user has scrolled
+    $(window).scroll(throttleEventHandler(hasScrolled, 100));
+
+    function hasScrolled() {
+        const st = $(this).scrollTop();
+
+        if (st > lastScrollTop && st > 0) {
+            $('header').addClass('header-auto-hide');
+        } else {
+            $('header').removeClass('header-auto-hide');
+        }
+
+        lastScrollTop = st;
+    }
+}
+
+/**
+ * Handles timed destruction of sticky flash messages (aka alerts).
+ */
+function initAlerts(alerts) {
+    const destructionTimers = {};
+    const detonationTimers = {};
+
+    /**
+     * Sets up a timer to destroy an alert after it slowly fades out (done via CSS animation).
+     *
+     * @param $element JQuery wrapped HTML element to destroy.
+     */
+    alerts.detonate = $element => {
+        // Remove slide-in as the animation would be triggered again
+        // Add fade-out animation and get ID
+        const id = $element.removeClass('slide-in').addClass('disappear').uniqueId().attr('id');
+
+        if (!(id in detonationTimers)) {
+            delete destructionTimers[id];
+
+            // Destroys the element after fade-out animation is finished, which is expected to be 1500ms
+            detonationTimers[id] = setTimeout(() => {
+                $element.alert('close');
+                delete detonationTimers[id];
+            }, 1500);
+        }
+    };
+
+    /**
+     * Sets up a timer to onset a destruction of an element.
+     *
+     * @param $element JQuery wrapped HTML element to destroy.
+     * @param t Timeout in milliseconds.
+     */
+    alerts.timedDestruction = ($element, t) => {
+        const id = $element.uniqueId().attr('id');
+
+        if (!(id in destructionTimers)) {
+            destructionTimers[id] = setTimeout(() => {
+                alerts.detonate($element);
+            }, t);
+        }
+    };
+
+    /**
+     * Assigns destruction timer to every alert with a timeout set. Should be called on page load and after AJAX request
+     * to ensure every alert is handled. If timeout is set to zero, destruction will not be set.
+     */
+    alerts.init = () => {
+        $('.header-alert-container > .alert:not(.alert-active):not([data-timeout="0"])').addClass('alert-active').hover(
+            function () {
+                const id = $(this).removeClass('disappear').uniqueId().attr('id');
+
+                if (id in detonationTimers) {
+                    clearTimeout(detonationTimers[id]);
+                    delete detonationTimers[id];
+                }
+
+                if (id in destructionTimers) {
+                    clearTimeout(destructionTimers[id]);
+                    delete destructionTimers[id];
+                }
+            },
+            function () {
+                const $elm = $(this);
+                alerts.timedDestruction($elm, $elm.data('timeout'));
+            }
+        ).trigger('mouseleave');
+    };
+}
+
+function registerNetteHandlers() {
+    // Ajax extension for notifications
+    $.nette.ext('notification', {
+        init: () => {
+            // Load snippet module
+            const snippets = $.nette.ext('snippets');
+
+            // Register after listener
+            snippets.after($el => {
+                if ($el.data('notifications')) {
+                    $el.addClass('open');
+                }
+            });
+        }
+    });
+
+    $.nette.ext('areYouSure', {
+        init: function () {
+            // Propagates ACE editor's value to its underlying textarea, so areYouSure can read it
+            if ($('.confirm-leave').find('.ace_editor').length > 0) {
+                const answer = window.ace.edit('editor');
+
+                answer.on('change', () => {
+                    $('.confirm-leave').val(answer.getValue());
+                });
+            }
+
+            // Forces areYouSure to check form before leaving page
+            $(window).on('beforeunload.dbsAreYouSure', () => {
+                $(`.confirm-leave:not(.${this.skipClass})`).trigger('checkform.areYouSure');
+            });
+
+            this.initAreYouSure();
+        },
+        success: function () {
+            this.initAreYouSure();
+        }
+    }, {
+        /** Captured form submit event object */
+        submitEvent: null,
+
+        /** CSS class that prevents the element from checking on page leave. Used for submitted forms. */
+        skipClass: 'ays-skip',
+
+        /**
+         * Binds areYouSure plugin to elements of CSS class "confirm-leave".
+         */
+        initAreYouSure() {
+            $('.confirm-leave').areYouSure({
+                fieldEvents: '', // Field is not checked during typing since it made EasyMDE unresponsive.
+                message: $(this).attr('data-leave-message')
+            }).off('submit.dbsAreYouSure').on('submit.dbsAreYouSure', () => {
+
+                // Deactivate warning if user leaves via form submit
+                $('.confirm-leave').addClass(this.skipClass).one('change keyup propertychange input', () => {
+                    // Reactivate warning if submit event is canceled and some field is changed.
+                    $('.confirm-leave').removeClass(this.skipClass);
+                });
+            });
+        }
+    });
+
+    /**
+     * Handles pseudo-disabling (via CSS class and preventDefault) and re-enabling submit buttons on form submit, to prevent
+     * multiple submissions.
+     */
+    $.nette.ext('formSubmit', {
+        init: function () {
+            const _this = this;
+            // For non-ajax forms
+            $('form:not([class*="ajax"])').on('submit.dbsDisable', function () {
+                const $form = $(this);
+                _this.disableSubmits($form);
+
+                $form.one('change keyup input', () => {
+                    _this.restoreSubmits();
+                });
+            });
+
+            // For elements with special CSS class (non-forms)
+            $('.single-click').on('click.dbsDisableInit', function () {
+                const $elm = $(this);
+                $elm.find('button').addClass(_this.disabledClass);
+                $elm.addClass(_this.disabledClass).off('click.dbsDisableInit')
+                    .on(_this.clickEvent, event => {
+                        event.preventDefault();
+                    });
+            });
+        },
+        start: function (jqXHR, settings) {
+            if (!settings.nette || !settings.nette.form) return;
+
+            this.disableSubmits(settings.nette.form);
+        },
+        complete: function () {
+            this.restoreSubmits();
+        }
+    }, {
+        btnSelector: 'input[type="submit"]:not(disabled)',
+        disabledButtons: [],
+        disabledClass: 'disabled',
+        clickEvent: 'click.dbsDisable',
+
+        /**
+         * Adds disabled class to submit buttons of given form and prevents it click event to submit the form.
+         *
+         * @param $form Form jQuery object.
+         */
+        disableSubmits: function ($form) {
+            this.disabledButtons.push(
+                $form.find(this.btnSelector).addClass(this.disabledClass).on(this.clickEvent, event => {
+                    event.preventDefault();
+                })
+            );
+        },
+
+        /**
+         * Restores all "disabled" submit buttons.
+         */
+        restoreSubmits: function () {
+            this.disabledButtons.forEach($elements => {
+                $elements.removeClass(this.disabledClass).off(this.clickEvent);
+            });
+
+            this.disabledButtons = [];
+        }
+    });
+
+    $.nette.ext('alerts', {
+        init: window.alerts.init,
+        success: window.alerts.init
+    });
+
+    /**
+     * Runs Easy MDE.
+     */
+    $.nette.ext('easyMde', {
+        init: function () {
+            this.initEasyMde();
+        },
+        success: function () {
+            this.initEasyMde();
+        }
+    }, {
+        /**
+         * Initializes Easy MDE to all DOM textareas with data-markdown or data-markdown-compact attribute set.
+         * Assigns mde-active class as a side effect to keep track of already initialized editors.
+         */
+        initEasyMde: () => {
+            $('textarea[data-markdown]:not(.mde-active)').each(function () {
+                $(this).addClass('mde-active');
+
+                const editor = new EasyMDE({
+                    element: this,
+                    forceSync: true,
+                    spellChecker: false,
+                    toolbar: [
+                        'bold',
+                        'italic',
+                        'heading',
+                        '|',
+                        'code',
+                        'quote',
+                        'unordered-list',
+                        'ordered-list',
+                        '|',
+                        'link',
+                        '|',
+                        'guide'
+                    ],
+                    status: [{
+                        className: 'wordCounter',
+                        defaultValue: el => {
+                            el.innerHTML = '0 Words';
+                        },
+                        onUpdate: el => {
+                            const str = editor.value();
+
+                            const countWords = str => {
+                                if (!str) return 0;
+                                // Match whole words or words with dash in the middle (including unicode characters and numbers).
+                                const wordCharacter = '\\p{Alphabetic}\\p{Mark}\\p{Decimal_Number}\\p{Connector_Punctuation}';
+                                const regex = new XRegExp(`[${wordCharacter}]+-?[${wordCharacter}]*`, 'g');
+                                const m = str.match(regex);
+
+                                if (!m) return 0;
+
+                                return m.length;
+                            };
+
+                            const cnt = countWords(str);
+
+                            el.innerHTML = `${cnt}${cnt !== 1 ? ' Words' : ' Word'}`;
+                        }
+                    }]
+                });
+            });
+
+            $('textarea[data-markdown-compact]:not(.mde-active)').each(function () {
+                $(this).addClass('mde-active');
+
+                const editor = new EasyMDE({
+                    element: this,
+                    forceSync: true,
+                    spellChecker: false,
+                    toolbar: false,
+                    status: false,
+                    minHeight: $(this).hasClass('compact-comment-form') ? '50px' : undefined
+                });
+
+                const cm = editor.codemirror;
+
+                cm.on('change', () => {
+                    const textArea = cm.getTextArea();
+                    const $box = $(textArea).closest('.box');
+                    let $commentIcon = $box.find('.comment-on-edit-icon');
+
+                    if (!(cm.getValue() === '')) {
+                        showCommentIcon($commentIcon);
+                        if ($box.hasClass('box-query')) {
+                            $commentIcon = $box.parent().siblings('.box-header').find('.comment-on-edit-icon');
+                            showCommentIcon($commentIcon);
+                        }
+                    } else {
+                        $commentIcon.hide();
+
+                        if ($box.hasClass('box-query')) {
+                            const $boxBody = $box.parent();
+                            $commentIcon = $boxBody.siblings('.box-header').find('.comment-on-edit-icon');
+                            //find all comment on edit in the body of that box and count visible ones -> if none is visible then hide the icon
+                            const $icons = $boxBody.find('.comment-on-edit-icon:visible');
+
+                            if ($icons.size() === 0) {
+                                $commentIcon.hide();
+                            }
+                        }
+                    }
+                });
+            });
+        }
+    });
+
+    $.nette.ext('confirm', {
+        before: (xhr, settings) => {
+            if (!settings.nette) {
+                return;
+            }
+
+            const question = settings.nette.el.data('confirm');
+            if (question) {
+                return confirm(question);
+            }
+        }
+    });
+}
+
+function showCommentIcon(commentIcon) {
+    if (commentIcon.hasClass('comment-edit-teacher')) {
+        if (!commentIcon.siblings('.comment-teacher-icon').is(':visible')) {
+            commentIcon.show();
+        }
+    } else {
+        if (!commentIcon.siblings('.comment-student-icon').is(':visible')) {
+            commentIcon.show();
+        }
+    }
+}
+
+// Buttons to set points when evaluating {sw or tests}
+function setPoints(btn, name, val, max) {
+    let $el;
+    // in test module, there are multiple inputs with the same names, select only the closest one
+    if (name === 'point') {
+        $el = $(btn).closest('form').find(`input[name=${name}]`);
+    } else {
+        $el = $(`input[name=${name}]`);
+    }
+
+    const curval = Number($el.val());
+
+    if (name === 'late') {
+        if (val === '-') {
+            val = curval - 0.5;
+        } else if (val === '+') {
+            val = curval + 0.5;
+        }
+    } else {
+        if (val === '+') {
+            val = curval + 0.5;
+            if (typeof max !== 'undefined' && Number(val) > Number(max)) {
+                val = max;
+                triggerBtnTooltip(btn);
+            }
+        } else if (val === '-') {
+            if (curval <= 0) {
+                triggerBtnTooltip(btn);
+            }
+
+            val = Math.max(0, curval - 0.5);
+        }
+    }
+
+    $el.val(val);
+    $el.trigger('change');
+}
+
+function triggerBtnTooltip(btn) {
+    // Show error tooltip for 2 seconds
+    $(btn).tooltip({trigger: 'manual'}).tooltip('show');
+
+    setTimeout(() => {
+        $(btn).tooltip('destroy');
+    }, 2000);
+}
+
+function initEditors() {
+    const toolbarButtonType = {
+        first: 1,
+        last: 2
+    };
+
+    Object.freeze(toolbarButtonType);
+
+    function createToolbarButton(container, handler, character, label, insert, type) {
+        let extraClass = '';
+
+        if (type === toolbarButtonType.last) {
+            extraClass = ' last-in-category';
+        } else if (type === toolbarButtonType.first) {
+            extraClass = ' first-in-category';
+        }
+
+        const btn = $('<button/>', {
+            text: character,
+            class: `btn btn-default rat-button${extraClass}`,
+            title: Translator.translate(label),
+            click: event => {
+                event.preventDefault();
+                event.stopPropagation();
+                handler(insert);
+            }
+        });
+
+        container.append(btn);
+    }
+
+    function createRaButtons(container, handler) {
+        const createButton = createToolbarButton.bind(this, container, handler);
+
+        createButton('*', 'admin.rat.btnNaturalJoin', '*', toolbarButtonType.first);
+        createButton('< *', 'admin.rat.btnLeftNaturalSemijoin', '\u003C*');
+        createButton('* >', 'admin.rat.btnRightNaturalSemijoin', '*\u003E');
+        createButton('!< *', 'admin.rat.btnLeftAntijoin', '!\u003C*');
+        createButton('!* >', 'admin.rat.btnRightAntijoin', '!*\u003E', toolbarButtonType.last);
+
+        createButton('[ ]', 'admin.rat.btnJoin', '[]', toolbarButtonType.first);
+        createButton('< ]', 'admin.rat.btnLeftGeneralSemijoin', '\u003C]');
+        createButton('[ >', 'admin.rat.btnRightGeneralSemijoin', '[\u003E');
+        createButton('!< ]', 'admin.rat.btnLeftGeneralAntijoin', '!\u003C]');
+        createButton('![ >', 'admin.rat.btnRightGeneralAntijoin', '![\u003E', toolbarButtonType.last);
+
+        createButton('\u222A', 'admin.rat.btnSetUnion', '\u222A', toolbarButtonType.first);
+        createButton('\u2229', 'admin.rat.btnSetIntersection', '\u2229');
+        createButton('\u005C', 'admin.rat.btnSetDifference', '\u005C');
+        createButton('\u00F7', 'admin.rat.btnSetDivision', '\u00F7');
+        createButton('\u00D7', 'admin.rat.btnCrossProduct', '\u00D7', toolbarButtonType.last);
+
+        createButton('\u2228', 'admin.rat.btnLogicalDisjunction', '\u2228', toolbarButtonType.first);
+        createButton('\u2227', 'admin.rat.btnLogicalConjunction', '\u2227');
+        createButton('\u00AC', 'admin.rat.btnLogicalNegation', '\u00AC', toolbarButtonType.last);
+
+        createButton('\u002B', 'admin.rat.btnAddition', '\u002B', toolbarButtonType.first);
+        createButton('\u002D', 'admin.rat.btnSubtraction', '\u002D');
+        createButton('\u2215', 'admin.rat.btnDivision', '\u2215');
+        createButton('\u2217', 'admin.rat.btnMultiplication', '\u2217', toolbarButtonType.last);
+
+        createButton('\u2286', 'admin.rat.btnSubsetOfOrEqualTo', '\u2286', toolbarButtonType.first);
+        createButton('\u2282', 'admin.rat.btnSubsetOf', '\u2282');
+        createButton('\u2192', 'admin.rat.btnRightwardsArrow', '\u2192');
+        createButton('->', 'admin.rat.btnDashArrow', '->');
+        createButton('\u207A', 'admin.rat.btnMultiplication', '\u207A', toolbarButtonType.last);
+
+        createButton('18.3.2012', 'admin.rat.btnDate', '\'18.3.2012\'', toolbarButtonType.first);
+    }
+
+    // Hook up ACE editor to all textareas with data-editor attribute
+    function sqlRaHighlight() {
+        $('textarea[ace-editor]:not(.ace-active)').each(function () {
+            const $textarea = $(this);
+            const $editDiv = $('<div>', {
+                position: 'absolute',
+                height: $textarea.height(),
+                class: $textarea.attr('class'),
+                id: $textarea.data('customName')
+            }).insertBefore($textarea);
+
+            $textarea.hide();
+
+            const editor = ace.edit($editDiv[0]);
+            const textareaValue = $textarea.val();
+            let showExpand = textareaValue.trim().length > 0;
+            editor.getSession().setValue(textareaValue);
+            editor.setTheme('ace/theme/tomorrow');
+            editor.setOptions({
+                fontSize: '11pt'
+            });
+
+            editor.renderer.setScrollMargin(0, 2, 0, 2);
+
+            let showRAButtons = $textarea.attr('show-ra-buttons');
+            const mode = $textarea.attr('ace-editor');
+
+            if (mode.startsWith('sql')) {
+                editor.getSession().setMode('ace/mode/sql');
+            }
+
+            if (mode.startsWith('ra')) {
+                editor.getSession().setMode('ace/mode/ra');
+                showRAButtons = true;
+            }
+
+            if (mode.endsWith('preview')) {
+                editor.setOptions({
+                    readOnly: true,
+                    highlightActiveLine: false,
+                    highlightGutterLine: false
+                });
+                editor.renderer.setDisplayIndentGuides(false);
+                editor.renderer.setShowGutter(false);
+                editor.renderer.$cursorLayer.element.style.display = 'none';
+                editor.setOption("wrap", 80);
+                showRAButtons = false;
+            } else {
+                showExpand = true;
+            }
+
+            editor.setOptions({
+                minLines: 5,
+                maxLines: 20
+            });
+
+            const minRows = $textarea.attr('min-rows');
+
+            if (minRows) {
+                editor.setOptions({
+                    minLines: minRows
+                });
+            }
+
+            const maxRows = $textarea.attr('max-rows');
+
+            if (maxRows) {
+                editor.setOptions({
+                    maxLines: maxRows
+                });
+            }
+
+            const rowCount = $textarea.attr('rows');
+
+            if (rowCount) {
+                editor.setOptions({
+                    minLines: rowCount,
+                    maxLines: rowCount
+                });
+            }
+
+            const hideRowNums = $textarea.attr('hide-row-nums');
+
+            if (hideRowNums) {
+                editor.renderer.setShowGutter(false);
+            }
+
+            if (showRAButtons) {
+                const $container = $('<div>');
+
+                createRaButtons(
+                    $container,
+                    insert => {
+                        const cursorPosition = editor.getCursorPosition();
+
+                        editor.session.insert(cursorPosition, insert);
+                        editor.focus();
+                    }
+                );
+
+                $container.insertBefore($editDiv);
+            }
+
+            if (showExpand) {
+                const expandButton = $("<div class=\"expand closed\" />")
+
+                editor.getSession().on('change', function () {
+                    const lineCount = editor.getSession().getLength();
+                    let max = maxRows;
+                    if (!max) {
+                        max = 20;
+                    }
+                    if (lineCount > max) {
+                        expandButton.show();
+
+                    } else {
+                        expandButton.hide()
+                    }
+                });
+
+                expandButton.insertAfter($textarea);
+
+                let max = maxRows;
+                if (!max) {
+                    max = 20;
+                }
+
+                const lineCount = editor.getSession().getLength();
+                if (lineCount > max) {
+                    expandButton.show();
+
+                } else {
+                    expandButton.hide()
+                }
+
+                expandButton.click(function () {
+                    let button = $(this);
+                    if (button.hasClass("closed")) {
+                        button.removeClass("closed");
+                        editor.setOptions({
+                            maxLines: Infinity
+                        });
+                        button.addClass("opened");
+                    } else {
+                        button.removeClass("opened");
+                        let max = maxRows;
+                        if (!max) {
+                            max = 20;
+                        }
+                        editor.setOptions({
+                            maxLines: max
+                        });
+                        button.addClass("closed");
+                    }
+                });
+
+                $editDiv.addClass("expandable");
+            }
+
+            $textarea.addClass('ace-active');
+
+            // copy back to textarea on every change
+            editor.getSession().on('change', () => {
+                $textarea.val(editor.getSession().getValue());
+            });
+        });
+    }
+
+    sqlRaHighlight();
+    $.nette.ext({success: sqlRaHighlight});
+}
+
+function initRaInputHelpers() {
+    // Allow tabs in RA input
+    $(document).on('keydown', '[name="ra"]', function (event) {
+        const keyCode = event.keyCode || event.which;
+
+        if (keyCode === 9) {
+            event.preventDefault();
+            const start = this.selectionStart;
+            const end = this.selectionEnd;
+            const $input = $(this);
+
+            // set textarea value to: text before caret + tab + text after caret
+            $input.val(`${$input.val().substring(0, start)}\t${$input.val().substring(end)}`);
+
+            // put caret at right position again
+            this.selectionStart =
+                this.selectionEnd = start + 1;
+        }
+    });
+}
+
+function initCloseAllAlerts() {
+    $(document).on('click', '.close-all-header-flash-alerts', () => {
+        const $container = $('.header-alert-container').first();
+        $container.html('');
+    });
+}
+
+function throttleEventHandler(fn, wait) {
+    let time = Date.now();
+
+    return () => {
+        if ((time + wait - Date.now()) < 0) {
+            fn();
+            time = Date.now();
+        }
+    };
+}

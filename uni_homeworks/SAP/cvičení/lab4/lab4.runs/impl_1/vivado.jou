@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2.1 (64-bit)
+# SW Build 2288692 on Thu Jul 26 18:24:02 MDT 2018
+# IP Build 2289599 on Thu Jul 26 21:09:20 MDT 2018
+# Start of session at: Tue Mar  8 08:11:35 2022
+# Process ID: 12304
+# Current directory: X:/SAP/lab4/lab4.runs/impl_1
+# Command line: vivado.exe -log multiplier_vhdl.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source multiplier_vhdl.tcl -notrace
+# Log file: X:/SAP/lab4/lab4.runs/impl_1/multiplier_vhdl.vdi
+# Journal file: X:/SAP/lab4/lab4.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source multiplier_vhdl.tcl -notrace

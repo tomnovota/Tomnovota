@@ -1,0 +1,5 @@
+<map id="CLoadTable::PrepareParameters" name="CLoadTable::PrepareParameters">
+<area shape="rect" id="node1" title="Helper function proccessing parameters from header." alt="" coords="427,5,655,32"/>
+<area shape="rect" id="node2" href="$classCLoadTable.html#a757c15ff8310455ff42b5315a54b42b9" title="Checks first read line containing column names and calculates table parameters." alt="" coords="188,5,379,32"/>
+<area shape="rect" id="node3" href="$classCLoadTable.html#a0daed646c6268fec18fe1d6aef0a2a6c" title="Interface method beginning table loading." alt="" coords="5,5,140,32"/>
+</map>

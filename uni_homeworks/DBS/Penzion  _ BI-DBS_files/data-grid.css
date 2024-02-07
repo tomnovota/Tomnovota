@@ -1,0 +1,68 @@
+.row-green {
+    background: #dff0d8 !important;
+}
+
+.row-red {
+    background: #f2dede !important;
+}
+
+.row-yellow {
+    background: #fffbc4 !important;
+}
+
+.row-grey {
+    background: #cccccc !important;
+}
+
+.row-teacher-notification-new {
+    color: #000000 !important;
+    background: #fffbc4 !important;
+}
+
+.row-teacher-notification-read {
+    color: #000000 !important;
+    background: #fffee6 !important;
+}
+
+.row-teacher-notification-finished {
+    color: #999999 !important;
+    background: #ffffff !important;
+}
+
+.row-student-notification-new {
+    color: #000000 !important;
+    background: #edf2fa !important;
+}
+
+.row-student-notification-read {
+    color: #000000 !important;
+    background: #FFFFFF !important;
+}
+
+.row-student-notification-finished {
+    color: #999999 !important;
+    background: #FFFFFF !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+/* Make DataGrid scrollable to the sides */
+.datagrid {
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+.datagrid.datagrid-submittedGrid  {
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+.datagrid.datagrid-deadlineGrido  {
+    overflow-y: visible;
+    overflow-x: auto;
+}
+
+.remove-datagird-padding div.datagrid {
+    padding: 0;
+}

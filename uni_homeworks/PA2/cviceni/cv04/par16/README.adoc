@@ -1,0 +1,11 @@
+= 4. cvičení
+
+== Zadání
+
+Stiahnite si zložku link:cv04/assignment[assignment/] (tlačidlo ⇩ vpravo hore -> Download this directory) a vypracujte všetky úlohy (komentáre `TODO`)
+
+Kompilácia: `make`
+
+Kompilácia + spustenie: `make run`
+
+Zoznam operátorov ktoré dokážeme preťažiť a príklady: link:https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B[link]

@@ -1,0 +1,119 @@
+RULE_SET heart_disease
+ATTRIBUTES 14
+ age numeric 1
+ sex numeric 1
+ pain_type symbolic
+ blood_pressure numeric 1
+ serum_cholestoral numeric 1
+ blood_sugar numeric 1
+ electrocardiograph symbolic
+ maximum_heart_rate numeric 1
+ angina symbolic
+ oldpeak_equals_ST numeric 1
+ slope_ST numeric 1
+ no._of_vessels numeric 1
+ thal symbolic
+ disease symbolic
+DECISION_VALUES 2
+1
+2
+RULES 99
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(sex=0)&(pain_type=3.0)=>(disease=1[23]) 23 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(no._of_vessels=0)&(sex=0)&(electrocardiograph=0.0)=>(disease=1[22]) 22 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(slope_ST=1)&(electrocardiograph=0.0)&(sex=0)=>(disease=1[21]) 21 
+(blood_sugar=0)&(sex=1)&(pain_type=4.0)&(thal=7.0)&(angina=1.0)&(slope_ST=2)&(electrocardiograph=2.0)=>(disease=2[13]) 13 
+(blood_sugar=0)&(sex=1)&(pain_type=4.0)&(angina=1.0)&(electrocardiograph=2.0)&(no._of_vessels=1)=>(disease=2[12]) 12 
+(angina=0.0)&(sex=1)&(no._of_vessels=0)&(blood_sugar=1)=>(disease=1[11]) 11 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(no._of_vessels=0)&(electrocardiograph=2.0)&(sex=0)&(slope_ST=2)=>(disease=1[9]) 9 
+(no._of_vessels=0)&(sex=1)&(blood_sugar=0)&(angina=0.0)&(slope_ST=1)&(electrocardiograph=0.0)&(thal=3.0)&(pain_type=2.0)=>(disease=1[7]) 7 
+(blood_sugar=0)&(no._of_vessels=0)&(thal=3.0)&(angina=1.0)&(electrocardiograph=2.0)=>(disease=1[7]) 7 
+(pain_type=4.0)&(angina=1.0)&(thal=7.0)&(sex=0)=>(disease=2[6]) 6 
+(slope_ST=1)&(angina=0.0)&(electrocardiograph=0.0)&(pain_type=3.0)&(blood_sugar=1)=>(disease=1[6]) 6 
+(blood_sugar=0)&(sex=1)&(pain_type=4.0)&(thal=7.0)&(electrocardiograph=0.0)&(angina=1.0)&(blood_pressure=140)=>(disease=2[5]) 5 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(thal=7.0)&(electrocardiograph=2.0)&(slope_ST=2)&(pain_type=4.0)=>(disease=2[5]) 5 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(slope_ST=1)&(no._of_vessels=0)&(electrocardiograph=2.0)&(sex=0)&(pain_type=3.0)=>(disease=1[5]) 5 
+(blood_sugar=0)&(pain_type=4.0)&(electrocardiograph=2.0)&(sex=0)&(angina=0.0)&(thal=7.0)=>(disease=2[4]) 4 
+(pain_type=4.0)&(angina=1.0)&(thal=7.0)&(electrocardiograph=2.0)&(sex=1)&(blood_sugar=1)=>(disease=2[4]) 4 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(no._of_vessels=0)&(slope_ST=1)&(oldpeak_equals_ST=0)&(sex=1)&(electrocardiograph=2.0)&(pain_type=2.0)=>(disease=1[4]) 4 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(no._of_vessels=0)&(slope_ST=1)&(electrocardiograph=0.0)&(sex=1)&(oldpeak_equals_ST=0)&(pain_type=2.0)=>(disease=1[4]) 4 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(slope_ST=1)&(no._of_vessels=0)&(sex=1)&(electrocardiograph=0.0)&(pain_type=4.0)=>(disease=1[4]) 4 
+(no._of_vessels=0)&(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=2.0)&(thal=3.0)&(pain_type=4.0)=>(disease=1[4]) 4 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=0.0)&(pain_type=3.0)&(angina=0.0)&(blood_pressure=130)=>(disease=1[4]) 4 
+(blood_sugar=0)&(sex=1)&(pain_type=4.0)&(thal=7.0)&(electrocardiograph=0.0)&(angina=1.0)&(slope_ST=2)&(blood_pressure=120)=>(disease=2[3]) 3 
+(blood_sugar=0)&(sex=1)&(pain_type=4.0)&(electrocardiograph=2.0)&(angina=1.0)&(thal=3.0)&(slope_ST=2)&(no._of_vessels=1)=>(disease=2[3]) 3 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=2.0)&(slope_ST=1)&(thal=7.0)&(pain_type=4.0)=>(disease=2[3]) 3 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=0.0)&(thal=7.0)&(angina=1.0)&(pain_type=4.0)&(no._of_vessels=1)&(slope_ST=1)=>(disease=2[3]) 3 
+(blood_sugar=0)&(pain_type=4.0)&(angina=1.0)&(slope_ST=2)&(sex=0)&(no._of_vessels=0)&(electrocardiograph=0.0)=>(disease=2[3]) 3 
+(sex=1)&(slope_ST=2)&(blood_sugar=1)&(electrocardiograph=2.0)&(angina=1.0)=>(disease=2[3]) 3 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(slope_ST=1)&(no._of_vessels=0)&(electrocardiograph=2.0)&(oldpeak_equals_ST=0)&(sex=1)&(pain_type=3.0)=>(disease=1[3]) 3 
+(no._of_vessels=0)&(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=0.0)&(pain_type=4.0)&(age=43)=>(disease=1[3]) 3 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=2.0)&(pain_type=3.0)&(age=54)=>(disease=1[3]) 3 
+(blood_sugar=0)&(electrocardiograph=0.0)&(age=64)&(sex=0)=>(disease=1[3]) 3 
+(blood_sugar=0)&(sex=1)&(pain_type=4.0)&(thal=7.0)&(electrocardiograph=0.0)&(angina=1.0)&(slope_ST=2)&(no._of_vessels=1)&(oldpeak_equals_ST=1.2)=>(disease=2[2]) 2 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=2.0)&(slope_ST=1)&(pain_type=4.0)&(oldpeak_equals_ST=0)&(age=44)=>(disease=2[2]) 2 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(thal=7.0)&(electrocardiograph=2.0)&(slope_ST=2)&(pain_type=3.0)&(no._of_vessels=1)=>(disease=2[2]) 2 
+(blood_sugar=0)&(sex=1)&(pain_type=4.0)&(electrocardiograph=2.0)&(angina=1.0)&(thal=3.0)&(slope_ST=2)&(age=67)=>(disease=2[2]) 2 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(thal=7.0)&(electrocardiograph=0.0)&(pain_type=4.0)&(slope_ST=2)&(no._of_vessels=1)=>(disease=2[2]) 2 
+(sex=1)&(blood_sugar=0)&(electrocardiograph=0.0)&(slope_ST=2)&(angina=1.0)&(thal=7.0)&(pain_type=3.0)=>(disease=2[2]) 2 
+(sex=1)&(blood_sugar=0)&(angina=0.0)&(thal=7.0)&(electrocardiograph=2.0)&(pain_type=3.0)&(age=58)=>(disease=2[2]) 2 
+(sex=1)&(blood_sugar=0)&(electrocardiograph=0.0)&(pain_type=4.0)&(thal=7.0)&(angina=0.0)&(age=58)=>(disease=2[2]) 2 
+(sex=1)&(blood_sugar=0)&(electrocardiograph=2.0)&(pain_type=4.0)&(angina=1.0)&(thal=3.0)&(age=54)=>(disease=2[2]) 2 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=2.0)&(pain_type=4.0)&(angina=1.0)&(age=59)=>(disease=2[2]) 2 
+(angina=0.0)&(sex=1)&(slope_ST=2)&(blood_sugar=1)&(pain_type=4.0)=>(disease=2[2]) 2 
+(no._of_vessels=0)&(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=0.0)&(slope_ST=1)&(oldpeak_equals_ST=0)&(thal=7.0)&(pain_type=2.0)=>(disease=1[2]) 2 
+(no._of_vessels=0)&(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=2.0)&(pain_type=1.0)&(blood_pressure=118)=>(disease=1[2]) 2 
+(angina=0.0)&(sex=1)&(no._of_vessels=0)&(blood_sugar=0)&(electrocardiograph=2.0)&(thal=7.0)&(age=54)=>(disease=1[2]) 2 
+(blood_sugar=0)&(no._of_vessels=0)&(sex=1)&(electrocardiograph=0.0)&(angina=0.0)&(pain_type=4.0)&(oldpeak_equals_ST=0.4)=>(disease=1[2]) 2 
+(blood_sugar=0)&(no._of_vessels=0)&(sex=1)&(electrocardiograph=0.0)&(angina=1.0)&(slope_ST=1)&(oldpeak_equals_ST=0)=>(disease=1[2]) 2 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(sex=0)&(electrocardiograph=2.0)&(slope_ST=1)&(pain_type=4.0)&(oldpeak_equals_ST=0)&(maximum_heart_rate=159)=>(disease=1[2]) 2 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=0.0)&(pain_type=3.0)&(slope_ST=1)&(age=51)=>(disease=1[2]) 2 
+(slope_ST=1)&(thal=3.0)&(sex=0)&(electrocardiograph=2.0)&(angina=0.0)&(blood_sugar=1)&(pain_type=3.0)=>(disease=1[2]) 2 
+(blood_sugar=0)&(sex=1)&(no._of_vessels=0)&(angina=1.0)&(pain_type=3.0)&(electrocardiograph=0.0)&(thal=3.0)=>(disease=1[2]) 2 
+(blood_sugar=0)&(no._of_vessels=0)&(electrocardiograph=2.0)&(angina=0.0)&(sex=0)&(maximum_heart_rate=160)=>(disease=1[2]) 2 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=2.0)&(no._of_vessels=0)&(age=66)=>(disease=1[2]) 2 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=0.0)&(angina=0.0)&(pain_type=2.0)&(age=52)=>(disease=1[2]) 2 
+(blood_sugar=0)&(sex=1)&(slope_ST=2)&(no._of_vessels=0)&(electrocardiograph=0.0)&(thal=6.0)&(age=57)=>(disease=1[2]) 2 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(thal=7.0)&(electrocardiograph=0.0)&(pain_type=4.0)&(slope_ST=1)&(age=40)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=0.0)&(no._of_vessels=0)&(thal=3.0)&(pain_type=3.0)&(oldpeak_equals_ST=0)&(slope_ST=1)&(age=47)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(pain_type=4.0)&(angina=1.0)&(electrocardiograph=2.0)&(slope_ST=1)&(thal=7.0)&(no._of_vessels=0)&(age=58)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(slope_ST=2)&(electrocardiograph=2.0)&(no._of_vessels=0)&(thal=3.0)&(age=60)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=0.0)&(thal=7.0)&(pain_type=4.0)&(slope_ST=1)&(age=52)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(slope_ST=2)&(electrocardiograph=2.0)&(thal=7.0)&(age=62)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=0.0)&(slope_ST=2)&(pain_type=3.0)&(thal=7.0)&(age=49)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=2.0)&(slope_ST=2)&(pain_type=4.0)&(age=70)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=0.0)&(no._of_vessels=0)&(slope_ST=2)&(pain_type=4.0)&(age=67)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=0.0)&(no._of_vessels=0)&(thal=7.0)&(pain_type=2.0)&(age=57)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=2.0)&(slope_ST=1)&(pain_type=3.0)&(age=49)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=0.0)&(slope_ST=2)&(angina=1.0)&(thal=7.0)&(pain_type=4.0)&(age=53)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=0.0)&(slope_ST=2)&(pain_type=3.0)&(age=50)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=2.0)&(slope_ST=1)&(oldpeak_equals_ST=0)&(age=59)&(pain_type=1.0)=>(disease=2[1]) 1 
+(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=0.0)&(no._of_vessels=0)&(pain_type=3.0)&(thal=3.0)&(age=46)=>(disease=2[1]) 1 
+(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=2.0)&(slope_ST=2)&(oldpeak_equals_ST=2)&(age=64)=>(disease=2[1]) 1 
+(sex=1)&(blood_sugar=0)&(pain_type=4.0)&(angina=1.0)&(electrocardiograph=2.0)&(oldpeak_equals_ST=0)&(slope_ST=1)&(age=35)=>(disease=2[1]) 1 
+(sex=1)&(blood_sugar=0)&(electrocardiograph=0.0)&(slope_ST=2)&(angina=1.0)&(pain_type=4.0)&(age=42)=>(disease=2[1]) 1 
+(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=0.0)&(no._of_vessels=0)&(thal=7.0)&(age=39)=>(disease=2[1]) 1 
+(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=2.0)&(slope_ST=2)&(no._of_vessels=0)&(age=59)=>(disease=2[1]) 1 
+(sex=1)&(blood_sugar=0)&(electrocardiograph=0.0)&(angina=0.0)&(thal=3.0)&(oldpeak_equals_ST=0)&(slope_ST=1)&(age=52)=>(disease=2[1]) 1 
+(sex=1)&(blood_sugar=0)&(electrocardiograph=0.0)&(angina=1.0)&(slope_ST=2)&(thal=7.0)&(age=38)=>(disease=2[1]) 1 
+(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=2.0)&(pain_type=2.0)&(age=54)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=0.0)&(angina=0.0)&(no._of_vessels=0)&(age=64)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(pain_type=4.0)&(angina=1.0)&(thal=7.0)&(electrocardiograph=0.0)&(age=70)=>(disease=2[1]) 1 
+(blood_sugar=0)&(angina=0.0)&(electrocardiograph=2.0)&(pain_type=4.0)&(sex=0)&(thal=3.0)&(oldpeak_equals_ST=0)&(slope_ST=1)&(no._of_vessels=0)&(age=61)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(electrocardiograph=2.0)&(slope_ST=2)&(age=69)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=0.0)&(slope_ST=2)&(angina=1.0)&(age=66)=>(disease=2[1]) 1 
+(blood_sugar=0)&(pain_type=4.0)&(thal=3.0)&(sex=0)&(electrocardiograph=2.0)&(angina=0.0)&(age=60)=>(disease=2[1]) 1 
+(blood_sugar=0)&(sex=1)&(angina=0.0)&(pain_type=2.0)&(no._of_vessels=0)&(age=58)=>(disease=2[1]) 1 
+(blood_sugar=0)&(pain_type=4.0)&(angina=1.0)&(slope_ST=2)&(sex=0)&(thal=3.0)&(age=55)=>(disease=2[1]) 1 
+(angina=0.0)&(sex=1)&(blood_sugar=0)&(blood_pressure=110)&(age=65)=>(disease=2[1]) 1 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(no._of_vessels=0)&(slope_ST=1)&(electrocardiograph=0.0)&(sex=1)&(oldpeak_equals_ST=0)&(pain_type=3.0)&(age=42)=>(disease=1[1]) 1 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(slope_ST=1)&(no._of_vessels=0)&(sex=1)&(electrocardiograph=0.0)&(pain_type=3.0)&(oldpeak_equals_ST=0)&(age=44)=>(disease=1[1]) 1 
+(blood_sugar=0)&(angina=0.0)&(thal=3.0)&(slope_ST=1)&(electrocardiograph=0.0)&(sex=1)&(no._of_vessels=0)&(pain_type=3.0)&(oldpeak_equals_ST=0)&(age=41)=>(disease=1[1]) 1 
+(no._of_vessels=0)&(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=0.0)&(pain_type=4.0)&(slope_ST=2)&(age=59)=>(disease=1[1]) 1 
+(no._of_vessels=0)&(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=0.0)&(slope_ST=1)&(pain_type=3.0)&(thal=3.0)&(age=50)=>(disease=1[1]) 1 
+(no._of_vessels=0)&(sex=1)&(blood_sugar=0)&(angina=0.0)&(electrocardiograph=2.0)&(slope_ST=2)&(pain_type=3.0)&(age=41)=>(disease=1[1]) 1 
+(no._of_vessels=0)&(sex=1)&(blood_sugar=0)&(electrocardiograph=0.0)&(slope_ST=1)&(angina=1.0)&(blood_pressure=140)&(age=40)=>(disease=1[1]) 1 
+(angina=0.0)&(sex=1)&(no._of_vessels=0)&(blood_sugar=0)&(electrocardiograph=0.0)&(pain_type=3.0)&(thal=3.0)&(slope_ST=1)&(age=57)=>(disease=1[1]) 1 
+(blood_sugar=0)&(sex=1)&(no._of_vessels=0)&(electrocardiograph=2.0)&(angina=0.0)&(pain_type=1.0)&(thal=7.0)&(age=59)&(blood_pressure=178)=>(disease=1[1]) 1 
+(blood_sugar=0)&(sex=1)&(no._of_vessels=0)&(slope_ST=2)&(electrocardiograph=2.0)&(angina=0.0)&(age=48)&(pain_type=2.0)=>(disease=1[1]) 1 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=2.0)&(angina=0.0)&(pain_type=1.0)&(age=42)=>(disease=1[1]) 1 
+(blood_sugar=0)&(sex=1)&(electrocardiograph=2.0)&(no._of_vessels=0)&(thal=7.0)&(angina=1.0)&(age=53)=>(disease=1[1]) 1 

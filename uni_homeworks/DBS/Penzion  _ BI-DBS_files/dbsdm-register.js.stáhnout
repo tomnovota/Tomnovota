@@ -1,0 +1,102 @@
+var DBSDM = DBSDM || {};
+
+// Simple dbsdm name registry
+DBSDM.Registry = (function () {
+
+    var register = {};
+    var self = {};
+
+    self.put = function (name, component) {
+        register[name] = component;
+    };
+
+    self.get = function (name) {
+        return register[name];
+    };
+
+    self.getAll = function() {
+        return register;
+    };
+
+    return self;
+})();
+
+
+$(document).ready(function () {
+    // Init kreslitko
+    $('div.kreslitko-wrapper').each(function () {
+        var collapsedBox = $(this).closest('div.collapsed-box');
+        if (!collapsedBox.length) {
+            createDBSDM(this);
+        }
+        else {
+            collapsedBox.data('hasKreslitko', true);
+        }
+    });
+
+    // Extend box widget collapse down
+    $.AdminLTE.boxWidget.onCollapseDown = function (element) {
+        if (element.data('hasKreslitko')) {
+            element.find('div.kreslitko-wrapper').each(function () {
+                var initialized = $(this).data('initialized');
+                if (!initialized) {
+                    createDBSDM(this);
+                }
+            });
+            element.removeData('hasKreslitko');
+        }
+    };
+});
+
+$.nette.ext('dbsdm', {
+    init: function () {
+        // Load snippet module
+        var snippets = $.nette.ext('snippets');
+
+        // Register after listener
+        snippets.after(function (el) {
+            el.find('div.kreslitko-wrapper').each(function () {
+                createDBSDM(this);
+            });
+        });
+    }
+});
+
+function createDBSDM(wrapper) {
+    var jWrapper = $(wrapper);
+    var options = jWrapper.data('options');
+
+    if (options) {
+        // Initialize diagram, has to be run first
+        DBSDM.Diagram.init(options);
+
+        // Create empty canvas
+        var comp = new DBSDM.Canvas();
+        comp.create(wrapper);
+
+        // Import data
+        var data = jWrapper.data('initialData');
+        if (data) {
+            try {
+                comp.import(data);
+                comp.updateDataReference();
+            }
+            catch(e) {
+                console.log(e.message)
+            }
+        }
+
+        var componentName = jWrapper.data('componentName');
+        if (componentName) {
+            DBSDM.Registry.put(componentName, comp);
+        }
+
+        jWrapper.data('initialized', true);
+
+        window.setTimeout(function() {
+            for (var key in DBSDM.Registry.getAll()) {
+                DBSDM.Registry.get(key).updateViewbox();
+            }
+        }, 100);
+    }
+}

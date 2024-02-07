@@ -1,0 +1,11 @@
+'use strict';
+// Fix some deprecation warning in Ace editor
+$(() => {
+    const aceEdit = ace.edit;
+
+    ace.edit = element => {
+        const editor = aceEdit(element);
+        editor.$blockScrolling = Infinity;
+        return editor;
+    };
+});

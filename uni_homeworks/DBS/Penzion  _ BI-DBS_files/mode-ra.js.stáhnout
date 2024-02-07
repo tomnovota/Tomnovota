@@ -1,0 +1,52 @@
+/*
+Custom RA mode for Ace editor
+TODO: Find a way to highlight RA special brackets: '< ... ]', '[ ... >' and '< ... >'
+ */
+
+ace.define('ace/mode/ra', function(require, exports, module) {
+
+    let oop = require("ace/lib/oop");
+    const TextMode = require("ace/mode/text").Mode;
+    const RAHighlightRules = require("ace/mode/ra_highlight_rules").RAHighlightRules;
+
+    let Mode = function() {
+        this.HighlightRules = RAHighlightRules;
+        this.$behaviour = this.$defaultBehaviour;
+    };
+    oop.inherits(Mode, TextMode);
+
+    exports.Mode = Mode;
+});
+
+ace.define('ace/mode/ra_highlight_rules', function(require, exports, module) {
+
+    let oop = require("ace/lib/oop");
+    let TextHighlightRules = require("ace/mode/text_highlight_rules").TextHighlightRules;
+
+    let RAHighlightRules = function () {
+
+        this.$rules = {
+            "start" : [ {
+                token : "string",           // " string
+                regex : '".*?"'
+            }, {
+                token : "string",           // ' string
+                regex : "'.*?'"
+            }, {
+                token : "constant.numeric", // float
+                regex : " [+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+            }, {
+                token : "keyword.operator", // RA operators
+                regex : '\\*(?!>)|<\\*|\\*>|\\!<\\*|\\!\\*>|\\[\\]|<\\]|\\[>|\\!<\\]|\\!\\[>' +
+                        '|\\u222A|\\u2229|\\u005C|\\u00F7|\\u00D7|\\u2228|\\u2227|\\u00AC' +
+                        '|\\u002B|\\u002D(?!>)|\\u2215|\\u2217|\\u2286|\\u2282|\\u2192|->|\\u207A'
+            } ]
+        };
+        this.normalizeRules();
+
+    };
+
+    oop.inherits(RAHighlightRules, TextHighlightRules);
+
+    exports.RAHighlightRules = RAHighlightRules;
+});

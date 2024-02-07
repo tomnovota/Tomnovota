@@ -1,0 +1,36 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+### Simulation start ###
+Testing sequence 1000 ... OK
+Testing sequence 1100 ... OK
+Testing sequence 01000 ... OK
+Testing sequence 01100 ... OK
+Testing sequence 11000 ... OK
+Testing sequence 11100 ... OK
+Testing sequence 001000 ... OK
+Testing sequence 001100 ... OK
+Testing sequence 011000 ... OK
+Testing sequence 011100 ... OK
+Testing sequence 101000 ... OK
+Testing sequence 101100 ... OK
+Testing sequence 111000 ... OK
+Testing sequence 111100 ... OK
+Testing sequence 0001000 ... OK
+Testing sequence 0001100 ... OK
+Testing sequence 0011000 ... OK
+Testing sequence 0011100 ... OK
+Testing sequence 0101000 ... OK
+Testing sequence 0101100 ... OK
+Testing sequence 0111000 ... OK
+Testing sequence 0111100 ... OK
+Testing sequence 1001000 ... OK
+Testing sequence 1001100 ... OK
+Testing sequence 1011000 ... OK
+Testing sequence 1011100 ... OK
+Testing sequence 1101000 ... OK
+Testing sequence 1101100 ... OK
+Testing sequence 1111000 ... OK
+Testing sequence 1111100 ... OK
+Testing sequence 100011001000 ... OK
+### Total number of errors = 0
+### Simulation finished ###

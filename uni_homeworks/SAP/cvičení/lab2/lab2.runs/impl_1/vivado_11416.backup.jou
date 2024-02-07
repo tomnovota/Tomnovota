@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Feb 24 12:22:49 2022
+# Process ID: 11416
+# Current directory: X:/SAP/lab2/lab2.runs/impl_1
+# Command line: vivado.exe -log truth_table_4.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source truth_table_4.tcl -notrace
+# Log file: X:/SAP/lab2/lab2.runs/impl_1/truth_table_4.vdi
+# Journal file: X:/SAP/lab2/lab2.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source truth_table_4.tcl -notrace

@@ -1,0 +1,11 @@
+<map id="CBinaryOperator" name="CBinaryOperator">
+<area shape="rect" id="node1" title="Abstract class representing special type of operator with 2 operand." alt="" coords="460,344,627,480"/>
+<area shape="rect" id="node4" href="$classCOperatorConcat.html" title="Class representing text concatenation in expression." alt="" coords="5,528,175,649"/>
+<area shape="rect" id="node5" href="$classCOperatorDiv.html" title="Class division multiplication in expression." alt="" coords="199,528,346,649"/>
+<area shape="rect" id="node6" href="$classCOperatorMinus.html" title="Class representing subtraction in expression." alt="" coords="370,528,533,649"/>
+<area shape="rect" id="node7" href="$classCOperatorMulti.html" title="Class representing multiplication in expression." alt="" coords="557,528,714,649"/>
+<area shape="rect" id="node8" href="$classCOperatorPlus.html" title="Class representing addition in expression." alt="" coords="739,528,889,649"/>
+<area shape="rect" id="node9" href="$classCOperatorRepeat.html" title="Class representing text repetition in expression." alt="" coords="914,528,1085,649"/>
+<area shape="rect" id="node2" href="$classCOperator.html" title="Abstract class representing operator in expression tree." alt="" coords="473,160,613,296"/>
+<area shape="rect" id="node3" href="$classCExpression.html" title="Abstract class representing node in a tree representing expression in a cell." alt="" coords="474,5,613,112"/>
+</map>

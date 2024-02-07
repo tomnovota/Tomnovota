@@ -1,0 +1,4 @@
+<map id="CLoadTable::LoadLine" name="CLoadTable::LoadLine">
+<area shape="rect" id="node1" title="Reads cell content in cycle and saves it to appropriate position in table." alt="" coords="188,5,351,32"/>
+<area shape="rect" id="node2" href="$classCLoadTable.html#a0daed646c6268fec18fe1d6aef0a2a6c" title="Interface method beginning table loading." alt="" coords="5,5,140,32"/>
+</map>

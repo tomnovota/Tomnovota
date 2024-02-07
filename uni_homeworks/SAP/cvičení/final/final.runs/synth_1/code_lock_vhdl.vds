@@ -1,0 +1,327 @@
+#-----------------------------------------------------------
+# Vivado v2018.2.1 (64-bit)
+# SW Build 2288692 on Thu Jul 26 18:24:02 MDT 2018
+# IP Build 2289599 on Thu Jul 26 21:09:20 MDT 2018
+# Start of session at: Tue Apr  5 07:58:00 2022
+# Process ID: 1820
+# Current directory: X:/SAP/final/final.runs/synth_1
+# Command line: vivado.exe -log code_lock_vhdl.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source code_lock_vhdl.tcl
+# Log file: X:/SAP/final/final.runs/synth_1/code_lock_vhdl.vds
+# Journal file: X:/SAP/final/final.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source code_lock_vhdl.tcl -notrace
+Command: synth_design -top code_lock_vhdl -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 8132 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 423.785 ; gain = 96.844
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'code_lock_vhdl' [X:/SAP/final/final.srcs/sources_1/imports/tmp/code_lock.vhd:29]
+INFO: [Synth 8-3491] module 'button_vhdl' declared at 'X:/SAP/final/final.srcs/sources_1/imports/tmp/button.vhd:7' bound to instance 'inst_button_vhdl_0' of component 'button_vhdl' [X:/SAP/final/final.srcs/sources_1/imports/tmp/code_lock.vhd:138]
+INFO: [Synth 8-638] synthesizing module 'button_vhdl' [X:/SAP/final/final.srcs/sources_1/imports/tmp/button.vhd:15]
+	Parameter width bound to: 22 - type: integer 
+INFO: [Synth 8-3491] module 'debounce' declared at 'X:/SAP/final/final.srcs/sources_1/imports/tmp/button.vhd:76' bound to instance 'debounce_0' of component 'debounce' [X:/SAP/final/final.srcs/sources_1/imports/tmp/button.vhd:44]
+INFO: [Synth 8-638] synthesizing module 'debounce' [X:/SAP/final/final.srcs/sources_1/imports/tmp/button.vhd:87]
+	Parameter width bound to: 22 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'debounce' (1#1) [X:/SAP/final/final.srcs/sources_1/imports/tmp/button.vhd:87]
+INFO: [Synth 8-256] done synthesizing module 'button_vhdl' (2#1) [X:/SAP/final/final.srcs/sources_1/imports/tmp/button.vhd:15]
+INFO: [Synth 8-3491] module 'button_vhdl' declared at 'X:/SAP/final/final.srcs/sources_1/imports/tmp/button.vhd:7' bound to instance 'inst_button_vhdl_1' of component 'button_vhdl' [X:/SAP/final/final.srcs/sources_1/imports/tmp/code_lock.vhd:146]
+INFO: [Synth 8-3491] module 'button_vhdl' declared at 'X:/SAP/final/final.srcs/sources_1/imports/tmp/button.vhd:7' bound to instance 'inst_button_vhdl_2' of component 'button_vhdl' [X:/SAP/final/final.srcs/sources_1/imports/tmp/code_lock.vhd:154]
+INFO: [Synth 8-3491] module 'decoder_7seg' declared at 'X:/SAP/final/final.srcs/sources_1/imports/SAP/decoder_mix.vhd:4' bound to instance 'inst_decoder_7seg_0' of component 'decoder_7seg' [X:/SAP/final/final.srcs/sources_1/imports/tmp/code_lock.vhd:162]
+INFO: [Synth 8-638] synthesizing module 'decoder_7seg' [X:/SAP/final/final.srcs/sources_1/imports/SAP/decoder_mix.vhd:20]
+INFO: [Synth 8-226] default block is never used [X:/SAP/final/final.srcs/sources_1/imports/SAP/decoder_mix.vhd:113]
+INFO: [Synth 8-226] default block is never used [X:/SAP/final/final.srcs/sources_1/imports/SAP/decoder_mix.vhd:135]
+INFO: [Synth 8-226] default block is never used [X:/SAP/final/final.srcs/sources_1/imports/SAP/decoder_mix.vhd:157]
+INFO: [Synth 8-226] default block is never used [X:/SAP/final/final.srcs/sources_1/imports/SAP/decoder_mix.vhd:179]
+INFO: [Synth 8-256] done synthesizing module 'decoder_7seg' (3#1) [X:/SAP/final/final.srcs/sources_1/imports/SAP/decoder_mix.vhd:20]
+INFO: [Synth 8-3491] module 'dekoder' declared at 'X:/SAP/final/final.srcs/sources_1/imports/SAP/dekoder.vhd:6' bound to instance 'inst_dekoder_0' of component 'dekoder' [X:/SAP/final/final.srcs/sources_1/imports/tmp/code_lock.vhd:178]
+INFO: [Synth 8-638] synthesizing module 'dekoder' [X:/SAP/final/final.srcs/sources_1/imports/SAP/dekoder.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'dekoder' (4#1) [X:/SAP/final/final.srcs/sources_1/imports/SAP/dekoder.vhd:15]
+INFO: [Synth 8-3491] module 'next_state_logic' declared at 'X:/SAP/final/final.srcs/sources_1/imports/SAP/l4_next_state_logic.vhd:4' bound to instance 'inst_next_state_logic_0' of component 'next_state_logic' [X:/SAP/final/final.srcs/sources_1/imports/tmp/code_lock.vhd:230]
+INFO: [Synth 8-638] synthesizing module 'next_state_logic' [X:/SAP/final/final.srcs/sources_1/imports/SAP/l4_next_state_logic.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'next_state_logic' (5#1) [X:/SAP/final/final.srcs/sources_1/imports/SAP/l4_next_state_logic.vhd:17]
+INFO: [Synth 8-3491] module 'output_logic' declared at 'X:/SAP/final/final.srcs/sources_1/imports/SAP/l4_output_logic.vhd:4' bound to instance 'inst_output_logic_0' of component 'output_logic' [X:/SAP/final/final.srcs/sources_1/imports/tmp/code_lock.vhd:243]
+INFO: [Synth 8-638] synthesizing module 'output_logic' [X:/SAP/final/final.srcs/sources_1/imports/SAP/l4_output_logic.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'output_logic' (6#1) [X:/SAP/final/final.srcs/sources_1/imports/SAP/l4_output_logic.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'code_lock_vhdl' (7#1) [X:/SAP/final/final.srcs/sources_1/imports/tmp/code_lock.vhd:29]
+WARNING: [Synth 8-3917] design code_lock_vhdl has port AN0 driven by constant 0
+WARNING: [Synth 8-3917] design code_lock_vhdl has port AN1 driven by constant 1
+WARNING: [Synth 8-3917] design code_lock_vhdl has port AN2 driven by constant 1
+WARNING: [Synth 8-3917] design code_lock_vhdl has port AN3 driven by constant 1
+WARNING: [Synth 8-3331] design output_logic has unconnected port q0
+WARNING: [Synth 8-3331] design output_logic has unconnected port q1
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 479.531 ; gain = 152.590
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 479.531 ; gain = 152.590
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 479.531 ; gain = 152.590
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [X:/SAP/final/final.srcs/constrs_1/new/code_lock.xdc]
+Finished Parsing XDC File [X:/SAP/final/final.srcs/constrs_1/new/code_lock.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [X:/SAP/final/final.srcs/constrs_1/new/code_lock.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/code_lock_vhdl_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/code_lock_vhdl_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 802.742 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 802.742 ; gain = 475.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 802.742 ; gain = 475.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 802.742 ; gain = 475.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:20 . Memory (MB): peak = 802.742 ; gain = 475.801
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 15    
++---Muxes : 
+	  16 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module code_lock_vhdl 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 3     
+Module debounce 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 3     
+Module button_vhdl 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module decoder_7seg 
+Detailed RTL Component Info : 
++---Muxes : 
+	  16 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3917] design code_lock_vhdl has port AN0 driven by constant 0
+WARNING: [Synth 8-3917] design code_lock_vhdl has port AN1 driven by constant 1
+WARNING: [Synth 8-3917] design code_lock_vhdl has port AN2 driven by constant 1
+WARNING: [Synth 8-3917] design code_lock_vhdl has port AN3 driven by constant 1
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 802.742 ; gain = 475.801
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:29 . Memory (MB): peak = 802.742 ; gain = 475.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:29 . Memory (MB): peak = 802.742 ; gain = 475.801
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:29 . Memory (MB): peak = 812.762 ; gain = 485.820
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:30 . Memory (MB): peak = 812.762 ; gain = 485.820
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:30 . Memory (MB): peak = 812.762 ; gain = 485.820
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:30 . Memory (MB): peak = 812.762 ; gain = 485.820
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:30 . Memory (MB): peak = 812.762 ; gain = 485.820
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:30 . Memory (MB): peak = 812.762 ; gain = 485.820
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:30 . Memory (MB): peak = 812.762 ; gain = 485.820
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    18|
+|3     |LUT1   |     3|
+|4     |LUT2   |     6|
+|5     |LUT3   |     7|
+|6     |LUT4   |     3|
+|7     |LUT5   |     1|
+|8     |LUT6   |     4|
+|9     |FDRE   |    81|
+|10    |IBUF   |     5|
+|11    |OBUF   |    12|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------------------+--------------+------+
+|      |Instance             |Module        |Cells |
++------+---------------------+--------------+------+
+|1     |top                  |              |   141|
+|2     |  inst_button_vhdl_0 |button_vhdl   |    36|
+|3     |    debounce_0       |debounce_3    |    35|
+|4     |  inst_button_vhdl_1 |button_vhdl_0 |    36|
+|5     |    debounce_0       |debounce_2    |    35|
+|6     |  inst_button_vhdl_2 |button_vhdl_1 |    41|
+|7     |    debounce_0       |debounce      |    40|
++------+---------------------+--------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:30 . Memory (MB): peak = 812.762 ; gain = 485.820
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:17 . Memory (MB): peak = 812.762 ; gain = 162.609
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:30 . Memory (MB): peak = 812.762 ; gain = 485.820
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 23 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+38 Infos, 10 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:32 . Memory (MB): peak = 821.047 ; gain = 505.777
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'X:/SAP/final/final.runs/synth_1/code_lock_vhdl.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file code_lock_vhdl_utilization_synth.rpt -pb code_lock_vhdl_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 821.047 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Apr  5 07:58:39 2022...

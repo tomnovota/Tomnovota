@@ -1,0 +1,38 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Feb 24 11:49:33 2022
+# Process ID: 9244
+# Current directory: X:/SAP/lab2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15852 X:\SAP\lab2\lab2.xpr
+# Log file: X:/SAP/lab2/vivado.log
+# Journal file: X:/SAP/lab2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project X:/SAP/lab2/lab2.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source truth_table_4_test.tcl
+save_wave_config {X:/SAP/lab2/truth_table_4_test_behav.wcfg}
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+set_property IOSTANDARD LVCMOS33 [get_ports [list a]]
+place_ports a V17
+place_ports b V16
+place_ports c W16
+place_ports d W17
+place_ports f U16
+set_property IOSTANDARD LVCMOS33 [get_ports [list b]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list c]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list d]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list f]]
+file mkdir X:/SAP/lab2/lab2.srcs/constrs_1/new
+close [ open X:/SAP/lab2/lab2.srcs/constrs_1/new/lab2_table.xdc w ]
+add_files -fileset constrs_1 X:/SAP/lab2/lab2.srcs/constrs_1/new/lab2_table.xdc
+set_property target_constrs_file X:/SAP/lab2/lab2.srcs/constrs_1/new/lab2_table.xdc [current_fileset -constrset]
+save_constraints -force
+reset_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1

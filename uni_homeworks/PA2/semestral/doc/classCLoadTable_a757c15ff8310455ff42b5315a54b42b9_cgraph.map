@@ -1,0 +1,5 @@
+<map id="CLoadTable::CheckHeader" name="CLoadTable::CheckHeader">
+<area shape="rect" id="node1" title="Checks first read line containing column names and calculates table parameters." alt="" coords="5,31,196,57"/>
+<area shape="rect" id="node2" href="$classCNameCounter.html#a6255196489b05fd8c7bc14dd4c057346" title=" " alt="" coords="267,5,449,32"/>
+<area shape="rect" id="node3" href="$classCLoadTable.html#a26d6fe7000099cc4896535453a67f186" title="Helper function proccessing parameters from header." alt="" coords="244,56,472,83"/>
+</map>

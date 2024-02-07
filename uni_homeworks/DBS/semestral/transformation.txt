@@ -1,0 +1,42 @@
+Adresa ( #id_adresa, ulice, *cislo_popisne, *psc, *obec, *stat )
+
+Extra_sluzba ( #id_sluzba, *nazev, *cena, *dostupnost )
+
+Host ( #id_host, *jmeno, *prijmeni )
+
+Pokoj ( #id_pokoj, *cena_noc, *kategorie, *kapacita )
+
+Pokoj_host ( #id_pokoj_host, *id_pokoj, *id_host )
+Pokoj_host [id_pokoj] > Pokoj [id_pokoj]
+Pokoj_host [id_host] > Host [id_host]
+
+Vybaveni ( #id_vybaveni, *nazev, *cena, *predchozi_stav, *aktualni_stav, *id_pokoj )
+Vybaveni [id_pokoj] > Pokoj [id_pokoj]
+
+Objednatel ( #id_host, *telefon, *email, *druh_dokladu, *cislo_dokladu, *id_adresa )
+Objednatel [id_host] > Host [id_host]
+Objednatel [id_adresa] > Adresa [id_adresa]
+
+Objednavka ( #id_objednavka, *stav_objednavky, *datum_zalozeni, *datum_prijezdu, *datum_odjezdu, *id_host, id_pokoj)
+Objednavka [id_host] > Objednatel [id_host]
+Objednavka [id_pokoj] > Pokoj [id_pokoj]
+
+Objednavka_extra ( #id_objed_extra, *id_objednavka, *id_sluzba )
+Objednavka_extra [id_objednavka] > Objednavka [id_objednavka]
+Objednavka_extra [id_sluzba] > Extra_sluzba [id_sluzba]
+
+Parkovani ( #id_objednavka, *cena )
+Parkovani [id_objednavka] > Objednavka [id_objednavka]
+
+Auto ( #id_auto, *registracni_znacka, *id_objednavka )
+Auto [id_objednavka] > Parkovani [id_objednavka]
+
+Faktura ( #id_objednavka, *castka, *zpusob_platby, *probehla )
+Faktura [id_objednavka] > Objednavka [id_objednavka]
+
+Vybaveni_faktura ( #id_vybaveni, #id_objednavka )
+Vybaveni_faktura [id_vybaveni] > Vybaveni [id_vybaveni]
+Vybaveni_Faktura [id_objednavka] > Objednavka [id_objednavka]
+
+-- vložení dat do tabulky: Auto
+

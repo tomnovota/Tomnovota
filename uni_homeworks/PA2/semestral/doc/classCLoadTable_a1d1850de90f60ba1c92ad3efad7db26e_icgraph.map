@@ -1,0 +1,5 @@
+<map id="CLoadTable::CheckRowNumber" name="CLoadTable::CheckRowNumber">
+<area shape="rect" id="node1" title="Checks first cell on row containing row number." alt="" coords="399,5,623,32"/>
+<area shape="rect" id="node2" href="$classCLoadTable.html#ae0b0fc4366da8582f6ca36261ae5d51d" title="Reads cell content in cycle and saves it to appropriate position in table." alt="" coords="188,5,351,32"/>
+<area shape="rect" id="node3" href="$classCLoadTable.html#a0daed646c6268fec18fe1d6aef0a2a6c" title="Interface method beginning table loading." alt="" coords="5,5,140,32"/>
+</map>

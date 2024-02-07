@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Mar 16 17:22:00 2022
+# Process ID: 11740
+# Current directory: X:/SAP/lab6/lab6.runs/synth_1
+# Command line: vivado.exe -log seq_full_vhdl.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source seq_full_vhdl.tcl
+# Log file: X:/SAP/lab6/lab6.runs/synth_1/seq_full_vhdl.vds
+# Journal file: X:/SAP/lab6/lab6.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source seq_full_vhdl.tcl -notrace

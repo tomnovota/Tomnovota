@@ -1,0 +1,7 @@
+<map id="CNameCounter::NextCol" name="CNameCounter::NextCol">
+<area shape="rect" id="node1" title=" " alt="" coords="427,56,608,83"/>
+<area shape="rect" id="node2" href="$classCLoadTable.html#a757c15ff8310455ff42b5315a54b42b9" title="Checks first read line containing column names and calculates table parameters." alt="" coords="188,5,379,32"/>
+<area shape="rect" id="node4" href="$classCPrint.html#ad34b3a3a18902581795bd9cd4577b367" title="Gets cell and table propositions for current printing." alt="" coords="209,56,358,83"/>
+<area shape="rect" id="node5" href="$classCPrint.html#a86a97ebcac2b00d34f3b24f714ba3870" title="Prints to given stream given table range." alt="" coords="5,81,140,108"/>
+<area shape="rect" id="node3" href="$classCLoadTable.html#a0daed646c6268fec18fe1d6aef0a2a6c" title="Interface method beginning table loading." alt="" coords="5,5,140,32"/>
+</map>

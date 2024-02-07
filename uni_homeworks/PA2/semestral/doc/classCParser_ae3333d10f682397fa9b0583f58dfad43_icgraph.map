@@ -1,0 +1,4 @@
+<map id="CParser::ReadBeginning" name="CParser::ReadBeginning">
+<area shape="rect" id="node1" title="Finds out whether expression begins with beginning character." alt="" coords="239,5,416,32"/>
+<area shape="rect" id="node2" href="$classCParser.html#aac2c5bc5bf9b7b30ffe608f264c9c897" title="Returns cell properties contained in text expression in given stream." alt="" coords="5,5,191,32"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="CParser::ProcessOperator" name="CParser::ProcessOperator">
+<area shape="rect" id="node1" title="ShuntingYard algorithm part proccessing common operator token." alt="" coords="449,5,636,32"/>
+<area shape="rect" id="node2" href="$classCParser.html#ab6f76f772288e0b457ca04a86710ca95" title="Algorithm processing given text source of expression and creating expression tree belonging to partic..." alt="" coords="239,5,401,32"/>
+<area shape="rect" id="node3" href="$classCParser.html#aac2c5bc5bf9b7b30ffe608f264c9c897" title="Returns cell properties contained in text expression in given stream." alt="" coords="5,5,191,32"/>
+</map>

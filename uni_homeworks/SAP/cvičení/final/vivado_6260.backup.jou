@@ -1,0 +1,257 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Apr  4 13:18:12 2022
+# Process ID: 6260
+# Current directory: X:/SAP/final
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14180 X:\SAP\final\final.xpr
+# Log file: X:/SAP/final/vivado.log
+# Journal file: X:/SAP/final\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project X:/SAP/final/final.xpr
+update_compile_order -fileset sources_1
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/tlacitko/tlacitko.bd}
+delete_bd_objs [get_bd_nets debounce_0_tl_out]
+delete_bd_objs [get_bd_nets a_1]
+set_property location {3 549 -16} [get_bd_cells dff_0]
+set_property location {2.5 495 -35} [get_bd_cells dff_0]
+delete_bd_objs [get_bd_nets dff_0_q] [get_bd_nets inv_0_O] [get_bd_cells inv_0]
+connect_bd_net [get_bd_pins debounce_0/tl_out] [get_bd_pins dff_0/d]
+connect_bd_net [get_bd_ports a] [get_bd_pins debounce_0/tl_in]
+connect_bd_net [get_bd_pins dff_0/q] [get_bd_pins and_0/I1]
+connect_bd_net [get_bd_pins debounce_0/tl_out] [get_bd_pins and_0/I0]
+startgroup
+set_property -dict [list CONFIG.I0_Inverted {true}] [get_bd_cells and_0]
+endgroup
+set_property location {3.5 591 -117} [get_bd_cells dff_0]
+set_property location {3 554 -44} [get_bd_cells dff_0]
+set_property location {2 288 59} [get_bd_cells debounce_0]
+set_property location {3 565 115} [get_bd_cells gnd_0]
+set_property location {1.5 428 -149} [get_bd_cells gnd_0]
+set_property location {1 229 119} [get_bd_cells debounce_0]
+set_property location {2 445 27} [get_bd_cells gnd_0]
+set_property location {1 214 -27} [get_bd_cells debounce_0]
+set_property location {3 604 -245} [get_bd_cells dff_0]
+set_property location {2 427 -136} [get_bd_cells gnd_0]
+set_property location {2.5 526 -69} [get_bd_cells gnd_0]
+set_property location {1.5 451 -13} [get_bd_cells gnd_0]
+save_bd_design
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/automat/automat.bd}
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/code_lock/code_lock.bd}
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/dekoder_full/dekoder_full.bd}
+delete_bd_objs [get_bd_nets and_0_O] [get_bd_cells and_0]
+delete_bd_objs [get_bd_nets reset_1] [get_bd_nets or_0_O] [get_bd_cells or_0]
+delete_bd_objs [get_bd_ports reset]
+delete_bd_objs [get_bd_ports error]
+save_bd_design
+delete_bd_objs [get_bd_nets c_0_1] [get_bd_nets b_0_1] [get_bd_nets a_0_1] [get_bd_nets dekoder_0_x0] [get_bd_nets dekoder_0_x1] [get_bd_cells dekoder_0]
+create_bd_cell -type module -reference dekoder dekoder_0
+connect_bd_net [get_bd_ports a] [get_bd_pins dekoder_0/a]
+connect_bd_net [get_bd_ports b] [get_bd_pins dekoder_0/b]
+connect_bd_net [get_bd_ports c] [get_bd_pins dekoder_0/c]
+export_ip_user_files -of_objects  [get_files X:/SAP/final/final.srcs/sources_1/bd/dekoder_full/dekoder_full.bd] -no_script -reset -force -quiet
+remove_files  X:/SAP/final/final.srcs/sources_1/bd/dekoder_full/dekoder_full.bd
+file delete -force X:/SAP/final/final.srcs/sources_1/bd/dekoder_full
+current_bd_design [get_bd_designs tlacitko]
+close_bd_design [get_bd_designs tlacitko]
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/automat/automat.bd}
+delete_bd_objs [get_bd_nets x0_0_1] [get_bd_nets x1_0_1] [get_bd_nets next_state_logic_0_d0] [get_bd_nets next_state_logic_0_d1] [get_bd_nets next_state_logic_0_d2] [get_bd_cells next_state_logic_0]
+delete_bd_objs [get_bd_nets output_logic_0_y] [get_bd_cells output_logic_0]
+save_bd_design
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/automat/automat.bd}
+export_ip_user_files -of_objects  [get_files X:/SAP/final/final.srcs/sources_1/bd/automat/automat.bd] -no_script -reset -force -quiet
+remove_files  X:/SAP/final/final.srcs/sources_1/bd/automat/automat.bd
+file delete -force X:/SAP/final/final.srcs/sources_1/bd/automat
+export_ip_user_files -of_objects  [get_files X:/SAP/final/final.srcs/sources_1/bd/code_lock/code_lock.bd] -no_script -reset -force -quiet
+remove_files  X:/SAP/final/final.srcs/sources_1/bd/code_lock/code_lock.bd
+file delete -force X:/SAP/final/final.srcs/sources_1/bd/code_lock
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/tlacitko/tlacitko.bd}
+validate_bd_design
+set_property location {3 683 -9} [get_bd_cells dff_0]
+set_property location {2.5 586 110} [get_bd_cells gnd_0]
+set_property location {1.5 437 91} [get_bd_cells gnd_0]
+set_property location {2.5 618 -20} [get_bd_cells dff_0]
+set_property location {3.5 772 -76} [get_bd_cells and_0]
+set_property location {929 -22} [get_bd_ports b]
+set_property location {882 40} [get_bd_ports b]
+save_bd_design
+source X:/SAP/lib_SAP_2022_02_02/gen_bd_vhdl.tcl
+create_bd_design "code_lock"
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference tlacitko_vhdl tlacitko_vhdl_0
+copy_bd_objs /  [get_bd_cells {tlacitko_vhdl_0}]
+copy_bd_objs /  [get_bd_cells {tlacitko_vhdl_0}]
+create_bd_cell -type module -reference dekoder dekoder_0
+set_property location {0.5 -115 -214} [get_bd_cells tlacitko_vhdl_0]
+set_property location {1 -108 -93} [get_bd_cells tlacitko_vhdl_1]
+set_property location {1 -94 23} [get_bd_cells tlacitko_vhdl_2]
+set_property location {1.5 75 -106} [get_bd_cells dekoder_0]
+create_bd_cell -type module -reference next_state_logic next_state_logic_0
+set_property location {3 261 -127} [get_bd_cells next_state_logic_0]
+startgroup
+create_bd_cell -type ip -vlnv FIT:user:dff:1.0 dff_0
+endgroup
+copy_bd_objs /  [get_bd_cells {dff_0}]
+set_property location {5 559 -113} [get_bd_cells dff_1]
+copy_bd_objs /  [get_bd_cells {dff_0}]
+set_property location {5 563 16} [get_bd_cells dff_2]
+set_property location {2.5 229 -119} [get_bd_cells next_state_logic_0]
+startgroup
+set_property location {3.5 435 -137} [get_bd_cells dff_0]
+set_property location {4 435 -137} [get_bd_cells dff_2]
+set_property location {4 435 -137} [get_bd_cells dff_1]
+endgroup
+startgroup
+set_property location {4 384 -251} [get_bd_cells dff_0]
+set_property location {4 384 59} [get_bd_cells dff_2]
+set_property location {4 384 -81} [get_bd_cells dff_1]
+endgroup
+set_property location {4 423 -132} [get_bd_cells dff_1]
+set_property location {4 433 -10} [get_bd_cells dff_2]
+startgroup
+set_property location {4 427 -258} [get_bd_cells dff_0]
+set_property location {4 427 -88} [get_bd_cells dff_1]
+set_property location {4 427 82} [get_bd_cells dff_2]
+endgroup
+create_bd_cell -type module -reference output_logic output_logic_0
+set_property location {5 596 -106} [get_bd_cells output_logic_0]
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/tlacitko/tlacitko.bd}
+close_bd_design [get_bd_designs tlacitko]
+save_bd_design
+create_bd_port -dir I -type ce clk
+set_property location {-256 -103} [get_bd_ports clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins tlacitko_vhdl_1/a]
+delete_bd_objs [get_bd_nets clk_1] [get_bd_ports clk]
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/tlacitko/tlacitko.bd}
+delete_bd_objs [get_bd_ports clk]
+create_bd_port -dir I -type ce clk
+delete_bd_objs [get_bd_nets clk_1]
+connect_bd_net [get_bd_ports clk] [get_bd_pins debounce_0/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins dff_0/clk]
+save_bd_design
+source X:/SAP/lib_SAP_2022_02_02/gen_bd_vhdl.tcl
+save_bd_design
+source X:/SAP/lib_SAP_2022_02_02/gen_bd_vhdl.tcl
+close_bd_design [get_bd_designs tlacitko]
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/code_lock/code_lock.bd}
+delete_bd_objs [get_bd_cells tlacitko_vhdl_0]
+delete_bd_objs [get_bd_cells tlacitko_vhdl_1]
+delete_bd_objs [get_bd_cells tlacitko_vhdl_2]
+save_bd_design
+create_bd_cell -type module -reference tlacitko_vhdl tlacitko_vhdl_0
+copy_bd_objs /  [get_bd_cells {tlacitko_vhdl_0}]
+set_property location {1 -112 -113} [get_bd_cells tlacitko_vhdl_1]
+copy_bd_objs /  [get_bd_cells {tlacitko_vhdl_0}]
+set_property location {1 -141 18} [get_bd_cells tlacitko_vhdl_2]
+set_property location {3 219 -124} [get_bd_cells next_state_logic_0]
+create_bd_port -dir I -type ce clk
+connect_bd_net [get_bd_ports clk] [get_bd_pins tlacitko_vhdl_0/a]
+delete_bd_objs [get_bd_nets clk_1]
+delete_bd_objs [get_bd_ports clk]
+create_bd_port -dir I -type ce clk
+connect_bd_net [get_bd_ports clk] [get_bd_pins tlacitko_vhdl_0/a]
+startgroup
+make_bd_pins_external  [get_bd_pins tlacitko_vhdl_2/a]
+endgroup
+delete_bd_objs [get_bd_nets a_0_1] [get_bd_ports a_0]
+connect_bd_net [get_bd_ports clk] [get_bd_pins dff_2/clk]
+delete_bd_objs [get_bd_nets clk_1]
+connect_bd_net [get_bd_ports clk] [get_bd_pins dff_0/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins dff_1/clk]
+connect_bd_net [get_bd_ports clk] [get_bd_pins dff_2/clk]
+connect_bd_net [get_bd_pins dekoder_0/x0] [get_bd_pins next_state_logic_0/x0]
+connect_bd_net [get_bd_pins dekoder_0/x1] [get_bd_pins next_state_logic_0/x1]
+connect_bd_net [get_bd_pins dff_0/q] [get_bd_pins next_state_logic_0/q0]
+connect_bd_net [get_bd_pins dff_1/q] [get_bd_pins next_state_logic_0/q1]
+connect_bd_net [get_bd_pins dff_2/q] [get_bd_pins next_state_logic_0/q2]
+connect_bd_net [get_bd_pins dff_0/q] [get_bd_pins output_logic_0/q0]
+connect_bd_net [get_bd_pins dff_1/q] [get_bd_pins output_logic_0/q1]
+connect_bd_net [get_bd_pins dff_2/q] [get_bd_pins output_logic_0/q2]
+startgroup
+make_bd_pins_external  [get_bd_cells output_logic_0]
+make_bd_intf_pins_external  [get_bd_cells output_logic_0]
+endgroup
+set_property name y [get_bd_ports y_0]
+save_bd_design
+open_bd_design {X:/SAP/final/final.srcs/sources_1/bd/tlacitko/tlacitko.bd}
+set_property name tl [get_bd_ports a]
+set_property name o [get_bd_ports b]
+set_property name i [get_bd_ports tl]
+save_bd_design
+delete_bd_objs [get_bd_nets gnd_0_O] [get_bd_cells gnd_0]
+create_bd_port -dir I -type rst reset
+set_property CONFIG.POLARITY ACTIVE_HIGH [get_bd_ports reset]
+connect_bd_net [get_bd_ports reset] [get_bd_pins dff_0/reset]
+save_bd_design
+source X:/SAP/lib_SAP_2022_02_02/gen_bd_vhdl.tcl
+validate_bd_design -force
+save_bd_design
+close_bd_design [get_bd_designs tlacitko]
+delete_bd_objs [get_bd_cells tlacitko_vhdl_0]
+delete_bd_objs [get_bd_cells tlacitko_vhdl_1] [get_bd_cells tlacitko_vhdl_2]
+create_bd_cell -type module -reference tlacitko_vhdl tlacitko_vhdl_0
+connect_bd_net [get_bd_ports clk] [get_bd_pins tlacitko_vhdl_0/a]
+undo
+delete_bd_objs [get_bd_cells tlacitko_vhdl_0]
+save_bd_design
+connect_bd_net [get_bd_pins next_state_logic_0/d0] [get_bd_pins dff_0/d]
+connect_bd_net [get_bd_pins next_state_logic_0/d1] [get_bd_pins dff_1/d]
+connect_bd_net [get_bd_pins next_state_logic_0/d2] [get_bd_pins dff_2/d]
+create_bd_port -dir I -type rst reset
+set_property CONFIG.POLARITY ACTIVE_HIGH [get_bd_ports reset]
+set_property location {-229 -46} [get_bd_ports reset]
+connect_bd_net [get_bd_ports reset] [get_bd_pins dff_2/reset]
+connect_bd_net [get_bd_ports reset] [get_bd_pins dff_1/reset]
+connect_bd_net [get_bd_ports reset] [get_bd_pins dff_0/reset]
+set_property location {900 38} [get_bd_ports y]
+startgroup
+make_bd_pins_external  [get_bd_cells dekoder_0]
+make_bd_intf_pins_external  [get_bd_cells dekoder_0]
+endgroup
+set_property name c7 [get_bd_ports c_0]
+set_property name c [get_bd_ports c7]
+set_property name b [get_bd_ports b_0]
+set_property name a [get_bd_ports a_0]
+save_bd_design
+delete_bd_objs [get_bd_nets c_0_1] [get_bd_nets b_0_1] [get_bd_nets a_0_1]
+create_bd_cell -type module -reference decoder_7seg decoder_7seg_0
+set_property location {5 850 -214} [get_bd_cells decoder_7seg_0]
+set_property location {5 830 -365} [get_bd_cells decoder_7seg_0]
+set_property location {5 878 -286} [get_bd_cells decoder_7seg_0]
+set_property location {983 111} [get_bd_ports y]
+set_property location {5 863 -165} [get_bd_cells decoder_7seg_0]
+connect_bd_net [get_bd_pins dff_0/q] [get_bd_pins decoder_7seg_0/a]
+connect_bd_net [get_bd_pins dff_1/q] [get_bd_pins decoder_7seg_0/b]
+connect_bd_net [get_bd_pins dff_2/q] [get_bd_pins decoder_7seg_0/c]
+startgroup
+create_bd_cell -type ip -vlnv FIT:user:vcc:1.0 vcc_0
+endgroup
+connect_bd_net [get_bd_pins vcc_0/O] [get_bd_pins decoder_7seg_0/d]
+set_property location {4 699 104} [get_bd_cells vcc_0]
+set_property location {4 678 50} [get_bd_cells vcc_0]
+save_bd_design
+set_property location {4 701 152} [get_bd_cells output_logic_0]
+set_property location {4 670 -90} [get_bd_cells vcc_0]
+set_property location {4 678 10} [get_bd_cells output_logic_0]
+undo
+set_property location {4 675 -79} [get_bd_cells vcc_0]
+set_property location {4 687 146} [get_bd_cells output_logic_0]
+set_property location {4 679 47} [get_bd_cells output_logic_0]
+save_bd_design
+startgroup
+make_bd_pins_external  [get_bd_cells decoder_7seg_0]
+make_bd_intf_pins_external  [get_bd_cells decoder_7seg_0]
+endgroup
+set_property name f_a [get_bd_ports f_a_0]
+set_property name f_b [get_bd_ports f_b_0]
+set_property name f_c [get_bd_ports f_c_0]
+set_property name f_d [get_bd_ports f_d_0]
+set_property name f_e [get_bd_ports f_e_0]
+set_property name f_f [get_bd_ports f_f_0]
+set_property name f_g [get_bd_ports f_g_0]
+save_bd_design
+create_bd_cell -type module -reference tlacitko_vhdl tlacitko_vhdl_0
+connect_bd_net [get_bd_ports clk] [get_bd_pins tlacitko_vhdl_0/a]
+save_bd_design

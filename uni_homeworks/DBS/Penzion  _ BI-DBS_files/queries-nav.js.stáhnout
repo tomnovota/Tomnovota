@@ -1,0 +1,38 @@
+'use strict';
+
+(qn => {
+    let activeItem = null;
+
+    /**
+     * (Re)assigns event listeners. Calls itself once on initialization of this object and should be called after AJAX.
+     */
+    (qn.init = () => {
+        document.querySelectorAll('.query-link').forEach(element => {
+            element.addEventListener('click', event => {
+                // Prevent default anchor behaviour that would cause a part of the content being hidden by the fixed header.
+                event.preventDefault();
+                qn.changeActiveNavigation(element);
+            });
+        });
+    })();
+
+    /**
+     * Changes active navigation link.
+     * @param elem New active element.
+     */
+    qn.changeActiveNavigation = elem => {
+        if (activeItem) {
+            activeItem.classList.remove('text-bold');
+        }
+
+        activeItem = elem;
+        activeItem.classList.add('text-bold');
+        window.scrollToQuery(elem.getAttribute('data-id'));
+        history.pushState({}, document.title, location.pathname + elem.getAttribute('href'));
+    };
+
+})(window.qn = window.qn || {});
+
+$(document).ajaxComplete(() => {
+    window.qn.init();
+});

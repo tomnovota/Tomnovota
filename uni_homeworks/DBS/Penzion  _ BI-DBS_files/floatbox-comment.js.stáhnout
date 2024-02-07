@@ -1,0 +1,76 @@
+'use strict';
+
+$(() => {
+    const floatbox = new FloatboxComment();
+
+    $(document.body).on('click', '.floatbox-trigger', function () {
+        floatbox.open(this);
+    });
+
+    $(document.body).on('click', '.save-floatbox', () => {
+        floatbox.save();
+    });
+})
+
+class FloatboxComment {
+    constructor() {
+        this.sourceCommentId = null;
+        this.sourceCodeMirrorEditor = null;
+        this.codeMirrorEditor = null;
+        this.listening = false;
+    }
+
+    open(trigger) {
+        const $trigger = $(trigger);
+
+        this.listenForSubmit($trigger);
+
+        const newSourceCommentId = `#${$trigger.closest('.box').find('textarea.comment-popoutable')[0].id}`;
+        if (this.sourceCommentId !== null && this.sourceCommentId !== newSourceCommentId) {
+            // Save previously opened floatbox
+            this.save();
+        }
+
+        this.sourceCommentId = newSourceCommentId;
+        this.sourceCodeMirrorEditor = $(this.sourceCommentId).nextAll('.CodeMirror')[0].CodeMirror;
+
+        const $floatbox = $('#floatbox-comment');
+        $floatbox.show();
+        if ($floatbox.hasClass('collapsed-box')) {
+            $floatbox.find('.btn-minimize').trigger('click');
+        }
+
+        // Fill floatbox title
+        const title = $trigger.closest('.box').find('.box-title').html();
+        $('#floatbox-commentName').html(title !== undefined ? title : $('h1').first().text().trim());
+
+        // Fill floatbox content
+        this.codeMirrorEditor = $floatbox.find('textarea').nextAll('.CodeMirror')[0].CodeMirror;
+        this.codeMirrorEditor.getDoc().setValue(this.sourceCodeMirrorEditor.getDoc().getValue());
+
+        // Disable original input
+        this.sourceCodeMirrorEditor.setOption('readOnly', true);
+    }
+
+    save() {
+        if (this.sourceCommentId === null) return;
+
+        // Put floatbox content back into origin field
+        this.sourceCodeMirrorEditor.getDoc().setValue(this.codeMirrorEditor.getDoc().getValue());
+
+        // Enable original input
+        this.sourceCodeMirrorEditor.setOption('readOnly', false);
+        this.sourceCommentId = null;
+    }
+
+    listenForSubmit($trigger) {
+        if (this.listening) return;
+
+        this.listening = true;
+        $trigger.closest('form').on('submit', () => {
+            this.save();
+        });
+    }
+}
+
+

@@ -1,0 +1,4 @@
+<map id="CCell::Evaluate" name="CCell::Evaluate">
+<area shape="rect" id="node1" title="Calls evaluation of cell&#39;s expression." alt="" coords="5,5,127,32"/>
+<area shape="rect" id="node2" href="$classCCell.html#ac699e247f78bf2ae2d17e1ee3b4b06a1" title="Indicates wheter cell is empty." alt="" coords="175,5,281,32"/>
+</map>

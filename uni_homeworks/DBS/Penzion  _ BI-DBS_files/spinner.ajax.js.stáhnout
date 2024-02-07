@@ -1,0 +1,26 @@
+'use strict';
+// Slightly tuned Nette spinner
+(() => {
+    $.nette.ext('spinner', {
+        init: function () {
+            this.spinner = $('#ajax-spinner');
+        },
+        start: function () {
+            this.counter++;
+            if (this.counter === 1) {
+                this.spinner.show(this.speed);
+            }
+        },
+        complete: function () {
+            this.counter--;
+            if (this.counter <= 0) {
+                this.spinner.hide(this.speed);
+            }
+        }
+    }, {
+        spinner: null,
+        speed: undefined,
+        counter: 0
+    });
+
+})();

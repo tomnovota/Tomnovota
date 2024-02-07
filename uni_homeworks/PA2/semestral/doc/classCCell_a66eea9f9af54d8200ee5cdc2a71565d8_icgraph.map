@@ -1,0 +1,4 @@
+<map id="CCell::Error" name="CCell::Error">
+<area shape="rect" id="node1" title="Indicates wheter cell contains error value." alt="" coords="176,5,271,32"/>
+<area shape="rect" id="node2" href="$classCCell.html#a96585f4ecd19ed208709c760e7f5f411" title="Get string representation of calculated value." alt="" coords="5,5,128,32"/>
+</map>

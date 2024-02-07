@@ -1,0 +1,48 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.9</VERSION>
+ <DEVICE>ATmega169</DEVICE>
+ <WORKING_DIR>X:\SAP\AVR\lab1</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>X:\SAP\AVR\lab1\lab14.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\m169def.inc</FILE>
+  <FILE>X:\SAP\AVR\lab1\print.inc</FILE>
+  <FILE>X:\SAP\AVR\lab1\znaky.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>X:\SAP\AVR\lab1\lab1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>X:\SAP\AVR\lab1\lab1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>X:\SAP\AVR\lab1\lab1.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <init_disp><FILE>X:\SAP\AVR\lab1\print.inc</FILE><LINE>3</LINE></init_disp>
+  <show_char><FILE>X:\SAP\AVR\lab1\print.inc</FILE><LINE>18</LINE></show_char>
+  <mezera><FILE>X:\SAP\AVR\lab1\print.inc</FILE><LINE>42</LINE></mezera>
+  <neznak><FILE>X:\SAP\AVR\lab1\print.inc</FILE><LINE>39</LINE></neznak>
+  <nemezera><FILE>X:\SAP\AVR\lab1\print.inc</FILE><LINE>44</LINE></nemezera>
+  <znaky><FILE>X:\SAP\AVR\lab1\znaky.inc</FILE><LINE>8</LINE></znaky>
+  <zobzc><FILE>X:\SAP\AVR\lab1\print.inc</FILE><LINE>64</LINE></zobzc>
+  <start><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>29</LINE></start>
+  <delka><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>11</LINE></delka>
+  <mezera1><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>12</LINE></mezera1>
+  <retez><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>13</LINE></retez>
+  <mezera2><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>14</LINE></mezera2>
+  <foo1><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>50</LINE></foo1>
+  <jezdici_text><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>84</LINE></jezdici_text>
+  <end><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>67</LINE></end>
+  <reset><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>71</LINE></reset>
+  <znovu><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>77</LINE></znovu>
+  <obrazovka><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>92</LINE></obrazovka>
+  <vykresli><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>103</LINE></vykresli>
+  <loop1><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>117</LINE></loop1>
+  <skok><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>108</LINE></skok>
+  <loop2><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>119</LINE></loop2>
+  <wait><FILE>X:\SAP\AVR\lab1\lab14.asm</FILE><LINE>121</LINE></wait>
+ </LABELS>
+</ASSEMBLER_INFO>

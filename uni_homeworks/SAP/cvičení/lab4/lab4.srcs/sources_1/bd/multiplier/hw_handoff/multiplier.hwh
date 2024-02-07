@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Mar  8 08:02:59 2022" VIVADOVERSION="2018.2.1">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:basys3:part0:1.1" DEVICE="7a35t" NAME="multiplier" PACKAGE="cpg236" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="O" NAME="AN1" SIGIS="undef" SIGNAME="vcc_0_O">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="vcc_0" PORT="O"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="AN2" SIGIS="undef" SIGNAME="vcc_1_O">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="vcc_1" PORT="O"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="AN0" SIGIS="undef" SIGNAME="gnd_0_O">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="gnd_0" PORT="O"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="AN3" SIGIS="undef" SIGNAME="vcc_2_O">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="vcc_2" PORT="O"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="a0" SIGIS="undef" SIGNAME="External_Ports_a0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="multiplier_2x2_0" PORT="a0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="a1" SIGIS="undef" SIGNAME="External_Ports_a1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="multiplier_2x2_0" PORT="a1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="b0" SIGIS="undef" SIGNAME="External_Ports_b0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="multiplier_2x2_0" PORT="b0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="b1" SIGIS="undef" SIGNAME="External_Ports_b1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="multiplier_2x2_0" PORT="b1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="f_a" SIGIS="undef" SIGNAME="decoder_7seg_0_f_a">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="decoder_7seg_0" PORT="f_a"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="f_b" SIGIS="undef" SIGNAME="decoder_7seg_0_f_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="decoder_7seg_0" PORT="f_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="f_c" SIGIS="undef" SIGNAME="decoder_7seg_0_f_c">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="decoder_7seg_0" PORT="f_c"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="f_d" SIGIS="undef" SIGNAME="decoder_7seg_0_f_d">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="decoder_7seg_0" PORT="f_d"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="f_e" SIGIS="undef" SIGNAME="decoder_7seg_0_f_e">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="decoder_7seg_0" PORT="f_e"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="f_f" SIGIS="undef" SIGNAME="decoder_7seg_0_f_f">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="decoder_7seg_0" PORT="f_f"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="f_g" SIGIS="undef" SIGNAME="decoder_7seg_0_f_g">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="decoder_7seg_0" PORT="f_g"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE FULLNAME="/decoder_7seg_0" HWVERSION="1.0" INSTANCE="decoder_7seg_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="decoder_7seg" VLNV="xilinx.com:module_ref:decoder_7seg:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="multiplier_decoder_7seg_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="a" SIGIS="undef" SIGNAME="multiplier_2x2_0_y0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="multiplier_2x2_0" PORT="y0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="b" SIGIS="undef" SIGNAME="multiplier_2x2_0_y1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="multiplier_2x2_0" PORT="y1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="c" SIGIS="undef" SIGNAME="multiplier_2x2_0_y2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="multiplier_2x2_0" PORT="y2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="d" SIGIS="undef" SIGNAME="multiplier_2x2_0_y3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="multiplier_2x2_0" PORT="y3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="f_a" SIGIS="undef" SIGNAME="decoder_7seg_0_f_a">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="f_a"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="f_b" SIGIS="undef" SIGNAME="decoder_7seg_0_f_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="f_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="f_c" SIGIS="undef" SIGNAME="decoder_7seg_0_f_c">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="f_c"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="f_d" SIGIS="undef" SIGNAME="decoder_7seg_0_f_d">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="f_d"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="f_e" SIGIS="undef" SIGNAME="decoder_7seg_0_f_e">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="f_e"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="f_f" SIGIS="undef" SIGNAME="decoder_7seg_0_f_f">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="f_f"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="f_g" SIGIS="undef" SIGNAME="decoder_7seg_0_f_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="f_g"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/gnd_0" HWVERSION="1.0" INSTANCE="gnd_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="gnd" VLNV="FIT:user:gnd:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="multiplier_gnd_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="O" SIGIS="undef" SIGNAME="gnd_0_O">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="AN0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/multiplier_2x2_0" HWVERSION="1.0" INSTANCE="multiplier_2x2_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="multiplier_2x2" VLNV="xilinx.com:module_ref:multiplier_2x2:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="multiplier_multiplier_2x2_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="b1" SIGIS="undef" SIGNAME="External_Ports_b1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="b1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="b0" SIGIS="undef" SIGNAME="External_Ports_b0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="b0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="a1" SIGIS="undef" SIGNAME="External_Ports_a1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="a1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="a0" SIGIS="undef" SIGNAME="External_Ports_a0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="a0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="y3" SIGIS="undef" SIGNAME="multiplier_2x2_0_y3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decoder_7seg_0" PORT="d"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="y2" SIGIS="undef" SIGNAME="multiplier_2x2_0_y2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decoder_7seg_0" PORT="c"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="y1" SIGIS="undef" SIGNAME="multiplier_2x2_0_y1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decoder_7seg_0" PORT="b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="y0" SIGIS="undef" SIGNAME="multiplier_2x2_0_y0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decoder_7seg_0" PORT="a"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/vcc_0" HWVERSION="1.0" INSTANCE="vcc_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="vcc" VLNV="FIT:user:vcc:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="multiplier_vcc_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="O" SIGIS="undef" SIGNAME="vcc_0_O">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="AN1"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/vcc_1" HWVERSION="1.0" INSTANCE="vcc_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="vcc" VLNV="FIT:user:vcc:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="multiplier_vcc_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="O" SIGIS="undef" SIGNAME="vcc_1_O">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="AN2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/vcc_2" HWVERSION="1.0" INSTANCE="vcc_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="vcc" VLNV="FIT:user:vcc:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="multiplier_vcc_0_2"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="O" SIGIS="undef" SIGNAME="vcc_2_O">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="AN3"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

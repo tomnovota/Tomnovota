@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "X:/SAP/labor2/labor2.srcs/sources_1/imports/SAP/l2_algebra_4.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity algebra_4
+INFO: [VRFC 10-163] Analyzing VHDL file "X:/SAP/labor2/labor2.srcs/sim_1/imports/SAP/l2_algebra_4_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity algebra_4_test

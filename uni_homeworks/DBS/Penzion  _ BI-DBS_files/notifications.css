@@ -1,0 +1,11 @@
+.notifications-menu > li > a {
+    -webkit-box-shadow: inset 0 -15px 20px -15px #DBE0F2;
+    -moz-box-shadow:    inset 0 -15px 20px -15px #DBE0F2;
+    box-shadow:         inset 0 -15px 20px -15px #DBE0F2;
+}
+
+.notifications-menu > li > a:hover {
+    -webkit-box-shadow: inset 0 -15px 20px -15px #E6E6E6;
+    -moz-box-shadow:    inset 0 -15px 20px -15px #E6E6E6;
+    box-shadow:         inset 0 -15px 20px -15px #E6E6E6;
+}

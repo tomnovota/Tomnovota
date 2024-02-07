@@ -1,0 +1,4 @@
+<map id="CLoadTable::LoadLine" name="CLoadTable::LoadLine">
+<area shape="rect" id="node1" title="Reads cell content in cycle and saves it to appropriate position in table." alt="" coords="5,5,168,32"/>
+<area shape="rect" id="node2" href="$classCLoadTable.html#a1d1850de90f60ba1c92ad3efad7db26e" title="Checks first cell on row containing row number." alt="" coords="216,5,440,32"/>
+</map>

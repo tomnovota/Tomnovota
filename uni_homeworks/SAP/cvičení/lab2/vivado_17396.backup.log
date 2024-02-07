@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Feb 24 12:13:06 2022
+# Process ID: 17396
+# Current directory: X:/SAP/lab2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6892 X:\SAP\lab2\lab2.xpr
+# Log file: X:/SAP/lab2/vivado.log
+# Journal file: X:/SAP/lab2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project X:/SAP/lab2/lab2.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'x:/SAP/lib_SAP_2022_02_02'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:10 . Memory (MB): peak = 807.961 ; gain = 85.559
+update_compile_order -fileset sources_1
+rexit
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 24 12:17:52 2022...
+. Memory (MB): peak = 828.215 ; gain = 0.000
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Couldn't access process for termination
+
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 24 12:17:30 2022...

@@ -1,0 +1,15 @@
+<map id="CParser::ParseExpression" name="CParser::ParseExpression">
+<area shape="rect" id="node1" title="Returns cell properties contained in text expression in given stream." alt="" coords="5,31,191,57"/>
+<area shape="rect" id="node2" href="$classCParser.html#ae3333d10f682397fa9b0583f58dfad43" title="Finds out whether expression begins with beginning character." alt="" coords="239,5,416,32"/>
+<area shape="rect" id="node3" href="$classCParser.html#ab6f76f772288e0b457ca04a86710ca95" title="Algorithm processing given text source of expression and creating expression tree belonging to partic..." alt="" coords="246,56,409,83"/>
+<area shape="rect" id="node4" href="$classCParser.html#a680004373215e85524cf7c2e43568c10" title="Assigns operands to operator on top of stack and saves result to operand container." alt="" coords="701,31,875,57"/>
+<area shape="rect" id="node5" href="$classCParser.html#ab6356a73ce59e7a80c57f134dafd1ed3" title="ShuntingYard algorithm part proccessing common operator token." alt="" coords="464,81,651,108"/>
+<area shape="rect" id="node7" href="$classCParser.html#a3c03bfbb3300c202a97b9ee9bc8384e7" title="Methods called after finding right parenthesis and proccessing nested expression." alt="" coords="483,31,632,57"/>
+<area shape="rect" id="node8" href="$classCParser.html#a86c82366461140f1e0e7141363c0296d" title="Tries to read operand from source and saves it into operand container and records cell dependancies." alt="" coords="474,157,641,184"/>
+<area shape="rect" id="node6" href="$classCParser.html#a66574087ea6ace35f2b79bf603e35fe9" title="Recognises token and creates appropriate operator node." alt="" coords="699,81,877,108"/>
+<area shape="rect" id="node9" href="$classCParser.html#a37e0e50169a0607036464e362301a1f4" title="Returns if given char is letter." alt="" coords="1155,183,1283,209"/>
+<area shape="rect" id="node10" href="$classCParser.html#a952671a4d1f54b720bcc2ff1748f33dc" title="Returns if given char is number." alt="" coords="717,183,859,209"/>
+<area shape="rect" id="node11" href="$classCParser.html#a4f9c77769688ef0b795237ea2ab5635e" title="Returns position of given cell name." alt="" coords="699,233,877,260"/>
+<area shape="rect" id="node12" href="$classCParser.html#ab241cf9f78b45009749f74bab33d57a2" title="Parsing col name from given string." alt="" coords="929,233,1103,260"/>
+<area shape="rect" id="node13" href="$classCParser.html#a78d6d5a3c94fdb8577a4573eb90cb7da" title="Parsing row name from given string." alt="" coords="925,284,1107,311"/>
+</map>

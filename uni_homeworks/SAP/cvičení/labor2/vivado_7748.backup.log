@@ -1,0 +1,103 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat Feb 26 00:37:25 2022
+# Process ID: 7748
+# Current directory: X:/SAP/labor2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17524 X:\SAP\labor2\labor2.xpr
+# Log file: X:/SAP/labor2/vivado.log
+# Journal file: X:/SAP/labor2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project X:/SAP/labor2/labor2.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'x:/SAP/lib_SAP_2022_02_02'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:43 . Memory (MB): peak = 807.445 ; gain = 84.895
+update_compile_order -fileset sources_1
+open_bd_design {X:/SAP/labor2/labor2.srcs/sources_1/bd/schema_4/schema_4.bd}
+Adding cell -- FIT:user:or:1.0 - or_0
+Adding cell -- FIT:user:and:1.0 - and_0
+Adding cell -- FIT:user:and:1.0 - and_1
+Adding cell -- FIT:user:and:1.0 - and_2
+Adding cell -- FIT:user:inv:1.0 - inv_0
+Adding cell -- FIT:user:inv:1.0 - inv_1
+Successfully read diagram <schema_4> from BD file <X:/SAP/labor2/labor2.srcs/sources_1/bd/schema_4/schema_4.bd>
+open_bd_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 898.887 ; gain = 85.746
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'X:/SAP/labor2/labor2.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2018.2/data/xsim/xsim.ini' copied to run dir:'X:/SAP/labor2/labor2.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'algebra_4_test' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'X:/SAP/labor2/labor2.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj algebra_4_test_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "X:/SAP/labor2/labor2.srcs/sources_1/imports/SAP/l2_algebra_4.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity algebra_4
+INFO: [VRFC 10-163] Analyzing VHDL file "X:/SAP/labor2/labor2.srcs/sim_1/imports/SAP/l2_algebra_4_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity algebra_4_test
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'X:/SAP/labor2/labor2.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 49acb7562e624f9da22b09abf24ba8fd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot algebra_4_test_behav xil_defaultlib.algebra_4_test -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling architecture behavioral of entity xil_defaultlib.algebra_4 [algebra_4_default]
+Compiling architecture behavioral of entity xil_defaultlib.algebra_4_test
+Built simulation snapshot algebra_4_test_behav
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source X:/SAP/labor2/labor2.sim/sim_1/behav/xsim/xsim.dir/algebra_4_test_behav/webtalk/xsim_webtalk.tcl -notrace
+webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 54.191 ; gain = 0.965
+INFO: [Common 17-206] Exiting Webtalk at Sat Feb 26 00:47:21 2022...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 918.938 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '14' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'X:/SAP/labor2/labor2.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "algebra_4_test_behav -key {Behavioral:sim_1:Functional:algebra_4_test} -tclbatch {algebra_4_test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source algebra_4_test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+### Simulation start ###
+### Total number of errors = Unknown - check waveforms manually / zkontrolujte prubehy rucne
+### Simulation finished ###
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'algebra_4_test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:21 . Memory (MB): peak = 919.457 ; gain = 0.520
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 930.996 ; gain = 0.512
+open_bd_design {X:/SAP/labor2/labor2.srcs/sources_1/bd/schema_4/schema_4.bd}
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 26 00:54:23 2022...

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2.1 (64-bit)
+# SW Build 2288692 on Thu Jul 26 18:24:02 MDT 2018
+# IP Build 2289599 on Thu Jul 26 21:09:20 MDT 2018
+# Start of session at: Tue Apr  5 07:41:31 2022
+# Process ID: 9664
+# Current directory: X:/SAP/final/final.runs/impl_1
+# Command line: vivado.exe -log code_lock_vhdl.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source code_lock_vhdl.tcl -notrace
+# Log file: X:/SAP/final/final.runs/impl_1/code_lock_vhdl.vdi
+# Journal file: X:/SAP/final/final.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source code_lock_vhdl.tcl -notrace

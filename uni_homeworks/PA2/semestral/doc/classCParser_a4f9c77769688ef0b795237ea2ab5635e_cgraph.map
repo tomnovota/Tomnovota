@@ -1,0 +1,6 @@
+<map id="CParser::ParseCellName" name="CParser::ParseCellName">
+<area shape="rect" id="node1" title="Returns position of given cell name." alt="" coords="5,31,184,57"/>
+<area shape="rect" id="node2" href="$classCParser.html#a37e0e50169a0607036464e362301a1f4" title="Returns if given char is letter." alt="" coords="461,5,589,32"/>
+<area shape="rect" id="node3" href="$classCParser.html#ab241cf9f78b45009749f74bab33d57a2" title="Parsing col name from given string." alt="" coords="235,31,410,57"/>
+<area shape="rect" id="node4" href="$classCParser.html#a78d6d5a3c94fdb8577a4573eb90cb7da" title="Parsing row name from given string." alt="" coords="232,81,413,108"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="CTable::Evaluate" name="CTable::Evaluate">
+<area shape="rect" id="node1" title="Obtain order in which cells should be evaluated through TopSort algorithm and evaluates them." alt="" coords="5,81,136,108"/>
+<area shape="rect" id="node2" href="$classCTable.html#aea8422d94909f81d3725f8cc559b28dc" title="Helper method constructing temporary nodes for DFS algorithm." alt="" coords="367,5,543,32"/>
+<area shape="rect" id="node3" href="$classCTable.html#a3ce3c2bb026b9db3e602e009027b50db" title="Getter of size of table." alt="" coords="591,56,691,83"/>
+<area shape="rect" id="node4" href="$classCTable.html#aa45c7ebbdcf42b5fe41cf658dd23a66d" title="DFS algorithm implemented on 2D array of nodes representing cells and their dependencies." alt="" coords="184,107,319,133"/>
+<area shape="rect" id="node5" href="$classCTable.html#a1c89a127b84fcb5c54214fa3348a12ae" title="Gets cell on given position." alt="" coords="411,107,498,133"/>
+</map>

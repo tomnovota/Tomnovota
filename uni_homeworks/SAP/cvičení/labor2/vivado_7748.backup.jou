@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat Feb 26 00:37:25 2022
+# Process ID: 7748
+# Current directory: X:/SAP/labor2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17524 X:\SAP\labor2\labor2.xpr
+# Log file: X:/SAP/labor2/vivado.log
+# Journal file: X:/SAP/labor2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project X:/SAP/labor2/labor2.xpr
+update_compile_order -fileset sources_1
+open_bd_design {X:/SAP/labor2/labor2.srcs/sources_1/bd/schema_4/schema_4.bd}
+launch_simulation
+source algebra_4_test.tcl
+close_sim
+open_bd_design {X:/SAP/labor2/labor2.srcs/sources_1/bd/schema_4/schema_4.bd}

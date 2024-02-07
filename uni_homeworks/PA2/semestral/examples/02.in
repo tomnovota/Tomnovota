@@ -1,0 +1,37 @@
+yes
+examples/01.save
+yes
+examples/02.save
+printf
+print
+delet
+delet A1
+
+A1 = 
+A1 = "ahoj
+A1 = ahoj"
+printf
+A4 = A1 + 5
+printf
+print
+A1 = 10
+printf
+print
+delete A1
+printf
+print
+A1 = "=   AHoj ### " CONCAT C3
+printf
+A1 = "text"
+print
+G3 = "10"
+print
+C15 = -1000000
+print
+print C17 : Z15
+delete B12 : AAAADDD88880000
+printf
+A1 = AAAADD88880
+printf
+quit
+no
